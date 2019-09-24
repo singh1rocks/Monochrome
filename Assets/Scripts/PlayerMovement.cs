@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float speed;
+    public Vector2 target;
+    public Transform transform;
+
+    [Header("Bullet")]
+    public GameObject bulletPrefab;
+    public float bulletTime;
+    public float bulletTimeCounter;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform = GetComponent<Transform>();
+
+        //init bullet values
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        target = new Vector2(transform.position.x + Input.GetAxisRaw("Horizontal") * speed, transform.position.y + Input.GetAxisRaw("Vertical") * speed);
+        transform.position = Vector2.MoveTowards(transform.position, target, Mathf.Infinity);
+
+        //shoot bullet
+        if (Input.GetMouseButton(0) && bulletTimeCounter >= bulletTime)
+        {
+            Instantiate(bulletPrefab);
+            bulletTimeCounter = 0;
+        }
     }
 }
