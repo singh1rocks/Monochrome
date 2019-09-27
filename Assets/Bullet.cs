@@ -8,10 +8,11 @@ public class Bullet : MonoBehaviour
 
     public Camera cam;
     public float speed;
-    Vector2 target;
-    Vector2 dirVec;
+    [SerializeField]Vector2 target;
+    [SerializeField]Vector2 dirVec;
 
     public float bulletLifeTime;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +20,17 @@ public class Bullet : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         transform.position = player.GetComponent<Transform>().position;
         cam = Camera.main;
-        target = cam.ScreenToWorldPoint(Input.mousePosition);
+        var mousePos = Input.mousePosition;
+        mousePos.z = 10;
+        target = cam.ScreenToWorldPoint(mousePos);
         dirVec = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
 
         //point at target
-        Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
-        transform.right = dirVec;
+        //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
+        //transform.right = dirVec;
 
         //TODO: initialize bullet life time
-        bulletLifeTime = 10;
+        damage = 1;
     }
 
     // Update is called once per frame
@@ -36,8 +39,8 @@ public class Bullet : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + dirVec, speed * Time.deltaTime);
 
         //orientate bullet
-        Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
-        transform.right = dirVec;
+        //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
+        //transform.right = dirVec
 
         //destroy bullet
         if (bulletLifeTime <= 0)

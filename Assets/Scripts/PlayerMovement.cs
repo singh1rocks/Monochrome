@@ -7,17 +7,18 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public Vector2 target;
     public Transform transform;
+    public float health = 5f;
 
     [Header("Bullet")]
     public GameObject bulletPrefab;
-    public float bulletTime;
+    public float bulletTime; //minimum delay between each bullet fired
     public float bulletTimeCounter;
 
     // Start is called before the first frame update
     void Start()
     {
         transform = GetComponent<Transform>();
-
+        health = 5f;
         //init bullet values
     }
 
@@ -32,6 +33,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Instantiate(bulletPrefab);
             bulletTimeCounter = 0;
+        }
+        bulletTimeCounter += Time.deltaTime;
+
+        if (health<=0)
+        {
+            Debug.Log("Game Over");
         }
     }
 }
