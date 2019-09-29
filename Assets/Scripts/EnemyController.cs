@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
         else if (collision.tag == "Bullet")
         {
             health -= collision.GetComponent<Bullet>().damage;
+            Destroy(collision.gameObject);
             Debug.Log("Damaged Enemy");
         }
     }
