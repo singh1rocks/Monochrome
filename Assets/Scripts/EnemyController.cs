@@ -10,6 +10,14 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
     public Transform player_transform;
 
+    public enum EnemyType
+    {
+        FollowPlayer,
+        ShootAtPlayer
+    }
+
+    public EnemyType thisEnemyType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +30,17 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
+        if (thisEnemyType == EnemyType.FollowPlayer)
+        {
+            //behavior of enemy that just follows player
+            transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
+        }
+        else if (thisEnemyType == EnemyType.ShootAtPlayer)
+        {
+            //TODO: behavior of enemy that shoots at player
+
+        }
+        
 
         if (health <= 0)
         {
