@@ -55,7 +55,6 @@ public class EnemyController : MonoBehaviour
             }
 
         }
-        
 
         if (health <= 0)
         {
