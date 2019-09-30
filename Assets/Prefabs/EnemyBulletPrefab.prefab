@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4587362241032899333}
   - component: {fileID: 4587362241032899332}
-  - component: {fileID: 4587362241032899339}
   - component: {fileID: -6767722642753883113}
   - component: {fileID: 3030450452778669858}
+  - component: {fileID: 4026829769767029355}
   m_Layer: 0
-  m_Name: Bullet Prefab
-  m_TagString: Bullet
+  m_Name: EnemyBulletPrefab
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.54082924, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,25 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4587362241032899339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587362241032899338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aff5e48c3865cf44a01ad53e72c044e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  cam: {fileID: 0}
-  speed: 4
-  target: {x: 0, y: 0}
-  dirVec: {x: 0, y: 0}
-  bulletLifeTime: 10
-  damage: 0
 --- !u!58 &-6767722642753883113
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -111,7 +92,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -138,3 +119,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &4026829769767029355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587362241032899338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070811ed9dc75e14daef638e9bb94a43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  cam: {fileID: 0}
+  speed: 0
+  target: {x: 0, y: 0}
+  dirVec: {x: 0, y: 0}
+  bulletLifeTime: 0
+  damage: 0

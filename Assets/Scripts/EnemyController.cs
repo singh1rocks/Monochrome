@@ -10,6 +10,11 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
     public Transform player_transform;
 
+    public Vector2 playerToEnemyVector;
+    public GameObject EnemyBulletPrefab;
+    public float enemyDistance; //distance at which shooting enemy tries to stay away from player;
+    public float enemyMoveDistance; // distance that shooting enemy moves each time it tries to avoid the player;
+
     public enum EnemyType
     {
         FollowPlayer,
@@ -30,14 +35,24 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerToEnemyVector = new Vector2(transform.position.x - player_transform.position.x, transform.position.y - player_transform.position.y);
         if (thisEnemyType == EnemyType.FollowPlayer)
         {
             //behavior of enemy that just follows player
-            transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, playerToEnemyVector, speed * Time.deltaTime);
         }
         else if (thisEnemyType == EnemyType.ShootAtPlayer)
         {
             //TODO: behavior of enemy that shoots at player
+            if (playerToEnemyVector.magnitude <= enemyDistance)
+            {
+                //move away from player
+                StartCoroutine("ShootingEnemyBehaviourCoroutine");
+            }
+            else
+            {
+                //move random direction
+            }
 
         }
         
@@ -50,6 +65,7 @@ public class EnemyController : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("ENemy died");
         Destroy(gameObject);
     }
 
@@ -73,4 +89,25 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Damaged Player");
     }
 
+    IEnumerator ShootingEnemyBehaviourCoroutine()
+    {
+        yield return StartCoroutine("MoveAway");
+
+        //stop and fire 2 bullets
+        Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2f);
+        Instantiate(EnemyBulletPrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2f);
+    }
+
+    IEnumerator MoveAway()
+    {
+        float tempSpeed = speed;
+        transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + playerToEnemyVector, tempSpeed * Time.deltaTime);
+        yield return new WaitForSeconds(2f);
+
+        tempSpeed = 0f;
+        transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + playerToEnemyVector, tempSpeed * Time.deltaTime);
+        yield return null;
+    }
 }

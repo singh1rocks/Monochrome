@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     public PlayerMovement player;
 
     public Camera cam;
     public float speed;
-    [SerializeField]Vector2 target;
-    [SerializeField]Vector2 dirVec;
+    [SerializeField] Vector2 target;
+    [SerializeField] Vector2 dirVec;
 
     public float bulletLifeTime;
     public float damage;
@@ -18,19 +18,16 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
-        transform.position = player.GetComponent<Transform>().position;
-        cam = Camera.main;
-        var mousePos = Input.mousePosition;
-        mousePos.z = 10;
-        target = cam.ScreenToWorldPoint(mousePos);
+        target = player.transform.position;
         dirVec = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
 
         //point at target
         //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
         //transform.right = dirVec;
 
-        speed = 4f;
-        bulletLifeTime = 100f;
+        //TODO: initialize bullet life time
+        speed = 0.4f;
+        bulletLifeTime = 10f;
         damage = 1;
     }
 
@@ -49,5 +46,15 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         bulletLifeTime -= Time.deltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            player.GetComponent<PlayerMovement>().health -= damage;
+            Debug.Log("Bullet hit player");
+            Destroy(gameObject);
+        }
     }
 }

@@ -36,9 +36,20 @@ public class PlayerMovement : MonoBehaviour
         }
         bulletTimeCounter += Time.deltaTime;
 
+        //death condition
         if (health<=0)
         {
             Debug.Log("Game Over");
+        }
+
+        //flip sprite based on direction mouse is pointing
+        if (Input.GetAxisRaw("Horizontal") == 1)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (Input.GetAxisRaw("Horizontal") == -1)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }
