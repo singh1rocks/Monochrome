@@ -92,7 +92,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -127,9 +127,9 @@ MonoBehaviour:
   playerToEnemyVector: {x: 0, y: 0}
   EnemyBulletPrefab: {fileID: 4587362241032899338, guid: d6c0de2e9aa3e704097cd35fa13e68e1,
     type: 3}
-  enemyDistance: 2
+  enemyDistance: 10
   enemyMoveDistance: 2
-  thisEnemyType: 1
+  thisEnemyType: 0
 --- !u!50 &6313945167622915054
 Rigidbody2D:
   serializedVersion: 4
@@ -150,4 +150,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4

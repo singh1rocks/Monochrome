@@ -14,7 +14,8 @@ public class EnemyController : MonoBehaviour
     public GameObject EnemyBulletPrefab;
     public float enemyDistance; //distance at which shooting enemy tries to stay away from player;
     public float enemyMoveDistance; // distance that shooting enemy moves each time it tries to avoid the player;
-    private float DistToPlayer;//distance between player and enemy
+    public float DistToPlayer;//distance between player and enemy
+    public float PlayerDetectionRange;//distance at which enemy will detect player
 
     public enum EnemyType
     {
@@ -37,8 +38,8 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         playerToEnemyVector = new Vector2(transform.position.x - player_transform.position.x, transform.position.y - player_transform.position.y);
-        DistToPlayer = playerToEnemyVector.magnitude
-        if (thisEnemyType == EnemyType.FollowPlayer && DistToPlayer <= 15f)
+        DistToPlayer = playerToEnemyVector.magnitude;
+        if (thisEnemyType == EnemyType.FollowPlayer && DistToPlayer <= PlayerDetectionRange)
         {
             //behavior of enemy that just follows player
             transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
@@ -71,15 +72,15 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             DamagePlayer();
         }
-        else if (collision.tag == "Bullet")
+        else if (collision.gameObject.tag == "Bullet")
         {
-            health -= collision.GetComponent<Bullet>().damage;
+            health -= collision.gameObject.GetComponent<Bullet>().damage;
             Destroy(collision.gameObject);
             Debug.Log("Damaged Enemy");
         }
