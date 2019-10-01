@@ -39,7 +39,16 @@ public class PlayerMovement : MonoBehaviour
         //death condition
         if (health<=0)
         {
+            //Time.timeScale = 0f;
             Debug.Log("Game Over");
+
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("esc");
+            GameManager.instance.ReloadScene();
         }
 
         //flip sprite based on direction mouse is pointing
