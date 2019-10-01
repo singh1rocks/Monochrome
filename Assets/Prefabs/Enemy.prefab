@@ -129,7 +129,9 @@ MonoBehaviour:
     type: 3}
   enemyDistance: 10
   enemyMoveDistance: 2
-  thisEnemyType: 0
+  DistToPlayer: 0
+  PlayerDetectionRange: 5
+  thisEnemyType: 1
 --- !u!50 &6313945167622915054
 Rigidbody2D:
   serializedVersion: 4
