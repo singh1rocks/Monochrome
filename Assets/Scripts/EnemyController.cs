@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     public GameObject EnemyBulletPrefab;
     public float enemyDistance; //distance at which shooting enemy tries to stay away from player;
     public float enemyMoveDistance; // distance that shooting enemy moves each time it tries to avoid the player;
+    private float DistToPlayer;//distance between player and enemy
 
     public enum EnemyType
     {
@@ -36,7 +37,8 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         playerToEnemyVector = new Vector2(transform.position.x - player_transform.position.x, transform.position.y - player_transform.position.y);
-        if (thisEnemyType == EnemyType.FollowPlayer)
+        DistToPlayer = playerToEnemyVector.magnitude
+        if (thisEnemyType == EnemyType.FollowPlayer && DistToPlayer <= 15f)
         {
             //behavior of enemy that just follows player
             transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
@@ -44,7 +46,7 @@ public class EnemyController : MonoBehaviour
         else if (thisEnemyType == EnemyType.ShootAtPlayer)
         {
             //TODO: behavior of enemy that shoots at player
-            if (playerToEnemyVector.magnitude <= enemyDistance)
+            if (DistToPlayer <= enemyDistance)
             {
                 //move away from player
                 StartCoroutine("ShootingEnemyBehaviourCoroutine");
@@ -52,6 +54,7 @@ public class EnemyController : MonoBehaviour
             else
             {
                 //move random direction
+
             }
 
         }
