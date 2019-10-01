@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
         if (thisEnemyType == EnemyType.FollowPlayer)
         {
             //behavior of enemy that just follows player
-            transform.position = Vector2.MoveTowards(transform.position, playerToEnemyVector, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
         }
         else if (thisEnemyType == EnemyType.ShootAtPlayer)
         {

@@ -288,6 +288,11 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7138914059643735684, guid: ab944bf0fd82ac842b82ac45da3b113f,
+        type: 3}
+      propertyPath: thisEnemyType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab944bf0fd82ac842b82ac45da3b113f, type: 3}
 --- !u!1 &830427990
