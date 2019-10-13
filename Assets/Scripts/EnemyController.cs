@@ -28,7 +28,11 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 3f;
+        if (health == 0)
+        {
+            health = 3f;
+        }
+        
 
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
