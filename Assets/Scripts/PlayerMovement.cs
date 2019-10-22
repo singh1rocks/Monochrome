@@ -9,11 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public Transform transform;
     public float health = 5f;
 
-    [Header("Bullet")]
-    public GameObject bulletPrefab;
-    public float bulletTime; //minimum delay between each bullet fired
-    public float bulletTimeCounter;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +22,6 @@ public class PlayerMovement : MonoBehaviour
     {
         target = new Vector2(transform.position.x + Input.GetAxisRaw("Horizontal") * speed, transform.position.y + Input.GetAxisRaw("Vertical") * speed);
         transform.position = Vector2.MoveTowards(transform.position, target, Mathf.Infinity);
-
-        //shoot bullet
-        if (Input.GetMouseButton(0) && bulletTimeCounter >= bulletTime)
-        {
-            Instantiate(bulletPrefab);
-            bulletTimeCounter = 0;
-        }
-        bulletTimeCounter += Time.deltaTime;
 
         //death condition
         if (health<=0)
