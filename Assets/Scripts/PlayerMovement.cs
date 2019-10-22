@@ -7,12 +7,14 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public Vector2 target;
     public Transform transform;
+    public Rigidbody rb;
     public float health = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         transform = GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
         health = 5f;
         //init bullet values
     }
@@ -20,8 +22,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        target = new Vector2(transform.position.x + Input.GetAxisRaw("Horizontal") * speed, transform.position.y + Input.GetAxisRaw("Vertical") * speed);
-        transform.position = Vector2.MoveTowards(transform.position, target, Mathf.Infinity);
+        //target = new Vector2(transform.position.x + Input.GetAxisRaw("Horizontal") * speed, transform.position.y + Input.GetAxisRaw("Vertical") * speed);
+        //transform.position = Vector2.MoveTowards(transform.position, target, Mathf.Infinity);
+
+        //movement
+        target = new Vector3(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
+        rb.velocity = target;
 
         //death condition
         if (health<=0)

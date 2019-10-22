@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyController : MonoBehaviour
 {
@@ -11,12 +12,17 @@ public class EnemyController : MonoBehaviour
 
     public GameObject player;
     public Transform player_transform;
+    public Rigidbody rb;
 
     public Vector2 playerToEnemyVector;
     public float enemyDistance; //distance at which shooting enemy tries to stay away from player;
     public float enemyMoveDistance; // distance that shooting enemy moves each time it tries to avoid the player;
     public float DistToPlayer;//distance between player and enemy
     public float PlayerDetectionRange;//distance at which enemy will detect player
+
+    //pathfinding
+    public IAstarAI ai;
+
 
     public enum EnemyType
     {
@@ -48,7 +54,12 @@ public class EnemyController : MonoBehaviour
         
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
+        rb = GetComponent<Rigidbody>();
 
+        AstarPath.FindAstarPath();
+        AstarPath.active.Scan();
+
+        ai = GetComponent<IAstarAI>();
     }
 
     // Update is called once per frame
@@ -56,6 +67,9 @@ public class EnemyController : MonoBehaviour
     {
         playerToEnemyVector = new Vector2(transform.position.x - player_transform.position.x, transform.position.y - player_transform.position.y);
         DistToPlayer = playerToEnemyVector.magnitude;
+
+        //pathfinding
+        if (AstarPath.active.data.gridGraph.nodes == null) AstarPath.active.Scan();
 
         if (health <= 0)
         {
@@ -94,7 +108,12 @@ public class EnemyController : MonoBehaviour
 
     public void Bacon()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
+        //movement
+        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+        {
+            ai.canMove = false;
+            ai.SearchPath();
+        }
     }
 
     /// <summary>
@@ -103,6 +122,10 @@ public class EnemyController : MonoBehaviour
     public void SpamCan()
     {
         transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
+
+        //enable pathfinding and movement
+
+        
     }
 
 
@@ -122,7 +145,7 @@ public class EnemyController : MonoBehaviour
         {
             health -= collision.gameObject.GetComponent<Bullet>().damage;
             Destroy(collision.gameObject);
-            Debug.Log("Damaged Enemy");
+            //Debug.Log("Damaged Enemy");
         }
         else if (collision.gameObject.tag == "Player")
         {
