@@ -8,6 +8,7 @@ TagManager:
   - EnemyBullet
   - Ground
   - Obstacle
+  - Enemy
   layers:
   - Default
   - TransparentFX
