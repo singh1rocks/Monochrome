@@ -21,8 +21,13 @@ public class EnemyController : MonoBehaviour
     public float PlayerDetectionRange;//distance at which enemy will detect player
 
     //pathfinding
+    [Header("Pathfinding")]
     public IAstarAI ai;
+    public AIDestinationSetter AIdest;
 
+    [Header("Enemy Type Specifics")]
+    public bool isBeingKnockedBack;
+    public GameObject spamExplosionPrefab;
 
     public enum EnemyType
     {
@@ -55,9 +60,11 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
+        isBeingKnockedBack = false;
 
         AstarPath.FindAstarPath();
         AstarPath.active.Scan();
+        AIdest = gameObject.GetComponent<AIDestinationSetter>();
 
         ai = GetComponent<IAstarAI>();
     }
@@ -76,12 +83,27 @@ public class EnemyController : MonoBehaviour
             Die();
         }
 
+        //pathfinding disabled while enemy is being knocked back (from explosion)
+        if (isBeingKnockedBack)
+        {
+            ai.isStopped = true;
+            ai.canMove = true;
+
+            return;
+        }
+        else
+        {
+            ai.isStopped = false;
+            ai.canMove = true;
+        }
+
         switch (thisEnemyType)
         {
             case EnemyType.Bacon:
                 Bacon();
                 break;
             case EnemyType.SpamCan:
+                SpamCan();
                 break;
             case EnemyType.HotSauce:
                 break;
@@ -108,12 +130,8 @@ public class EnemyController : MonoBehaviour
 
     public void Bacon()
     {
-        //movement
-        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
-        {
-            ai.canMove = false;
-            ai.SearchPath();
-        }
+        //set target
+        AIdest.target = player_transform;
     }
 
     /// <summary>
@@ -121,11 +139,19 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void SpamCan()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player_transform.position, speed * Time.deltaTime);
+        //set target
+        AIdest.target = player_transform;
 
-        //enable pathfinding and movement
+        //disable movement once spam reaches player, then trigger explosion, destroy spam enemy game object
+        if (DistToPlayer <= 1)
+        {
+            //stop movement
+            ai.canMove = false;
 
-        
+            //explode
+            Instantiate(spamExplosionPrefab, transform.position, Quaternion.identity);
+        }
+
     }
 
 
@@ -188,5 +214,15 @@ public class EnemyController : MonoBehaviour
     {
         player.GetComponent<PlayerMovement>().health -= d;
         Debug.Log("Damaged Player");
+    }
+
+    public IEnumerator Knockback(Vector3 target)
+    {
+        while (Vector3.Distance(transform.position, target) > 0.05f)
+        {
+            transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime);
+            isBeingKnockedBack = false;
+            yield return null;
+        }
     }
 }
