@@ -59,7 +59,6 @@ public class EnemyController : MonoBehaviour
         
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
-        rb = GetComponent<Rigidbody>();
         isBeingKnockedBack = false;
 
         AstarPath.FindAstarPath();
