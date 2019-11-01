@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 
     public Camera cam;
     public float speed;
+    public Rigidbody rb;
     [SerializeField]Vector2 target;
     [SerializeField]Vector2 dirVec;
 
@@ -23,7 +24,9 @@ public class Bullet : MonoBehaviour
         var mousePos = Input.mousePosition;
         mousePos.z = 10;
         target = cam.ScreenToWorldPoint(mousePos);
-        dirVec = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
+        dirVec = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0f);
+        dirVec.Normalize();
+        rb = GetComponent<Rigidbody>();
 
         //point at target
         //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
@@ -37,7 +40,8 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + dirVec, speed * Time.deltaTime);
+        rb.velocity = dirVec * speed;
+        //transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + dirVec, speed * Time.deltaTime);
 
         //orientate bullet
         //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
@@ -49,13 +53,5 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         bulletLifeTime -= Time.deltaTime;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag != "Player")
-        {
-            Destroy(gameObject);
-        }
     }
 }
