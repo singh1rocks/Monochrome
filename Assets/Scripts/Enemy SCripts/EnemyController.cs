@@ -24,10 +24,13 @@ public class EnemyController : MonoBehaviour
     [Header("Pathfinding")]
     public IAstarAI ai;
     public AIDestinationSetter AIdest;
+    public AIPath aiPath;
 
     [Header("Enemy Type Specifics")]
     public bool isBeingKnockedBack;
     public GameObject spamExplosionPrefab;
+    public float knockbackForce;
+    public float knockbackSlowdownForce;
 
     public enum EnemyType
     {
@@ -60,10 +63,12 @@ public class EnemyController : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
         isBeingKnockedBack = false;
+        rb = GetComponent<Rigidbody>();
 
         AstarPath.FindAstarPath();
         AstarPath.active.Scan();
         AIdest = gameObject.GetComponent<AIDestinationSetter>();
+        aiPath = GetComponent<AIPath>();
 
         ai = GetComponent<IAstarAI>();
     }
@@ -150,7 +155,6 @@ public class EnemyController : MonoBehaviour
             //explode
             Instantiate(spamExplosionPrefab, transform.position, Quaternion.identity);
         }
-
     }
 
 
@@ -163,7 +167,7 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         //Damaged by player bullet
         if (collision.gameObject.tag == "Bullet")
@@ -204,7 +208,7 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-
+    
     /// <summary>
     /// Damages player by d health points
     /// </summary>
@@ -215,6 +219,18 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Damaged Player");
     }
 
+    public void Knockback(Vector3 direction)
+    {
+        aiPath.enabled = false;
+        rb.velocity = direction * knockbackForce;
+        while (rb.velocity.magnitude > 0)
+        {
+            rb.velocity -= direction * knockbackSlowdownForce;
+        }
+        aiPath.enabled = true;
+    }
+
+    /*
     public IEnumerator Knockback(Vector3 target)
     {
         while (Vector3.Distance(transform.position, target) > 0.05f)
@@ -224,4 +240,5 @@ public class EnemyController : MonoBehaviour
             yield return null;
         }
     }
+    */
 }
