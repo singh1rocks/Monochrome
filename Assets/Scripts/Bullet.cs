@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
         transform.position = player.GetComponent<Transform>().position;
         cam = Camera.main;
         var mousePos = Input.mousePosition;
-        mousePos.z = 10;
+        mousePos.z = 5;
         target = cam.ScreenToWorldPoint(mousePos);
         dirVec = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0f);
         dirVec.Normalize();

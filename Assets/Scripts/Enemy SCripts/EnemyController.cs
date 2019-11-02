@@ -145,6 +145,7 @@ public class EnemyController : MonoBehaviour
             case EnemyType.SpamCan:
                 break;
             case EnemyType.HotSauce:
+                HotSauce();
                 break;
             case EnemyType.Cabbage:
                 break;
@@ -172,6 +173,11 @@ public class EnemyController : MonoBehaviour
     {
         //set target
         AIdest.target = player_transform;
+    }
+
+    public void HotSauce()
+    {
+        
     }
 
     /*
