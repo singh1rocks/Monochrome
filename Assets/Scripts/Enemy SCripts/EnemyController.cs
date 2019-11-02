@@ -55,10 +55,7 @@ public class EnemyController : MonoBehaviour
             health = 3f;
         }
 
-        if (speed == 0)
-        {
-            speed = 1;
-        }
+        
         
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
@@ -71,6 +68,45 @@ public class EnemyController : MonoBehaviour
         aiPath = GetComponent<AIPath>();
 
         ai = GetComponent<IAstarAI>();
+
+        aiPath.maxSpeed = speed;
+
+        //initialize values for different enemy types
+        switch (thisEnemyType)
+        {
+            case EnemyType.Bacon:
+                if (speed == 0)
+                {
+                    aiPath.maxSpeed = 1f;
+                }
+                break;
+            case EnemyType.SpamCan:
+                break;
+            case EnemyType.HotSauce:
+                break;
+            case EnemyType.Cabbage:
+                break;
+            case EnemyType.Carrot:
+                break;
+            case EnemyType.Corn:
+                break;
+            case EnemyType.Meatball:
+                if (speed == 0)
+                {
+                    aiPath.maxSpeed = 0.3f;
+                }
+                break;
+            case EnemyType.Chobani:
+                break;
+            case EnemyType.PizzaBox:
+                break;
+            case EnemyType.ChurroTaco:
+                break;
+            case EnemyType.GingerbreadMan:
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -104,10 +140,9 @@ public class EnemyController : MonoBehaviour
         switch (thisEnemyType)
         {
             case EnemyType.Bacon:
-                Bacon();
+                SetPlayerAsAITarget();
                 break;
             case EnemyType.SpamCan:
-                SpamCan();
                 break;
             case EnemyType.HotSauce:
                 break;
@@ -118,6 +153,7 @@ public class EnemyController : MonoBehaviour
             case EnemyType.Corn:
                 break;
             case EnemyType.Meatball:
+                SetPlayerAsAITarget();
                 break;
             case EnemyType.Chobani:
                 break;
@@ -132,12 +168,13 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void Bacon()
+    public void SetPlayerAsAITarget()
     {
         //set target
         AIdest.target = player_transform;
     }
 
+    /*
     /// <summary>
     /// suicide bomber
     /// </summary>
@@ -156,6 +193,7 @@ public class EnemyController : MonoBehaviour
             Instantiate(spamExplosionPrefab, transform.position, Quaternion.identity);
         }
     }
+    */
 
 
     /// <summary>
@@ -194,6 +232,7 @@ public class EnemyController : MonoBehaviour
                 case EnemyType.Corn:
                     break;
                 case EnemyType.Meatball:
+                    DamagePlayer(3f);
                     break;
                 case EnemyType.Chobani:
                     break;
