@@ -12793,7 +12793,7 @@ GameObject:
   - component: {fileID: 508436672}
   - component: {fileID: 508436671}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13671,6 +13671,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mass
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: f02eec08b797ab94fa36fe297cfb350c,
+        type: 3}
+      propertyPath: thisEnemyType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: f02eec08b797ab94fa36fe297cfb350c,
+        type: 3}
+      propertyPath: hotSauceAlternateTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: f02eec08b797ab94fa36fe297cfb350c,
+        type: 3}
+      propertyPath: hotSauceShootTime
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f02eec08b797ab94fa36fe297cfb350c, type: 3}

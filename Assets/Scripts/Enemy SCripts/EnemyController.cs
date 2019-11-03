@@ -26,11 +26,11 @@ public class EnemyController : MonoBehaviour
 
     [Header("Hot Sauce")]
     public GameObject hotSauceBulletPrefab;
-    public float hotSauceMoveTime; // time for hot sauce enemy to alternate between moving towards player and stopping to shoot
-    private float hotSauceMoveTimeCounter;
+    public float hotSauceAlternateTime; // time for hot sauce enemy to alternate between moving towards player and stopping to shoot
+    private float hotSauceAlternateTimeCounter;
     public float hotSauceShootTime; // time for hot sauce to fire all bullets
     private float hotSauceShootTimeCounter;
-    public int bulletsFired; // number of bullets fired each time it enters "shooting" mode
+    //public int bulletsFired; // number of bullets fired each time it enters "shooting" mode
     [SerializeField]
     private bool isShooting;
     /*
@@ -190,7 +190,7 @@ public class EnemyController : MonoBehaviour
     {
         SetPlayerAsAITarget();
 
-        if (!isShooting && hotSauceMoveTimeCounter >= hotSauceMoveTime)
+        if (!isShooting && hotSauceAlternateTimeCounter >= hotSauceAlternateTime)
         {
             isShooting = true;
             aiPath.enabled = false;
@@ -198,14 +198,20 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            hotSauceMoveTimeCounter += Time.deltaTime;
+            hotSauceAlternateTimeCounter += Time.deltaTime;
         }
 
-        if (isShooting && hotSauceShootTimeCounter <= hotSauceShootTime)
+        if (isShooting && hotSauceAlternateTimeCounter <= hotSauceAlternateTime)
         {
+            hotSauceAlternateTimeCounter += Time.deltaTime;
             hotSauceShootTimeCounter += Time.deltaTime;
 
-            //TODO shoot
+            if (hotSauceShootTimeCounter >= hotSauceShootTime)
+            {
+                //shoot
+                Instantiate(hotSauceBulletPrefab, transform.position, Quaternion.identity);
+                hotSauceShootTimeCounter = 0;
+            }
 
         }
         else
@@ -213,7 +219,7 @@ public class EnemyController : MonoBehaviour
             SetPlayerAsAITarget();
             isShooting = false;
             aiPath.enabled = true;
-            hotSauceMoveTimeCounter = 0;
+            hotSauceAlternateTimeCounter = 0;
         }
     }
 

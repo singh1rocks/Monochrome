@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region Singleton
     public static GameManager instance { private set; get; }//Singleton
 
     private void Awake()
@@ -21,6 +20,9 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
+    #endregion
+
+    
 
     // Start is called before the first frame update
     void Start()

@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public PlayerMovement player;
+    public Rigidbody rb;
 
     public Camera cam;
     public float speed;
-    [SerializeField] Vector2 target;
-    [SerializeField] Vector2 dirVec;
+    [SerializeField] private Vector2 target;
+    [SerializeField] private Vector2 dirVec;
+    [SerializeField] private Vector3 moveVec;
 
     public float bulletLifeTime;
     public float damage;
@@ -17,6 +19,7 @@ public class EnemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         target = player.transform.position;
         dirVec = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
@@ -34,7 +37,8 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + dirVec, speed * Time.deltaTime);
+        moveVec = new Vector3(dirVec.x, dirVec.y, 0);
+        rb.velocity = moveVec;
 
         //orientate bullet
         //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
