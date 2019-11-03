@@ -55,22 +55,29 @@ public class Door_Logic : MonoBehaviour
 
         if(Enemies.Count == 0)
         {
-            GameObject.Destroy(Doors[0]);
-            GameObject.Destroy(Doors[1]);
-            GameObject.Destroy(Doors[2]);
-            GameObject.Destroy(Doors[3]);
-            Doors.RemoveAt(0);
-            Doors.RemoveAt(1);
-            Doors.RemoveAt(2);
-            Doors.RemoveAt(3);
+            //GameObject.Destroy(Doors[0]);
+            //GameObject.Destroy(Doors[1]);
+            //GameObject.Destroy(Doors[2]);
+            //GameObject.Destroy(Doors[3]);
+            Door_0.SetActive(false);
+            Door_1.SetActive(false);
+            Door_2.SetActive(false);
+            Door_3.SetActive(false);
+            //Doors.RemoveAt(0);
+            //Doors.RemoveAt(1);
+            //Doors.RemoveAt(2);
+            //Doors.RemoveAt(3);
         }
     }
 
     void OnTriggerEnter(Collider collider)
     {
-        Door_0.SetActive(true);
-        Door_1.SetActive(true);
-        Door_2.SetActive(true);
-        Door_3.SetActive(true);
+        if (collider.gameObject.tag == "Player")
+        {
+            Door_0.SetActive(true);
+            Door_1.SetActive(true);
+            Door_2.SetActive(true);
+            Door_3.SetActive(true);
+        }
     }
 }
