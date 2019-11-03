@@ -5,37 +5,46 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
-    public Vector2 target;
-    public Transform transform;
+    public Vector2 moveVec;
     public Rigidbody rb;
     public float health = 5f;
+    private Transform player_t;
+    public SpriteRenderer spriteRend;
+
+    [Header("Knockback")]
+    public bool canMove;
+    public bool isBeingKnockedBack;
+    public float knockbackForce;
+    public Vector3 knockbackForceVec;
+    public float knockbackTime;
+    private float knockbackTimeCounter;
 
     // Start is called before the first frame update
     void Start()
     {
-        transform = GetComponent<Transform>();
         rb = GetComponent<Rigidbody>();
+        player_t = GetComponent<Transform>();
         health = 5f;
-        //init bullet values
+        isBeingKnockedBack = false;
+        canMove = true;
+        knockbackTimeCounter = 0;
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //target = new Vector2(transform.position.x + Input.GetAxisRaw("Horizontal") * speed, transform.position.y + Input.GetAxisRaw("Vertical") * speed);
-        //transform.position = Vector2.MoveTowards(transform.position, target, Mathf.Infinity);
-
         //movement
-        target = new Vector3(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
-        rb.velocity = target;
+        if (canMove)
+        {
+            moveVec = new Vector3(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
+            rb.velocity = moveVec;
+        }
 
-        //death condition
+        //death and game over condition
         if (health<=0)
         {
-            //Time.timeScale = 0f;
-            Debug.Log("Game Over");
-
-            
+            //Debug.Log("Game Over");
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -45,13 +54,53 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //flip sprite based on direction mouse is pointing
-        if (Input.GetAxisRaw("Horizontal") == 1)
+        if (canMove)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            if (Input.GetAxisRaw("Horizontal") == 1)
+            {
+                spriteRend.flipX = true;
+            }
+            else if (Input.GetAxisRaw("Horizontal") == -1)
+            {
+                spriteRend.flipX = false;
+            }
         }
-        else if (Input.GetAxisRaw("Horizontal") == -1)
+
+        //knockback duration
+        if (isBeingKnockedBack && rb.velocity.magnitude >= 0 && !canMove)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            knockbackTimeCounter += Time.deltaTime;
+            rb.velocity -= Time.deltaTime / knockbackTime * knockbackForce * knockbackForceVec;
+
+            if (knockbackTimeCounter >= knockbackTime || rb.velocity.magnitude <= 0)
+            {
+                isBeingKnockedBack = false;
+            }
+        }
+        else
+        {
+            canMove = true;
+            isBeingKnockedBack = false;
+            knockbackTimeCounter = 0f;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("player knocked back");
+            isBeingKnockedBack = true;
+            canMove = false;
+
+            //calculate vector for knockback direction (away from enemy)
+            Transform enemy_t = collision.gameObject.GetComponent<Transform>();
+            Vector3 KBdirVec = new Vector3(player_t.position.x - enemy_t.position.x, player_t.position.y - enemy_t.position.y, 0f);
+            KBdirVec.Normalize();
+            knockbackForceVec = KBdirVec;
+
+            //apply knockback force
+            rb.velocity = knockbackForce * KBdirVec;
         }
     }
 }

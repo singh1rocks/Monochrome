@@ -261,29 +261,6 @@ public class EnemyController : MonoBehaviour
     public void DamagePlayer(float d)
     {
         player.GetComponent<PlayerMovement>().health -= d;
-        Debug.Log("Damaged Player");
+        //Debug.Log("Damaged Player");
     }
-
-    public void Knockback(Vector3 direction)
-    {
-        aiPath.enabled = false;
-        rb.velocity = direction * knockbackForce;
-        while (rb.velocity.magnitude > 0)
-        {
-            rb.velocity -= direction * knockbackSlowdownForce;
-        }
-        aiPath.enabled = true;
-    }
-
-    /*
-    public IEnumerator Knockback(Vector3 target)
-    {
-        while (Vector3.Distance(transform.position, target) > 0.05f)
-        {
-            transform.position = Vector3.Lerp(transform.position, target, Time.deltaTime);
-            isBeingKnockedBack = false;
-            yield return null;
-        }
-    }
-    */
 }

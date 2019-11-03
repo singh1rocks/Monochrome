@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
-        //transform.position = player.GetComponent<Transform>().position;
         cam = Camera.main;
         var mousePos = Input.mousePosition;
         mousePos.z = 5;
