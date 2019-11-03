@@ -64,9 +64,15 @@ public class EnemyBullet : MonoBehaviour
         {
             player.GetComponent<PlayerMovement>().health -= damage;
             Debug.Log("Bullet hit player");
+
+            if (collision.tag == "Obstacle" || collision.tag == "Player")
+            {
+                Destroy(gameObject);
+            }
             
         }
-        Destroy(gameObject);
 
+
+        
     }
 }

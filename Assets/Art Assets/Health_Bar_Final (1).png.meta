@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 561c7556d55d9904d9ca9d7135169411
+guid: 487684cce9c97994cb995eb71d6145c2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8865020246906374716
-    second: Chulula-1_0
+      213: 3450007174722777379
+    second: Health_Bar_Final (1)_0
   - first:
-      213: 2482339514084405515
-    second: Chulula-1_1
+      213: -6003453874634658342
+    second: Health_Bar_Final (1)_1
   - first:
-      213: 8400167190488317871
-    second: Chulula-1_2
+      213: 7390977604549736866
+    second: Health_Bar_Final (1)_2
   - first:
-      213: -4560588510005130147
-    second: Chulula-1_3
+      213: 6665592634232203264
+    second: Health_Bar_Final (1)_3
+  - first:
+      213: 8096587092258131706
+    second: Health_Bar_Final (1)_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -96,34 +99,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chulula-1_0
+      name: Health_Bar_Final (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 62
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd374284a8d6906479e57820bf723e4d
-      internalID: -8865020246906374716
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chulula-1_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 62
-        width: 64
-        height: 64
+        y: 200
+        width: 384
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +113,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ef0d04d827e5f5478ccacfbb515cc5b
-      internalID: 2482339514084405515
+      spriteID: 82972dcc550a64b459653c71d326208e
+      internalID: 3450007174722777379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chulula-1_2
+      name: Health_Bar_Final (1)_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 150
+        width: 384
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e3623df0e01824ebe2220b702cd081
+      internalID: -6003453874634658342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health_Bar_Final (1)_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 384
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad0ad139818b464cb3cd03432a239e7
+      internalID: 7390977604549736866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health_Bar_Final (1)_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 50
+        width: 384
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3737794a9239b740ac1c2474d5c0b24
+      internalID: 6665592634232203264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health_Bar_Final (1)_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 384
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,29 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0e4e5873d7a9564aa6897a1fea965f1
-      internalID: 8400167190488317871
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chulula-1_3
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca1f9760f03d75143840765f9c6951aa
-      internalID: -4560588510005130147
+      spriteID: 8783a913c068b9047a37ad77913e6e9c
+      internalID: 8096587092258131706
       vertices: []
       indices: 
       edges: []
@@ -182,7 +206,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0f1aae916445d1542814d41388893a48
+    spriteID: a67334a223bfe424cbe5b7267716776b
     internalID: 0
     vertices: []
     indices: 

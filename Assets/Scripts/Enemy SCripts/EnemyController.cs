@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
     public Transform player_transform;
     public Rigidbody rb;
+    public Animator animator;
 
     public Vector2 playerToEnemyVector;
     public float enemyDistance; //distance at which shooting enemy tries to stay away from player;
@@ -63,8 +64,6 @@ public class EnemyController : MonoBehaviour
             health = 3f;
         }
 
-        
-        
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
         //isBeingKnockedBack = false;
@@ -190,9 +189,18 @@ public class EnemyController : MonoBehaviour
         AIdest.target = player_transform;
     }
 
+    /// <summary>
+    /// Hot Sauce Behaviour
+    /// moves for hotSauceAlternateTime seconds
+    /// next, stops and enters shooting mode for another hotSauceAlternateTime seconds
+    /// while in shooting mode, shoots a bullet every hotSauceShootTime seconds
+    /// </summary>
     public void HotSauce()
     {
         SetPlayerAsAITarget();
+
+        //set isShooting bool for animation
+        animator.SetBool("isShooting", isShooting);
 
         if (!isShooting && hotSauceAlternateTimeCounter >= hotSauceAlternateTime)
         {
@@ -203,16 +211,15 @@ public class EnemyController : MonoBehaviour
         }
         else if(!isShooting && hotSauceAlternateTimeCounter <= hotSauceAlternateTime)
         {
-            Debug.Log("Moving");
+            //moving mode
             hotSauceAlternateTimeCounter += Time.deltaTime;
         }
 
         if (isShooting && hotSauceAlternateTimeCounter <= hotSauceAlternateTime)
         {
+            //shooting mode
             hotSauceAlternateTimeCounter += Time.deltaTime;
             hotSauceShootTimeCounter += Time.deltaTime;
-
-            Debug.Log("Shooting");
 
             if (hotSauceShootTimeCounter >= hotSauceShootTime)
             {
