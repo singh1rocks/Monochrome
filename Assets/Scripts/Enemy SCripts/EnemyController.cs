@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Pathfinding;
 
 public class EnemyController : MonoBehaviour
@@ -26,11 +24,21 @@ public class EnemyController : MonoBehaviour
     public AIDestinationSetter AIdest;
     public AIPath aiPath;
 
-    [Header("Enemy Type Specifics")]
+    [Header("Hot Sauce")]
+    public GameObject hotSauceBulletPrefab;
+    public float hotSauceMoveTime; // time for hot sauce enemy to alternate between moving towards player and stopping to shoot
+    private float hotSauceMoveTimeCounter;
+    public float hotSauceShootTime; // time for hot sauce to fire all bullets
+    private float hotSauceShootTimeCounter;
+    public int bulletsFired; // number of bullets fired each time it enters "shooting" mode
+    [SerializeField]
+    private bool isShooting;
+    /*
     public bool isBeingKnockedBack;
     public GameObject spamExplosionPrefab;
     public float knockbackForce;
     public float knockbackSlowdownForce;
+    */
 
     public enum EnemyType
     {
@@ -59,7 +67,7 @@ public class EnemyController : MonoBehaviour
         
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
-        isBeingKnockedBack = false;
+        //isBeingKnockedBack = false;
         rb = GetComponent<Rigidbody>();
 
         AstarPath.FindAstarPath();
@@ -83,6 +91,7 @@ public class EnemyController : MonoBehaviour
             case EnemyType.SpamCan:
                 break;
             case EnemyType.HotSauce:
+                hotSauceShootTimeCounter = 0;
                 break;
             case EnemyType.Cabbage:
                 break;
@@ -123,6 +132,7 @@ public class EnemyController : MonoBehaviour
             Die();
         }
 
+        /*
         //pathfinding disabled while enemy is being knocked back (from explosion)
         if (isBeingKnockedBack)
         {
@@ -136,6 +146,7 @@ public class EnemyController : MonoBehaviour
             ai.isStopped = false;
             ai.canMove = true;
         }
+        */
 
         switch (thisEnemyType)
         {
@@ -177,7 +188,33 @@ public class EnemyController : MonoBehaviour
 
     public void HotSauce()
     {
-        
+        SetPlayerAsAITarget();
+
+        if (!isShooting && hotSauceMoveTimeCounter >= hotSauceMoveTime)
+        {
+            isShooting = true;
+            aiPath.enabled = false;
+            hotSauceShootTimeCounter = 0;
+        }
+        else
+        {
+            hotSauceMoveTimeCounter += Time.deltaTime;
+        }
+
+        if (isShooting && hotSauceShootTimeCounter <= hotSauceShootTime)
+        {
+            hotSauceShootTimeCounter += Time.deltaTime;
+
+            //TODO shoot
+
+        }
+        else
+        {
+            SetPlayerAsAITarget();
+            isShooting = false;
+            aiPath.enabled = true;
+            hotSauceMoveTimeCounter = 0;
+        }
     }
 
     /*
