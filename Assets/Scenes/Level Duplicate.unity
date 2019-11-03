@@ -44049,40 +44049,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8299332472607619344, guid: 21feeaba81d095c4593efc1103e0974e,
-        type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299332472607619344, guid: 21feeaba81d095c4593efc1103e0974e,
-        type: 3}
-      propertyPath: knockbackForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299332472607619344, guid: 21feeaba81d095c4593efc1103e0974e,
-        type: 3}
-      propertyPath: knockbackTime
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 78412467, guid: 21feeaba81d095c4593efc1103e0974e, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8299332472607619349, guid: 21feeaba81d095c4593efc1103e0974e,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3940025157729101171, guid: 21feeaba81d095c4593efc1103e0974e,
-        type: 3}
-      propertyPath: bulletSpawnLocation
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3940025157729101171, guid: 21feeaba81d095c4593efc1103e0974e,
-        type: 3}
-      propertyPath: bulletOffset
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21feeaba81d095c4593efc1103e0974e, type: 3}
 --- !u!1 &1915195783

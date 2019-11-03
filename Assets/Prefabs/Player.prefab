@@ -254,10 +254,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23a2a2b357ed92c4b9f37a92101ace75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.05
-  target: {x: 0, y: 0}
-  transform: {fileID: 0}
+  speed: 4
+  moveVec: {x: 0, y: 0}
+  rb: {fileID: 0}
   health: 5
+  spriteRend: {fileID: 0}
+  canMove: 0
+  isBeingKnockedBack: 0
+  knockbackForce: 5
+  knockbackForceVec: {x: 0, y: 0, z: 0}
+  knockbackTime: 0.7
 --- !u!114 &3940025157729101171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +280,9 @@ MonoBehaviour:
     type: 3}
   bulletTime: 0.5
   bulletTimeCounter: 0
+  dirVec: {x: 0, y: 0, z: 0}
+  bulletOffset: 0.4
+  mousePos: {x: 0, y: 0, z: 0}
 --- !u!65 &7341685692276111792
 BoxCollider:
   m_ObjectHideFlags: 0
