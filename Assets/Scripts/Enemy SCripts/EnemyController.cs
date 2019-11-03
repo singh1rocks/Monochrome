@@ -91,6 +91,10 @@ public class EnemyController : MonoBehaviour
             case EnemyType.SpamCan:
                 break;
             case EnemyType.HotSauce:
+                if (speed == 0)
+                {
+                    aiPath.maxSpeed = 1f;
+                }
                 hotSauceShootTimeCounter = 0;
                 break;
             case EnemyType.Cabbage:
@@ -194,10 +198,12 @@ public class EnemyController : MonoBehaviour
         {
             isShooting = true;
             aiPath.enabled = false;
+            hotSauceAlternateTimeCounter = 0;
             hotSauceShootTimeCounter = 0;
         }
-        else
+        else if(!isShooting && hotSauceAlternateTimeCounter <= hotSauceAlternateTime)
         {
+            Debug.Log("Moving");
             hotSauceAlternateTimeCounter += Time.deltaTime;
         }
 
@@ -205,6 +211,8 @@ public class EnemyController : MonoBehaviour
         {
             hotSauceAlternateTimeCounter += Time.deltaTime;
             hotSauceShootTimeCounter += Time.deltaTime;
+
+            Debug.Log("Shooting");
 
             if (hotSauceShootTimeCounter >= hotSauceShootTime)
             {
@@ -214,12 +222,13 @@ public class EnemyController : MonoBehaviour
             }
 
         }
-        else
+        else if(isShooting && hotSauceAlternateTimeCounter >= hotSauceAlternateTime)
         {
             SetPlayerAsAITarget();
             isShooting = false;
             aiPath.enabled = true;
             hotSauceAlternateTimeCounter = 0;
+            hotSauceShootTimeCounter = 0;
         }
     }
 

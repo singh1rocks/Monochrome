@@ -13654,7 +13654,7 @@ PrefabInstance:
     - target: {fileID: 8710248272329040803, guid: f02eec08b797ab94fa36fe297cfb350c,
         type: 3}
       propertyPath: m_Height
-      value: 0.6286638
+      value: 0.5740783
       objectReference: {fileID: 0}
     - target: {fileID: 8710248272329040803, guid: f02eec08b797ab94fa36fe297cfb350c,
         type: 3}
@@ -13687,6 +13687,12 @@ PrefabInstance:
       propertyPath: hotSauceShootTime
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: f02eec08b797ab94fa36fe297cfb350c,
+        type: 3}
+      propertyPath: hotSauceBulletPrefab
+      value: 
+      objectReference: {fileID: 4587362241032899338, guid: d6c0de2e9aa3e704097cd35fa13e68e1,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f02eec08b797ab94fa36fe297cfb350c, type: 3}
 --- !u!1 &569124529
@@ -44494,6 +44500,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 78412464, guid: 21feeaba81d095c4593efc1103e0974e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21feeaba81d095c4593efc1103e0974e, type: 3}

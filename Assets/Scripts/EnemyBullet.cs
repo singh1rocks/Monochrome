@@ -9,8 +9,9 @@ public class EnemyBullet : MonoBehaviour
 
     public Camera cam;
     public float speed;
+    public float bulletOffset;
     [SerializeField] private Vector2 target;
-    [SerializeField] private Vector2 dirVec;
+    [SerializeField] private Vector3 dirVec;
     [SerializeField] private Vector3 moveVec;
 
     public float bulletLifeTime;
@@ -22,14 +23,19 @@ public class EnemyBullet : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         target = player.transform.position;
-        dirVec = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
+        dirVec = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0f);
+        dirVec.Normalize();
+        transform.position += dirVec * bulletOffset;
 
         //point at target
         //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
         //transform.right = dirVec;
 
         //TODO: initialize bullet life time
-        speed = 0.4f;
+        if (speed == 0)
+        {
+            speed = 1.2f;
+        }
         bulletLifeTime = 10f;
         damage = 1;
     }
@@ -38,7 +44,7 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         moveVec = new Vector3(dirVec.x, dirVec.y, 0);
-        rb.velocity = moveVec;
+        rb.velocity = moveVec * speed;
 
         //orientate bullet
         //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
@@ -52,13 +58,15 @@ public class EnemyBullet : MonoBehaviour
         bulletLifeTime -= Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Player")
         {
             player.GetComponent<PlayerMovement>().health -= damage;
             Debug.Log("Bullet hit player");
-            Destroy(gameObject);
+            
         }
+        Destroy(gameObject);
+
     }
 }
