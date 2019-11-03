@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //knockback duration
+        //knockback duration, reduce velocity, velocity becomes 0 by the time knockback is over (determined by knockback time)
         if (isBeingKnockedBack && rb.velocity.magnitude >= 0 && !canMove)
         {
             knockbackTimeCounter += Time.deltaTime;
