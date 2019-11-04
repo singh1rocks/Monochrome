@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Bullet that travels from enemy to player
+/// </summary>
 public class EnemyBullet : MonoBehaviour
 {
     public PlayerMovement player;

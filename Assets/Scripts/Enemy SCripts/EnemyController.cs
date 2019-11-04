@@ -41,6 +41,7 @@ public class EnemyController : MonoBehaviour
     private float pizzaAlternateTimeCounter;
     public float pizzaShootTime; // time for hot sauce to fire all bullets
     private float pizzaShootTimeCounter;
+    public float pizzaBulletOffset;
 
     /*
     public bool isBeingKnockedBack;
@@ -197,7 +198,7 @@ public class EnemyController : MonoBehaviour
             case EnemyType.Chobani:
                 break;
             case EnemyType.PizzaBox:
-                
+                Pizza();
                 break;
             case EnemyType.ChurroTaco:
                 break;
@@ -271,7 +272,7 @@ public class EnemyController : MonoBehaviour
         SetPlayerAsAITarget();
 
         //set isShooting bool for animation
-        animator.SetBool("isShooting", isShooting);
+        //animator.SetBool("isShooting", isShooting);
 
         if (!isShooting && pizzaAlternateTimeCounter >= pizzaAlternateTime)
         {
@@ -295,10 +296,18 @@ public class EnemyController : MonoBehaviour
             if (pizzaShootTimeCounter >= pizzaShootTime)
             {
                 //TODO shooting PIZZA
-                
+                Debug.Log("pizza shooting");
+                CreateBulletAtAngle(pizzaBulletPrefab, Vector3.right, pizzaBulletOffset);
+                CreateBulletAtAngle(pizzaBulletPrefab, Vector3.right + Vector3.up, pizzaBulletOffset);
+                CreateBulletAtAngle(pizzaBulletPrefab, Vector3.up, pizzaBulletOffset);
+                CreateBulletAtAngle(pizzaBulletPrefab, Vector3.left + Vector3.up, pizzaBulletOffset);
+                CreateBulletAtAngle(pizzaBulletPrefab, Vector3.left, pizzaBulletOffset);
+                CreateBulletAtAngle(pizzaBulletPrefab, Vector3.left + Vector3.down, pizzaBulletOffset);
+                CreateBulletAtAngle(pizzaBulletPrefab, Vector3.down, pizzaBulletOffset);
+                CreateBulletAtAngle(pizzaBulletPrefab, Vector3.right + Vector3.down, pizzaBulletOffset);
+
                 pizzaShootTimeCounter = 0;
             }
-
         }
         else if (isShooting && pizzaAlternateTimeCounter >= pizzaAlternateTime)
         {
@@ -308,6 +317,24 @@ public class EnemyController : MonoBehaviour
             pizzaAlternateTimeCounter = 0;
             pizzaShootTimeCounter = 0;
         }
+    }
+
+    /// <summary>
+    /// function is customised for pizza bullets
+    /// </summary>
+    /// <param name="bulletPrefab"></param>
+    /// <param name="dirVec"></param>
+    /// <param name="bulletOffset"></param>
+    /// <param name="angleOffset"></param>
+    private void CreateBulletAtAngle(GameObject bulletPrefab, Vector3 dirVec, float bulletOffset, float angleOffset = 0f)
+    {
+        GameObject bullet = Instantiate(bulletPrefab);
+        bullet.transform.position = transform.position + dirVec * bulletOffset;
+
+        bullet.transform.up = -dirVec; // orientate bullet
+        Rigidbody rigidbody = bullet.GetComponent<Rigidbody>();
+        rigidbody.AddForce(Quaternion.AngleAxis(angleOffset, Vector3.forward) * dirVec * 100.0f, ForceMode.Acceleration);
+        
     }
 
     /*
@@ -344,7 +371,7 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
-        {
+        { //TODO:
             switch (thisEnemyType)
             {
                 case EnemyType.Bacon:
