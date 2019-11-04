@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -53,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
             GameManager.instance.ReloadScene();
         }
 
+        /*
         //flip sprite based on direction mouse is pointing
         if (canMove)
         {
@@ -65,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
                 spriteRend.flipX = false;
             }
         }
+        */
 
         //knockback duration, reduce velocity, velocity becomes 0 by the time knockback is over (determined by knockback time)
         if (isBeingKnockedBack && rb.velocity.magnitude >= 0 && !canMove)

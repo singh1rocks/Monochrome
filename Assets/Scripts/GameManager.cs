@@ -22,7 +22,15 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    
+    public WeaponType equippedWeapon;
+
+    public enum WeaponType
+    {
+        TaterTot,
+        BaconCrossbow,
+        HotSauceSquirtGun,
+        CookieShuriken
+    }
 
     // Start is called before the first frame update
     void Start()

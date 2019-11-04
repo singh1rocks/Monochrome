@@ -53,4 +53,13 @@ public class Bullet : MonoBehaviour
         }
         bulletLifeTime -= Time.deltaTime;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<EnemyController>().health -= damage;
+            Destroy(gameObject);
+        }
+    }
 }

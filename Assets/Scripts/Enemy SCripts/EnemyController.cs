@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     public float enemyMoveDistance; // distance that shooting enemy moves each time it tries to avoid the player;
     public float DistToPlayer;//distance between player and enemy
     public float PlayerDetectionRange;//distance at which enemy will detect player
+    [SerializeField]
+    private bool isShooting;
 
     //pathfinding
     [Header("Pathfinding")]
@@ -31,9 +33,14 @@ public class EnemyController : MonoBehaviour
     private float hotSauceAlternateTimeCounter;
     public float hotSauceShootTime; // time for hot sauce to fire all bullets
     private float hotSauceShootTimeCounter;
-    //public int bulletsFired; // number of bullets fired each time it enters "shooting" mode
-    [SerializeField]
-    private bool isShooting;
+    
+    [Header("Pizza")]
+    public GameObject pizzaBulletPrefab;
+    public float pizzaAlternateTime; // time for hot sauce enemy to alternate between moving towards player and stopping to shoot
+    private float pizzaAlternateTimeCounter;
+    public float pizzaShootTime; // time for hot sauce to fire all bullets
+    private float pizzaShootTimeCounter;
+
     /*
     public bool isBeingKnockedBack;
     public GameObject spamExplosionPrefab;
@@ -92,7 +99,7 @@ public class EnemyController : MonoBehaviour
             case EnemyType.HotSauce:
                 if (speed == 0)
                 {
-                    aiPath.maxSpeed = 1f;
+                    aiPath.maxSpeed = 0.7f;
                 }
                 hotSauceShootTimeCounter = 0;
                 break;
@@ -111,6 +118,11 @@ public class EnemyController : MonoBehaviour
             case EnemyType.Chobani:
                 break;
             case EnemyType.PizzaBox:
+                if (speed == 0)
+                {
+                    aiPath.maxSpeed = 0.7f;
+                }
+                pizzaShootTimeCounter = 0;
                 break;
             case EnemyType.ChurroTaco:
                 break;
@@ -151,6 +163,7 @@ public class EnemyController : MonoBehaviour
         }
         */
 
+        //run behaviour or specific enemy types
         switch (thisEnemyType)
         {
             case EnemyType.Bacon:
@@ -173,6 +186,7 @@ public class EnemyController : MonoBehaviour
             case EnemyType.Chobani:
                 break;
             case EnemyType.PizzaBox:
+                
                 break;
             case EnemyType.ChurroTaco:
                 break;
@@ -199,6 +213,7 @@ public class EnemyController : MonoBehaviour
     {
         SetPlayerAsAITarget();
 
+        #region Hot Sauce
         //set isShooting bool for animation
         animator.SetBool("isShooting", isShooting);
 
@@ -237,6 +252,51 @@ public class EnemyController : MonoBehaviour
             hotSauceAlternateTimeCounter = 0;
             hotSauceShootTimeCounter = 0;
         }
+        #endregion
+    }
+
+    public void Pizza()
+    {
+        SetPlayerAsAITarget();
+
+        //set isShooting bool for animation
+        animator.SetBool("isShooting", isShooting);
+
+        if (!isShooting && pizzaAlternateTimeCounter >= pizzaAlternateTime)
+        {
+            isShooting = true;
+            aiPath.enabled = false;
+            pizzaAlternateTimeCounter = 0;
+            pizzaShootTimeCounter = 0;
+        }
+        else if (!isShooting && pizzaAlternateTimeCounter <= pizzaAlternateTime)
+        {
+            //moving mode
+            pizzaAlternateTimeCounter += Time.deltaTime;
+        }
+
+        if (isShooting && pizzaAlternateTimeCounter <= pizzaAlternateTime)
+        {
+            //shooting mode
+            pizzaAlternateTimeCounter += Time.deltaTime;
+            pizzaShootTimeCounter += Time.deltaTime;
+
+            if (pizzaShootTimeCounter >= pizzaShootTime)
+            {
+                //TODO shooting PIZZA
+                
+                pizzaShootTimeCounter = 0;
+            }
+
+        }
+        else if (isShooting && pizzaAlternateTimeCounter >= pizzaAlternateTime)
+        {
+            SetPlayerAsAITarget();
+            isShooting = false;
+            aiPath.enabled = true;
+            pizzaAlternateTimeCounter = 0;
+            pizzaShootTimeCounter = 0;
+        }
     }
 
     /*
@@ -272,14 +332,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //Damaged by player bullet
-        if (collision.gameObject.tag == "Bullet")
-        {
-            health -= collision.gameObject.GetComponent<Bullet>().damage;
-            Destroy(collision.gameObject);
-            //Debug.Log("Damaged Enemy");
-        }
-        else if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             switch (thisEnemyType)
             {
