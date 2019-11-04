@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour
         CookieShuriken
     }
 
+    [Header("Weapon Sprites")]
+    public Sprite TaterTot_sp;
+    public Sprite BaconCrossbow_sp;
+    public Sprite HotSauceSquirtGun_sp;
+    public Sprite CookieShuriken_sp;
+
     // Start is called before the first frame update
     void Start()
     {

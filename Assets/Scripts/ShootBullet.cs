@@ -19,6 +19,11 @@ public class ShootBullet : MonoBehaviour
     public float cookieBulletTime; //minimum delay between each bullet fired
     private float cookieBulletTimeCounter;
 
+    [Header("Bacon Bolt")]
+    public GameObject baconBulletPrefab;
+    public float baconBulletTime; //minimum delay between each bullet fired
+    private float baconBulletTimeCounter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +70,7 @@ public class ShootBullet : MonoBehaviour
             case GameManager.WeaponType.HotSauceSquirtGun: // flamethrower
                 break;
             case GameManager.WeaponType.BaconCrossbow: //piercing
+                BaconCrossBow();
                 break;
         }
     }
@@ -97,6 +103,16 @@ public class ShootBullet : MonoBehaviour
         bullet.transform.position = transform.position + dirVec * bulletOffset;
 
         Rigidbody rigidbody = bullet.GetComponent<Rigidbody>();
-        rigidbody.AddForce(Quaternion.AngleAxis(angleOffset, Vector3.forward) * dirVec * 100.0f, ForceMode.Acceleration);
+        rigidbody.AddForce(Quaternion.AngleAxis(angleOffset, Vector3.forward) * dirVec * 300.0f, ForceMode.Acceleration);
+    }
+
+    private void BaconCrossBow()
+    {
+        if (Input.GetMouseButton(0) && baconBulletTimeCounter >= baconBulletTime)
+        {
+            Instantiate(baconBulletPrefab, transform.position + dirVec * bulletOffset, Quaternion.identity);
+            baconBulletTimeCounter = 0;
+        }
+        baconBulletTimeCounter += Time.deltaTime;
     }
 }

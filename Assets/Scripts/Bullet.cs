@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
 
     public float bulletLifeTime;
     public float damage;
+    public bool canPierceEnemies;
 
     // Start is called before the first frame update
     void Start()
@@ -27,24 +28,21 @@ public class Bullet : MonoBehaviour
         dirVec.Normalize();
         rb = GetComponent<Rigidbody>();
 
-        //point at target
-        //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
-        //transform.right = dirVec;
+        //orientate bullet
+        Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
+        transform.up = dirVec;
 
-        speed = 4f;
-        bulletLifeTime = 100f;
-        damage = 1;
+        bulletLifeTime = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = dirVec * speed;
-        //transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + dirVec, speed * Time.deltaTime);
 
         //orientate bullet
-        //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
-        //transform.right = dirVec
+        Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
+        transform.up = dirVec;
 
         //destroy bullet
         if (bulletLifeTime <= 0)
@@ -59,6 +57,15 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyController>().health -= damage;
+            if (!canPierceEnemies)
+            {
+                Destroy(gameObject);
+
+            }
+        }
+
+        if (other.gameObject.tag == "Obstacle")
+        {
             Destroy(gameObject);
         }
     }

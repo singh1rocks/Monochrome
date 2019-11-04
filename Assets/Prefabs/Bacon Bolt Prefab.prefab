@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4587362241032899333}
   - component: {fileID: 4587362241032899332}
+  - component: {fileID: 4587362241032899339}
   - component: {fileID: -8113276164160555287}
   - component: {fileID: 7731767894335175045}
-  - component: {fileID: 8412475379938544583}
   m_Layer: 0
-  m_Name: ShotgunBullet Prefab
+  m_Name: Bacon Bolt Prefab
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4587362241032899338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.99, y: 0.88, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 054324a10c47d0c439f14f8e9a68eb3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35a66d4955c6d0b4fab98872072bd8aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,6 +82,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4587362241032899339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587362241032899338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff5e48c3865cf44a01ad53e72c044e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  cam: {fileID: 0}
+  speed: 6
+  rb: {fileID: 0}
+  target: {x: 0, y: 0}
+  dirVec: {x: 0, y: 0}
+  bulletLifeTime: 10
+  damage: 2
+  canPierceEnemies: 1
 --- !u!54 &-8113276164160555287
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -111,18 +132,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8412475379938544583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587362241032899338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b254cf1a3096ef546ad1323b54714486, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletLifeTime: 10
-  damage: 1
-  rotationRate: 10

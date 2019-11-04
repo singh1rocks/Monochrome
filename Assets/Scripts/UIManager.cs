@@ -26,6 +26,13 @@ public class UIManager : MonoBehaviour
 
     public Canvas canvas;
     public Slider healthSlider;
+    public Image weaponIcon;
+
+    [Header("Weapon Icon Sprites")]
+    public Sprite TaterTot_icon;
+    public Sprite BaconCrossbow_icon;
+    public Sprite HotSauceSquirtGun_icon;
+    public Sprite CookieShuriken_icon;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +46,22 @@ public class UIManager : MonoBehaviour
     {
         //health slider
         healthSlider.value = healthSlider.maxValue - playerMovement.health;
+
+        //switch weapon icon
+        switch (GameManager.instance.equippedWeapon)
+        {
+            case GameManager.WeaponType.TaterTot: //basic
+                weaponIcon.sprite = TaterTot_icon;
+                break;
+            case GameManager.WeaponType.CookieShuriken: //spread shot
+                weaponIcon.sprite = CookieShuriken_icon;
+                break;
+            case GameManager.WeaponType.HotSauceSquirtGun: // flamethrower
+                weaponIcon.sprite = HotSauceSquirtGun_icon;
+                break;
+            case GameManager.WeaponType.BaconCrossbow: //piercing
+                weaponIcon.sprite = BaconCrossbow_icon;
+                break;
+        }
     }
 }
