@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7864995084952063202}
   - component: {fileID: 7864995084952063203}
   - component: {fileID: 7864995084952063228}
+  - component: {fileID: 8828759820268877953}
   m_Layer: 0
   m_Name: PizzaBulletPrefab
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7864995084952063229}
-  m_LocalRotation: {x: 0, y: 0, z: 0.22495107, w: 0.9743701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.124018, y: 24.064293, z: 0.868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 26}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7864995084952063202
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,8 +93,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.08852019
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.10859892
+  m_Center: {x: -0.036800593, y: -0.13713264, z: 0}
 --- !u!54 &7864995084952063228
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,3 +111,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 1
+--- !u!114 &8828759820268877953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864995084952063229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12607229626e31048a5fccaea1477839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.5

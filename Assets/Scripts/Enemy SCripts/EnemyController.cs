@@ -138,7 +138,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerToEnemyVector = new Vector2(transform.position.x - player_transform.position.x, transform.position.y - player_transform.position.y);
+        playerToEnemyVector = new Vector3(transform.position.x - player_transform.position.x, transform.position.y - player_transform.position.y, 0f);
         DistToPlayer = playerToEnemyVector.magnitude;
 
         //pathfinding
@@ -147,16 +147,6 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Die();
-        }
-
-        //flip sprite when player is to the right
-        if (playerToEnemyVector.x <= 0)
-        {
-            spriteRend.flipX = true;
-        }
-        else
-        {
-            spriteRend.flipX = false;
         }
 
         /*
@@ -180,11 +170,13 @@ public class EnemyController : MonoBehaviour
         {
             case EnemyType.Bacon:
                 SetPlayerAsAITarget();
+                PointBaconAtPlayer();
                 break;
             case EnemyType.SpamCan:
                 break;
             case EnemyType.HotSauce:
                 HotSauce();
+                FlipSprite();
                 break;
             case EnemyType.Cabbage:
                 break;
@@ -199,6 +191,7 @@ public class EnemyController : MonoBehaviour
                 break;
             case EnemyType.PizzaBox:
                 Pizza();
+                FlipSprite();
                 break;
             case EnemyType.ChurroTaco:
                 break;
@@ -206,6 +199,24 @@ public class EnemyController : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    private void PointBaconAtPlayer()
+    {
+        transform.right = -playerToEnemyVector;
+    }
+
+    private void FlipSprite()
+    {
+        //flip sprite when player is to the right
+        if (playerToEnemyVector.x <= 0)
+        {
+            spriteRend.flipX = true;
+        }
+        else
+        {
+            spriteRend.flipX = false;
         }
     }
 
@@ -225,7 +236,6 @@ public class EnemyController : MonoBehaviour
     {
         SetPlayerAsAITarget();
 
-        #region Hot Sauce
         //set isShooting bool for animation
         animator.SetBool("isShooting", isShooting);
 
@@ -264,9 +274,11 @@ public class EnemyController : MonoBehaviour
             hotSauceAlternateTimeCounter = 0;
             hotSauceShootTimeCounter = 0;
         }
-        #endregion
     }
 
+    /// <summary>
+    /// fires 8 bullets outwards, evenly spread around the pizza
+    /// </summary>
     public void Pizza()
     {
         SetPlayerAsAITarget();
@@ -296,7 +308,6 @@ public class EnemyController : MonoBehaviour
             if (pizzaShootTimeCounter >= pizzaShootTime)
             {
                 //TODO shooting PIZZA
-                Debug.Log("pizza shooting");
                 CreateBulletAtAngle(pizzaBulletPrefab, Vector3.right, pizzaBulletOffset);
                 CreateBulletAtAngle(pizzaBulletPrefab, Vector3.right + Vector3.up, pizzaBulletOffset);
                 CreateBulletAtAngle(pizzaBulletPrefab, Vector3.up, pizzaBulletOffset);
@@ -331,7 +342,7 @@ public class EnemyController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab);
         bullet.transform.position = transform.position + dirVec * bulletOffset;
 
-        bullet.transform.up = -dirVec; // orientate bullet
+        bullet.transform.up = dirVec; // orientate bullet
         Rigidbody rigidbody = bullet.GetComponent<Rigidbody>();
         rigidbody.AddForce(Quaternion.AngleAxis(angleOffset, Vector3.forward) * dirVec * 100.0f, ForceMode.Acceleration);
         

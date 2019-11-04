@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4580206503804498286}
   - component: {fileID: 4580206503804498285}
   - component: {fileID: 4580206503804498282}
+  - component: {fileID: 8710248272329040803}
   - component: {fileID: 14605218489777371}
-  - component: {fileID: 1074745066}
   m_Layer: 10
-  m_Name: Pizza Prefab
+  m_Name: Bacon Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97f7b805852fa243abcabaad4d06a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnemyType: 8
+  thisEnemyType: 0
   health: 0
   speed: 0
   player: {fileID: 0}
@@ -146,11 +146,24 @@ MonoBehaviour:
   hotSauceBulletPrefab: {fileID: 0}
   hotSauceAlternateTime: 0
   hotSauceShootTime: 0
-  pizzaBulletPrefab: {fileID: 7864995084952063229, guid: 4ab4ec7dfeec52c468ba3ddb73d0309e,
-    type: 3}
-  pizzaAlternateTime: 2
-  pizzaShootTime: 1.2
-  pizzaBulletOffset: 0.6
+  pizzaBulletPrefab: {fileID: 0}
+  pizzaAlternateTime: 0
+  pizzaShootTime: 0
+  pizzaBulletOffset: 0
+--- !u!136 &8710248272329040803
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580206503804498273}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.116230965
+  m_Height: 0.5235615
+  m_Direction: 0
+  m_Center: {x: -0.012822151, y: -0.021380424, z: -0.00000008940697}
 --- !u!54 &14605218489777371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -167,19 +180,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 1
---- !u!135 &1074745066
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4580206503804498273}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2914001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4580206503995069593
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4580206503995069607}
   - component: {fileID: 4580206503995069606}
+  - component: {fileID: 213644995}
   m_Layer: 10
   m_Name: Graphics
   m_TagString: Enemy
@@ -248,7 +249,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 8c20c0e75ee0a4a4c8d677cd3cefbd9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e651113f90b126f45918168f67f13bc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -259,3 +260,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &213644995
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580206503995069593}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb682019ea8a5da43a1a1ea9adea63f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
