@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float health = 5f;
     private Transform player_t;
     public SpriteRenderer spriteRend;
+    public Animator animator;
 
     [Header("Knockback")]
     public bool canMove;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         canMove = true;
         knockbackTimeCounter = 0;
         spriteRend = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
             moveVec = new Vector3(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
             rb.velocity = moveVec;
         }
+
+        //animation
+        animator.SetFloat("Horizontal", moveVec.x);
+        animator.SetFloat("Vertical", moveVec.y);
+        animator.SetFloat("Speed", moveVec.magnitude);
 
         //death and game over condition
         if (health<=0)
