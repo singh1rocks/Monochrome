@@ -19,7 +19,7 @@ public class PizzaBullet : MonoBehaviour
             player.health -= damage;
         }
 
-        if (other.gameObject.tag != "Enemy")
+        if (other.gameObject.tag != "Enemy" || other.gameObject.tag != "EnemyBullet")
         {
             Destroy(gameObject);
         }
