@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public Transform player_transform;
     public Rigidbody rb;
     public Animator animator;
+    public SpriteRenderer spriteRend;
 
     public Vector2 playerToEnemyVector;
     public float enemyDistance; //distance at which shooting enemy tries to stay away from player;
@@ -145,6 +146,16 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        }
+
+        //flip sprite when player is to the right
+        if (playerToEnemyVector.x <= 0)
+        {
+            spriteRend.flipX = true;
+        }
+        else
+        {
+            spriteRend.flipX = false;
         }
 
         /*

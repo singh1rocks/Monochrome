@@ -134,18 +134,22 @@ MonoBehaviour:
   player_transform: {fileID: 0}
   rb: {fileID: 0}
   animator: {fileID: 6227224081445588460}
+  spriteRend: {fileID: 4580206503995069606}
   playerToEnemyVector: {x: 0, y: 0}
   enemyDistance: 0
   enemyMoveDistance: 0
   DistToPlayer: 0
   PlayerDetectionRange: 0
+  isShooting: 0
   AIdest: {fileID: 0}
   aiPath: {fileID: 0}
-  hotSauceBulletPrefab: {fileID: 4587362241032899338, guid: d6c0de2e9aa3e704097cd35fa13e68e1,
+  hotSauceBulletPrefab: {fileID: 4587362241032899338, guid: e8f3eb79cea211b42a6bc51d8c48aefa,
     type: 3}
   hotSauceAlternateTime: 3
   hotSauceShootTime: 0.6
-  isShooting: 0
+  pizzaBulletPrefab: {fileID: 0}
+  pizzaAlternateTime: 0
+  pizzaShootTime: 0
 --- !u!136 &8710248272329040803
 CapsuleCollider:
   m_ObjectHideFlags: 0

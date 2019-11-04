@@ -28,8 +28,8 @@ public class EnemyBullet : MonoBehaviour
         transform.position += dirVec * bulletOffset;
 
         //point at target
-        //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
-        //transform.right = dirVec;
+        Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
+        transform.right = dirVec;
 
         //TODO: initialize bullet life time
         if (speed == 0)
@@ -64,15 +64,11 @@ public class EnemyBullet : MonoBehaviour
         {
             player.GetComponent<PlayerMovement>().health -= damage;
             Debug.Log("Bullet hit player");
-
-            if (collision.tag == "Obstacle" || collision.tag == "Player")
-            {
-                Destroy(gameObject);
-            }
-            
         }
 
-
-        
+        if (collision.tag == "Obstacle" || collision.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
     }
 }
