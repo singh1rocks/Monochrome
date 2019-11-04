@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         //animation
         animator.SetFloat("Horizontal", moveVec.x);
         animator.SetFloat("Vertical", moveVec.y);
-        animator.SetFloat("Speed", moveVec.magnitude);
+        animator.SetFloat("Speed", moveVec.sqrMagnitude);
 
         //death and game over condition
         if (health<=0)
