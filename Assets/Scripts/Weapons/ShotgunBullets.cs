@@ -10,8 +10,7 @@ public class ShotgunBullets : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bulletLifeTime = 100f;
-        damage = 1;
+
     }
 
     // Update is called once per frame
@@ -22,5 +21,14 @@ public class ShotgunBullets : MonoBehaviour
             Destroy(gameObject);
         }
         bulletLifeTime -= Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<EnemyController>().health -= damage;
+            Destroy(gameObject);
+        }
     }
 }

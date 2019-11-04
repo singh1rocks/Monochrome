@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisEnemyType: 8
-  health: 0
-  speed: 0
+  health: 10
+  speed: 0.7
   player: {fileID: 0}
   player_transform: {fileID: 0}
   rb: {fileID: 0}

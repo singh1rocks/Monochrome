@@ -12,12 +12,16 @@ public class PizzaBullet : MonoBehaviour
         player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             player.health -= damage;
         }
-        Destroy(gameObject);
+
+        if (other.gameObject.tag != "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
 }

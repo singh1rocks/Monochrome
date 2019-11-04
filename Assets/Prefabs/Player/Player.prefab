@@ -279,13 +279,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d9f1ffb453dca46a21f2851fc7b032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4587362241032899338, guid: a2b16bf32ce5fb84e964e435b212b004,
-    type: 3}
-  bulletTime: 0.5
-  bulletTimeCounter: 0
   dirVec: {x: 0, y: 0, z: 0}
   bulletOffset: 0.4
   mousePos: {x: 0, y: 0, z: 0}
+  taterTotBulletPrefab: {fileID: 4587362241032899338, guid: a2b16bf32ce5fb84e964e435b212b004,
+    type: 3}
+  taterTotBulletTime: 1
+  cookieBulletPrefab: {fileID: 4587362241032899338, guid: e2417dea0790f3944bd07f039f784ffe,
+    type: 3}
+  cookieBulletTime: 1.5
 --- !u!65 &7341685692276111792
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        equippedWeapon = WeaponType.CookieShuriken;
     }
 
     // Update is called once per frame

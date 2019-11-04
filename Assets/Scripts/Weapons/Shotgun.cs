@@ -44,6 +44,7 @@ public class Shotgun : MonoBehaviour
         }
         bulletTimeCounter += Time.deltaTime;
     }
+
     private void CreateBullet(float angleOffset = 0f)
     {
         GameObject bullet = Instantiate<GameObject>(bulletPrefab);
