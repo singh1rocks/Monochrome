@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
     public float PlayerDetectionRange;//distance at which enemy will detect player
     [SerializeField]
     private bool isShooting;
+    public bool dropsWeaponOnDeath;
+    public GameObject weaponDropPrefab;
 
     //pathfinding
     [Header("Pathfinding")]
@@ -375,7 +377,42 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public void Die()
     {
-        Debug.Log("Enemy died");
+        //drops weapon
+        if (dropsWeaponOnDeath)
+        {
+            GameObject pickup = Instantiate(weaponDropPrefab, transform.position, Quaternion.identity);
+
+            switch (thisEnemyType)
+            {
+                case EnemyType.Bacon:
+                    pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.BaconCrossbow;
+                    break;
+                case EnemyType.SpamCan:
+                    break;
+                case EnemyType.HotSauce:
+                    pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.HotSauceSquirtGun;
+                    break;
+                case EnemyType.Cabbage:
+                    break;
+                case EnemyType.Carrot:
+                    break;
+                case EnemyType.Corn:
+                    break;
+                case EnemyType.Meatball:
+                    break;
+                case EnemyType.Chobani:
+                    break;
+                case EnemyType.PizzaBox:
+                    pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.CookieShuriken;
+                    break;
+                case EnemyType.ChurroTaco:
+                    break;
+                case EnemyType.GingerbreadMan:
+                    break;
+                default:
+                    break;
+            }
+        }
         Destroy(gameObject);
     }
 

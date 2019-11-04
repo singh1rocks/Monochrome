@@ -141,6 +141,9 @@ MonoBehaviour:
   DistToPlayer: 0
   PlayerDetectionRange: 0
   isShooting: 0
+  dropsWeaponOnDeath: 0
+  weaponDropPrefab: {fileID: 913760329494369699, guid: ac1dc0acc19439948ab00eb9da1e3179,
+    type: 3}
   AIdest: {fileID: 0}
   aiPath: {fileID: 0}
   hotSauceBulletPrefab: {fileID: 4587362241032899338, guid: e8f3eb79cea211b42a6bc51d8c48aefa,

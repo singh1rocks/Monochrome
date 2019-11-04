@@ -43,3 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7872f1957fb609447b12c52a99a1fd3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equippedWeapon: 0
+  TaterTot_sp: {fileID: 21300000, guid: eed8a18d3cb61184b8663ac5ff6f7d2f, type: 3}
+  BaconCrossbow_sp: {fileID: 21300000, guid: 152936dd3e979f54d8c125311a6413f7, type: 3}
+  HotSauceSquirtGun_sp: {fileID: 21300000, guid: dd42007246395494598c25e278565bab,
+    type: 3}
+  CookieShuriken_sp: {fileID: 0}

@@ -58,7 +58,7 @@ public class WeaponPlacement : MonoBehaviour
                 spriteRend.sprite = GameManager.instance.TaterTot_sp;
                 break;
             case GameManager.WeaponType.CookieShuriken: //spread shot
-                //spriteRend.sprite = GameManager.instance.CookieShuriken_sp;
+                spriteRend.sprite = GameManager.instance.CookieShuriken_sp;
                 break;
             case GameManager.WeaponType.HotSauceSquirtGun: // flamethrower
                 spriteRend.sprite = GameManager.instance.HotSauceSquirtGun_sp;
