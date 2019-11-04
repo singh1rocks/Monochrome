@@ -11,6 +11,12 @@ public class Door_Logic : MonoBehaviour
     public GameObject Enemy_3;
     public GameObject Enemy_4;
     public GameObject Enemy_5;
+    public GameObject Enemy_6;
+    public GameObject Enemy_7;
+    public GameObject Enemy_8;
+    public GameObject Enemy_9;
+    public GameObject Enemy_10;
+    public GameObject Enemy_11;
 
     public GameObject Door_0;
     public GameObject Door_1;
@@ -30,6 +36,12 @@ public class Door_Logic : MonoBehaviour
         Enemies.Add(Enemy_3);
         Enemies.Add(Enemy_4);
         Enemies.Add(Enemy_5);
+        Enemies.Add(Enemy_6);
+        Enemies.Add(Enemy_7);
+        Enemies.Add(Enemy_8);
+        Enemies.Add(Enemy_9);
+        Enemies.Add(Enemy_10);
+        Enemies.Add(Enemy_11);
 
         Doors.Add(Door_0);
         Doors.Add(Door_1);
