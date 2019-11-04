@@ -35,6 +35,7 @@ public class ShootBullet : MonoBehaviour
                 taterTotBulletTimeCounter = 0;
                 break;
             case GameManager.WeaponType.CookieShuriken: //spread shot
+                cookieBulletTimeCounter = 0;
                 break;
             case GameManager.WeaponType.HotSauceSquirtGun: // flamethrower
                 break;
