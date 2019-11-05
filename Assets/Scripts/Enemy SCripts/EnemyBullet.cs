@@ -65,7 +65,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            player.GetComponent<PlayerMovement>().health -= damage;
+            player.GetComponent<PlayerMovement>().DamagePlayer(damage);
             Debug.Log("Bullet hit player");
         }
 

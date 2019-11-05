@@ -16,10 +16,10 @@ public class PizzaBullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            player.health -= damage;
+            player.DamagePlayer(damage);
         }
 
-        if (other.gameObject.tag != "Enemy" || other.gameObject.tag != "EnemyBullet")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Obstacle")
         {
             Destroy(gameObject);
         }

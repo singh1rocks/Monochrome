@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
     public void PlaySingle(AudioSource source)
     {
         float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+        source.pitch = 1f;
         source.pitch *= randomPitch;
 
         source.Play();

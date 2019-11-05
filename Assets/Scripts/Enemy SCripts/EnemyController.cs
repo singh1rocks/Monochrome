@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
     private float hotSauceAlternateTimeCounter;
     public float hotSauceShootTime; // time for hot sauce to fire all bullets
     private float hotSauceShootTimeCounter;
+    public AudioSource hotSauceBulletSFX;
     
     [Header("Pizza")]
     public GameObject pizzaBulletPrefab;
@@ -44,6 +45,7 @@ public class EnemyController : MonoBehaviour
     public float pizzaShootTime; // time for hot sauce to fire all bullets
     private float pizzaShootTimeCounter;
     public float pizzaBulletOffset;
+    public AudioSource pizzaBulletSFX;
 
     /*
     public bool isBeingKnockedBack;
@@ -265,6 +267,9 @@ public class EnemyController : MonoBehaviour
                 //shoot
                 Instantiate(hotSauceBulletPrefab, transform.position, Quaternion.identity);
                 hotSauceShootTimeCounter = 0;
+
+                //play sfx
+                AudioManager.instance.PlaySingle(hotSauceBulletSFX);
             }
 
         }
@@ -320,6 +325,9 @@ public class EnemyController : MonoBehaviour
                 CreateBulletAtAngle(pizzaBulletPrefab, Vector3.right + Vector3.down, pizzaBulletOffset);
 
                 pizzaShootTimeCounter = 0;
+
+                //play sfx
+                AudioManager.instance.PlaySingle(pizzaBulletSFX);
             }
         }
         else if (isShooting && pizzaAlternateTimeCounter >= pizzaAlternateTime)
@@ -458,7 +466,6 @@ public class EnemyController : MonoBehaviour
     /// <param name="d"></param>
     public void DamagePlayer(float d)
     {
-        player.GetComponent<PlayerMovement>().health -= d;
-        //Debug.Log("Damaged Player");
+        player.GetComponent<PlayerMovement>().DamagePlayer(d);
     }
 }

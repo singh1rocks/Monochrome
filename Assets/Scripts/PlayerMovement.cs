@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Transform player_t;
     public SpriteRenderer spriteRend;
     public Animator animator;
+    public AudioSource damagedSFX;
 
     [Header("Knockback")]
     public bool canMove;
@@ -109,5 +110,13 @@ public class PlayerMovement : MonoBehaviour
             //apply knockback force
             rb.velocity = knockbackForce * KBdirVec;
         }
+    }
+
+    public void DamagePlayer(float damage)
+    {
+        health -= damage;
+
+        //play sfx
+        AudioManager.instance.PlaySingle(damagedSFX);
     }
 }

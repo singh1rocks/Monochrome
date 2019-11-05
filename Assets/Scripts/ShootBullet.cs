@@ -13,16 +13,19 @@ public class ShootBullet : MonoBehaviour
     public GameObject taterTotBulletPrefab;
     public float taterTotBulletTime; //minimum delay between each bullet fired
     private float taterTotBulletTimeCounter;
+    public AudioSource taterSFX;
 
     [Header("Cookie Shuriken")]
     public GameObject cookieBulletPrefab;
     public float cookieBulletTime; //minimum delay between each bullet fired
     private float cookieBulletTimeCounter;
+    public AudioSource cookieSFX;
 
     [Header("Bacon Bolt")]
     public GameObject baconBulletPrefab;
     public float baconBulletTime; //minimum delay between each bullet fired
     private float baconBulletTimeCounter;
+    public AudioSource baconSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +84,9 @@ public class ShootBullet : MonoBehaviour
         {
             Instantiate(taterTotBulletPrefab, transform.position + dirVec * bulletOffset, Quaternion.identity);
             taterTotBulletTimeCounter = 0;
+
+            //play audio
+            AudioManager.instance.PlaySingle(taterSFX);
         }
         taterTotBulletTimeCounter += Time.deltaTime;
     }
@@ -93,6 +99,9 @@ public class ShootBullet : MonoBehaviour
             CreateBulletAtAngle(cookieBulletPrefab);
             CreateBulletAtAngle(cookieBulletPrefab, -30f);
             cookieBulletTimeCounter = 0;
+
+            //play audio
+            AudioManager.instance.PlaySingle(cookieSFX);
         }
         cookieBulletTimeCounter += Time.deltaTime;
     }
@@ -112,6 +121,9 @@ public class ShootBullet : MonoBehaviour
         {
             Instantiate(baconBulletPrefab, transform.position + dirVec * bulletOffset, Quaternion.identity);
             baconBulletTimeCounter = 0;
+
+            //play audio
+            AudioManager.instance.PlaySingle(baconSFX);
         }
         baconBulletTimeCounter += Time.deltaTime;
     }
