@@ -354,7 +354,7 @@ public class EnemyController : MonoBehaviour
 
         bullet.transform.up = dirVec; // orientate bullet
         Rigidbody rigidbody = bullet.GetComponent<Rigidbody>();
-        rigidbody.AddForce(Quaternion.AngleAxis(angleOffset, Vector3.forward) * dirVec * 100.0f, ForceMode.Acceleration);
+        rigidbody.AddForce(Quaternion.AngleAxis(angleOffset, Vector3.forward) * dirVec * 200.0f, ForceMode.Acceleration);
         
     }
 
@@ -419,9 +419,15 @@ public class EnemyController : MonoBehaviour
                     break;
                 default:
                     break;
-            }
+            } Debug.Log("enemy die");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
         Destroy(gameObject);
+
     }
 
     private void OnCollisionEnter(Collision collision)

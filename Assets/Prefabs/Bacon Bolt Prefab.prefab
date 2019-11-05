@@ -101,7 +101,7 @@ MonoBehaviour:
   target: {x: 0, y: 0}
   dirVec: {x: 0, y: 0}
   bulletLifeTime: 10
-  damage: 2
+  damage: 3
   canPierceEnemies: 1
 --- !u!54 &-8113276164160555287
 Rigidbody:

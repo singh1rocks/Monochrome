@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisEnemyType: 8
-  health: 10
+  health: 5
   speed: 0.7
   player: {fileID: 0}
   player_transform: {fileID: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   hotSauceBulletPrefab: {fileID: 0}
   hotSauceAlternateTime: 0
   hotSauceShootTime: 0
+  hotSauceBulletSFX: {fileID: 0}
   pizzaBulletPrefab: {fileID: 7864995084952063229, guid: 4ab4ec7dfeec52c468ba3ddb73d0309e,
     type: 3}
   pizzaAlternateTime: 2
