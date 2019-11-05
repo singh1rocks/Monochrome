@@ -141,7 +141,7 @@ MonoBehaviour:
   DistToPlayer: 0
   PlayerDetectionRange: 0
   isShooting: 0
-  dropsWeaponOnDeath: 0
+  dropsWeaponOnDeath: 1
   weaponDropPrefab: {fileID: 913760329494369699, guid: ac1dc0acc19439948ab00eb9da1e3179,
     type: 3}
   AIdest: {fileID: 0}
@@ -149,10 +149,12 @@ MonoBehaviour:
   hotSauceBulletPrefab: {fileID: 0}
   hotSauceAlternateTime: 0
   hotSauceShootTime: 0
+  hotSauceBulletSFX: {fileID: 0}
   pizzaBulletPrefab: {fileID: 0}
   pizzaAlternateTime: 0
   pizzaShootTime: 0
   pizzaBulletOffset: 0
+  pizzaBulletSFX: {fileID: 0}
 --- !u!136 &8710248272329040803
 CapsuleCollider:
   m_ObjectHideFlags: 0
