@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Pathfinding;
+using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
@@ -152,22 +153,6 @@ public class EnemyController : MonoBehaviour
         {
             Die();
         }
-
-        /*
-        //pathfinding disabled while enemy is being knocked back (from explosion)
-        if (isBeingKnockedBack)
-        {
-            ai.isStopped = true;
-            ai.canMove = true;
-
-            return;
-        }
-        else
-        {
-            ai.isStopped = false;
-            ai.canMove = true;
-        }
-        */
 
         //run behaviour or specific enemy types
         switch (thisEnemyType)
@@ -430,6 +415,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    //contact damage
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -473,5 +459,27 @@ public class EnemyController : MonoBehaviour
     public void DamagePlayer(float d)
     {
         player.GetComponent<PlayerMovement>().DamagePlayer(d);
+    }
+
+    /// <summary>
+    /// enemy damaged by d health points
+    /// </summary>
+    /// <param name="d"></param>
+    public void Damaged(float d)
+    {
+        health -= d;
+        StartCoroutine(FlashSprite(10f, 4));
+    }
+
+    IEnumerator FlashSprite(float frequency, int number)
+    {
+        for (int i = 0; i < number; i++)
+        {
+            spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 0f);
+            yield return new WaitForSeconds(1 / frequency);
+
+            spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
+            yield return new WaitForSeconds(1 / frequency);
+        }
     }
 }

@@ -364,6 +364,8 @@ MonoBehaviour:
   spriteRend: {fileID: 0}
   animator: {fileID: 0}
   damagedSFX: {fileID: 1137379020}
+  flashFrequency: 8
+  flashNumber: 5
   canMove: 0
   isBeingKnockedBack: 0
   knockbackForce: 5

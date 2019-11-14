@@ -34,7 +34,7 @@ public class ShotgunBullets : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyController>().health -= damage;
+            other.gameObject.GetComponent<EnemyController>().Damaged(damage);
             Destroy(gameObject);
         }
     }

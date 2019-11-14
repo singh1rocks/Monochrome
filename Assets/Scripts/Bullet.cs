@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyController>().health -= damage;
+            other.gameObject.GetComponent<EnemyController>().Damaged(damage);
             if (!canPierceEnemies)
             {
                 Destroy(gameObject);

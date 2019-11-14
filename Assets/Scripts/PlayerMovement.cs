@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRend;
     public Animator animator;
     public AudioSource damagedSFX;
+
+    [Header("Sprite Flashing")]
+    public float flashFrequency;
+    public int flashNumber;
 
     [Header("Knockback")]
     public bool canMove;
@@ -56,24 +62,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("esc");
             GameManager.instance.ReloadScene();
         }
-
-        /*
-        //flip sprite based on direction mouse is pointing
-        if (canMove)
-        {
-            if (Input.GetAxisRaw("Horizontal") == 1)
-            {
-                spriteRend.flipX = true;
-            }
-            else if (Input.GetAxisRaw("Horizontal") == -1)
-            {
-                spriteRend.flipX = false;
-            }
-        }
-        */
 
         //knockback duration, reduce velocity, velocity becomes 0 by the time knockback is over (determined by knockback time)
         if (isBeingKnockedBack && rb.velocity.magnitude >= 0 && !canMove)
@@ -119,5 +109,20 @@ public class PlayerMovement : MonoBehaviour
 
         //play sfx
         AudioManager.instance.PlaySingle(damagedSFX);
+
+        //flash sprite to show feedback
+        StartCoroutine(FlashSprite(flashFrequency, flashNumber));
+    }
+
+    IEnumerator FlashSprite(float frequency, int number)
+    {
+        for (int i = 0; i < number; i++)
+        {
+            spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 0f);
+            yield return new WaitForSeconds(1 / frequency);
+
+            spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
+            yield return new WaitForSeconds(1 / frequency);
+        }
     }
 }
