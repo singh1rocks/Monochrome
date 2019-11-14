@@ -48,6 +48,14 @@ public class EnemyController : MonoBehaviour
     public float pizzaBulletOffset;
     public AudioSource pizzaBulletSFX;
 
+    [Header("Knockback")]
+    public bool canMove;
+    public bool isBeingKnockedBack;
+    public float knockbackForce;
+    public Vector3 knockbackForceVec;
+    public float knockbackTime;
+    private float knockbackTimeCounter;
+
     /*
     public bool isBeingKnockedBack;
     public GameObject spamExplosionPrefab;
@@ -82,6 +90,7 @@ public class EnemyController : MonoBehaviour
         player_transform = player.GetComponent<Transform>();
         //isBeingKnockedBack = false;
         rb = GetComponent<Rigidbody>();
+        isBeingKnockedBack = false;
 
         AstarPath.FindAstarPath();
         AstarPath.active.Scan();
@@ -152,6 +161,25 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        }
+
+        //knockback duration, reduce velocity, velocity becomes 0 by the time knockback is over (determined by knockback time)
+        if (isBeingKnockedBack && rb.velocity.magnitude >= 0 && !canMove)
+        {
+            knockbackTimeCounter += Time.deltaTime;
+            rb.velocity -= Time.deltaTime / knockbackTime * knockbackForce * knockbackForceVec;
+
+            if (knockbackTimeCounter >= knockbackTime || rb.velocity.magnitude <= 0)
+            {
+                isBeingKnockedBack = false;
+                rb.velocity = Vector3.zero;
+            }
+        }
+        else
+        {
+            aiPath.enabled = true;
+            isBeingKnockedBack = false;
+            knockbackTimeCounter = 0f;
         }
 
         //run behaviour or specific enemy types
@@ -343,28 +371,6 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    /*
-    /// <summary>
-    /// suicide bomber
-    /// </summary>
-    public void SpamCan()
-    {
-        //set target
-        AIdest.target = player_transform;
-
-        //disable movement once spam reaches player, then trigger explosion, destroy spam enemy game object
-        if (DistToPlayer <= 1)
-        {
-            //stop movement
-            ai.canMove = false;
-
-            //explode
-            Instantiate(spamExplosionPrefab, transform.position, Quaternion.identity);
-        }
-    }
-    */
-
-
     /// <summary>
     /// Enemy dies
     /// </summary>
@@ -482,4 +488,37 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForSeconds(1 / frequency);
         }
     }
+
+    public void Knockback(Vector3 direction)
+    {
+        isBeingKnockedBack = true;
+        aiPath.enabled = false;
+
+        direction.Normalize();
+        knockbackForceVec = direction;
+
+        //apply knockback force
+        rb.velocity = knockbackForce * direction;
+    }
+    /*
+    /// <summary>
+    /// suicide bomber
+    /// </summary>
+    public void SpamCan()
+    {
+        //set target
+        AIdest.target = player_transform;
+
+        //disable movement once spam reaches player, then trigger explosion, destroy spam enemy game object
+        if (DistToPlayer <= 1)
+        {
+            //stop movement
+            ai.canMove = false;
+
+            //explode
+            Instantiate(spamExplosionPrefab, transform.position, Quaternion.identity);
+        }
+    }
+    */
+
 }

@@ -88,19 +88,23 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("player knocked back");
-            isBeingKnockedBack = true;
-            canMove = false;
-
             //calculate vector for knockback direction (away from enemy)
             Transform enemy_t = collision.gameObject.GetComponent<Transform>();
             Vector3 KBdirVec = new Vector3(player_t.position.x - enemy_t.position.x, player_t.position.y - enemy_t.position.y, 0f);
-            KBdirVec.Normalize();
-            knockbackForceVec = KBdirVec;
-
-            //apply knockback force
-            rb.velocity = knockbackForce * KBdirVec;
+            Knockback(KBdirVec);
         }
+    }
+
+    public void Knockback(Vector3 direction)
+    {
+        isBeingKnockedBack = true;
+        canMove = false;
+
+        direction.Normalize();
+        knockbackForceVec = direction;
+
+        //apply knockback force
+        rb.velocity = knockbackForce * direction;
     }
 
     public void DamagePlayer(float damage)
