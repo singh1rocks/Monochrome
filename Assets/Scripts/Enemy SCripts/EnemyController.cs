@@ -56,6 +56,13 @@ public class EnemyController : MonoBehaviour
     public float knockbackTime;
     private float knockbackTimeCounter;
 
+
+    [Header("Spam Can")]
+    public GameObject explosionPrefab;
+    public float explosionDelay;
+    private float explosionDelayCounter;
+    
+
     /*
     public bool isBeingKnockedBack;
     public GameObject spamExplosionPrefab;
@@ -190,6 +197,7 @@ public class EnemyController : MonoBehaviour
                 PointBaconAtPlayer();
                 break;
             case EnemyType.SpamCan:
+                SetPlayerAsAITarget();
                 break;
             case EnemyType.HotSauce:
                 HotSauce();
@@ -432,6 +440,8 @@ public class EnemyController : MonoBehaviour
                     DamagePlayer(1f);
                     break;
                 case EnemyType.SpamCan:
+                    Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
                     break;
                 case EnemyType.HotSauce:
                     break;
