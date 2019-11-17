@@ -12885,7 +12885,7 @@ PrefabInstance:
     - target: {fileID: 4849973884958978141, guid: 37dd1f1ab50a00a449abd0a13f6487e1,
         type: 3}
       propertyPath: equippedWeapon
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37dd1f1ab50a00a449abd0a13f6487e1, type: 3}
@@ -38426,7 +38426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1680926026
 GameObject:
@@ -49243,7 +49243,7 @@ PrefabInstance:
     - target: {fileID: 8995063499175295862, guid: 8395759d45ab1454fa7b96ec0857debb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8995063499175295862, guid: 8395759d45ab1454fa7b96ec0857debb,
         type: 3}

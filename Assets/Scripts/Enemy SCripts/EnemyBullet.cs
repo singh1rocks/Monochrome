@@ -66,7 +66,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.tag == "Player")
         {
             player.GetComponent<PlayerMovement>().DamagePlayer(damage);
-            Debug.Log("Bullet hit player");
+            //Debug.Log("Bullet hit player");
         }
 
         if (collision.tag == "Obstacle" || collision.tag == "Player")
