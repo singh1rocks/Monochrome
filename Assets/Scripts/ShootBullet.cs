@@ -4,7 +4,7 @@ public class ShootBullet : MonoBehaviour
 {
     private PlayerMovement p_controller;
     private Camera cam;
-    private Vector3 target;
+    public Vector3 target;
     public Vector3 dirVec;
     public float bulletOffset;
     public Vector3 mousePos;
@@ -26,6 +26,12 @@ public class ShootBullet : MonoBehaviour
     public float baconBulletTime; //minimum delay between each bullet fired
     private float baconBulletTimeCounter;
     public AudioSource baconSFX;
+
+    [Header("Popcorn Grenade Launcher")]
+    public GameObject grenadePrefab;
+    public float grenadeBulletTime; //minimum delay between each bullet fired
+    private float grenadeBulletTimeCounter;
+    public AudioSource fireGrenadeSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +55,10 @@ public class ShootBullet : MonoBehaviour
                 break;
             case GameManager.WeaponType.BaconCrossbow: //piercing
                 break;
+            case GameManager.WeaponType.PopcornGrenade: //grenade launcher
+                grenadeBulletTimeCounter = 0;
+                break;
+
         }
     }
 
@@ -75,9 +85,25 @@ public class ShootBullet : MonoBehaviour
             case GameManager.WeaponType.BaconCrossbow: //piercing
                 BaconCrossBow();
                 break;
+            case GameManager.WeaponType.PopcornGrenade: // grenade launcher
+                GrenadeLauncher();
+                break;
         }
     }
 
+    private void GrenadeLauncher()
+    {
+        if (Input.GetMouseButton(0) && grenadeBulletTimeCounter >= grenadeBulletTime)
+        {
+            Instantiate(grenadePrefab, transform.position + dirVec * bulletOffset, Quaternion.identity);
+            grenadeBulletTimeCounter = 0;
+
+            //play audio
+            AudioManager.instance.PlaySingle(fireGrenadeSFX);
+        }
+        grenadeBulletTimeCounter += Time.deltaTime;
+    }
+    
     private void TaterTot()
     {
         if (Input.GetMouseButton(0) && taterTotBulletTimeCounter >= taterTotBulletTime)

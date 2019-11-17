@@ -61,14 +61,6 @@ public class EnemyController : MonoBehaviour
     public GameObject explosionPrefab;
     public float explosionDelay;
     private float explosionDelayCounter;
-    
-
-    /*
-    public bool isBeingKnockedBack;
-    public GameObject spamExplosionPrefab;
-    public float knockbackForce;
-    public float knockbackSlowdownForce;
-    */
 
     public enum EnemyType
     {

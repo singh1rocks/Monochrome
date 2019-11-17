@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Flamethrower : MonoBehaviour
 {
@@ -13,7 +11,6 @@ public class Flamethrower : MonoBehaviour
     private Vector3 dirVec;
     public float bulletOffset;
     private Vector3 mousePos;
-
 
     // Start is called before the first frame update
     void Start()

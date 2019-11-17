@@ -16,6 +16,7 @@ public class WeaponPlacement : MonoBehaviour
     {
         spriteRend = GetComponent<SpriteRenderer>();
         player_t = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        shootBulletScript = player_t.gameObject.GetComponent<ShootBullet>();
     }
     
 

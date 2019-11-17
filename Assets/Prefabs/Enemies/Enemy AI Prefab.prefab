@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8710248272329040803}
   - component: {fileID: 14605218489777371}
   m_Layer: 10
-  m_Name: Enemy AI
+  m_Name: Enemy AI Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,14 +141,26 @@ MonoBehaviour:
   DistToPlayer: 0
   PlayerDetectionRange: 0
   isShooting: 0
+  dropsWeaponOnDeath: 0
+  weaponDropPrefab: {fileID: 0}
   AIdest: {fileID: 0}
   aiPath: {fileID: 0}
   hotSauceBulletPrefab: {fileID: 0}
   hotSauceAlternateTime: 0
   hotSauceShootTime: 0
+  hotSauceBulletSFX: {fileID: 0}
   pizzaBulletPrefab: {fileID: 0}
   pizzaAlternateTime: 0
   pizzaShootTime: 0
+  pizzaBulletOffset: 0
+  pizzaBulletSFX: {fileID: 0}
+  canMove: 0
+  isBeingKnockedBack: 0
+  knockbackForce: 5
+  knockbackForceVec: {x: 0, y: 0, z: 0}
+  knockbackTime: 0.4
+  explosionPrefab: {fileID: 0}
+  explosionDelay: 0
 --- !u!136 &8710248272329040803
 CapsuleCollider:
   m_ObjectHideFlags: 0

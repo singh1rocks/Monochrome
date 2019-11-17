@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
         TaterTot,
         BaconCrossbow,
         HotSauceSquirtGun,
-        CookieShuriken
+        CookieShuriken,
+        PopcornGrenade
     }
 
     [Header("Weapon Sprites")]
