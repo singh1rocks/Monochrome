@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door_Backup : MonoBehaviour
 {
     [SerializeField] protected List<GameObject> enemyList;
     [SerializeField] private DoorState thisRoomState;
@@ -12,9 +12,9 @@ public class Door : MonoBehaviour
 
     public enum DoorState
     {
-        notEntered, //player hasnt entered room yet
-        entered, //player has entered room, doors close behind him
-        canExit //player has killed all enemies and doors open, allows him to exit room
+        notEntered,
+        entered,
+        canExit
     }
 
     // Start is called before the first frame update
@@ -55,13 +55,27 @@ public class Door : MonoBehaviour
         }
     }
 
+    /*
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            enemyList.Add(other.gameObject);
+        }
+    }
+    */
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player" && thisRoomState == DoorState.notEntered)
         {
             thisRoomState = DoorState.entered;
-        }
 
+            //close doors to trap player inside
+            entranceDoor.gameObject.SetActive(true);
+            exitDoor.gameObject.SetActive(true);
+            otherDoor_0.gameObject.SetActive(true);
+        }
         if (other.gameObject.tag == "Enemy")
         {
             enemyList.Add(other.gameObject);
