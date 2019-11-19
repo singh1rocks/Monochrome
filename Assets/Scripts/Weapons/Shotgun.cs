@@ -8,9 +8,9 @@ public class Shotgun : MonoBehaviour
     private PlayerMovement p_controller;
     private Camera cam;
     private Vector3 target;
-    public Vector3 dirVec;
+    private Vector3 dirVec;
     public float bulletOffset;
-    public Vector3 mousePos;
+    private Vector3 mousePos;
 
 
     // Start is called before the first frame update
@@ -21,6 +21,7 @@ public class Shotgun : MonoBehaviour
         cam = Camera.main;
         mousePos = Input.mousePosition;
         mousePos.z = 5;
+        bulletTime = 1;
 
     }
 
@@ -38,7 +39,9 @@ public class Shotgun : MonoBehaviour
         {
             //Instantiate(bulletPrefab, transform.position + dirVec * bulletOffset, Quaternion.identity);
             CreateBullet(30f);
+            CreateBullet(15f);
             CreateBullet();
+            CreateBullet(-15f);
             CreateBullet(-30f);
             bulletTimeCounter = 0;
         }

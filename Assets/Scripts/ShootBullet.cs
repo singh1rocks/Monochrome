@@ -7,7 +7,8 @@ public class ShootBullet : MonoBehaviour
     public Vector3 target;
     public Vector3 dirVec;
     public float bulletOffset;
-    public Vector3 mousePos;
+    private Vector3 mousePos;
+    
 
     [Header("Tater Tot")]
     public GameObject taterTotBulletPrefab;
@@ -33,6 +34,10 @@ public class ShootBullet : MonoBehaviour
     private float grenadeBulletTimeCounter;
     public AudioSource fireGrenadeSFX;
 
+    [Header("Flame Sauce")]
+    public AudioSource flameSFX;
+    public GameObject flameObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +46,11 @@ public class ShootBullet : MonoBehaviour
         cam = Camera.main;
         mousePos = Input.mousePosition;
         mousePos.z = 5;
+        dirVec = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0f);
+        dirVec.Normalize();
+
+        //set to invisible
+        flameObject.SetActive(false);
 
         //init values for specific weapon type
         switch (GameManager.instance.equippedWeapon)
@@ -81,6 +91,7 @@ public class ShootBullet : MonoBehaviour
                 Shotgun();
                 break;
             case GameManager.WeaponType.HotSauceSquirtGun: // flamethrower
+                Flamethrower();
                 break;
             case GameManager.WeaponType.BaconCrossbow: //piercing
                 BaconCrossBow();
@@ -152,5 +163,17 @@ public class ShootBullet : MonoBehaviour
             AudioManager.instance.PlaySingle(baconSFX);
         }
         baconBulletTimeCounter += Time.deltaTime;
+    }
+
+    private void Flamethrower()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            flameObject.SetActive(true);
+        }
+        else
+        {
+            //flameObject.SetActive(false);
+        }
     }
 }

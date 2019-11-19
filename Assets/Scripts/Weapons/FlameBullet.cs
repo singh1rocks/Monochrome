@@ -35,17 +35,14 @@ public class FlameBullet : MonoBehaviour
         speed = 4f;
         bulletLifeTime = .5f;
         damage = .25f;
+        transform.forward = dirVec;
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = dirVec * speed;
-        //transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + dirVec, speed * Time.deltaTime);
-
-        //orientate bullet
-        //Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
-        //transform.right = dirVec
+        transform.up = dirVec;
 
         //destroy bullet
         if (bulletLifeTime <= 0)

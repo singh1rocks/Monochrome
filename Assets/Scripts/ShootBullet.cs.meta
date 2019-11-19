@@ -3,7 +3,15 @@ guid: 54d9f1ffb453dca46a21f2851fc7b032
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - taterTotBulletPrefab: {instanceID: 0}
+  - taterSFX: {instanceID: 0}
+  - cookieBulletPrefab: {instanceID: 0}
+  - cookieSFX: {instanceID: 0}
+  - baconBulletPrefab: {instanceID: 0}
+  - baconSFX: {instanceID: 0}
+  - flameSaucePrefab: {instanceID: 0}
+  - flameSFX: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
