@@ -157,6 +157,13 @@ MonoBehaviour:
   pizzaShootTime: 0
   pizzaBulletOffset: 0
   pizzaBulletSFX: {fileID: 0}
+  canMove: 0
+  isBeingKnockedBack: 0
+  knockbackForce: 5
+  knockbackForceVec: {x: 0, y: 0, z: 0}
+  knockbackTime: 0.4
+  explosionPrefab: {fileID: 0}
+  explosionDelay: 0
 --- !u!136 &8710248272329040803
 CapsuleCollider:
   m_ObjectHideFlags: 0

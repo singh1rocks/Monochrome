@@ -259,7 +259,7 @@ public class EnemyController : MonoBehaviour
         if (!isShooting && hotSauceAlternateTimeCounter >= hotSauceAlternateTime)
         {
             isShooting = true;
-            aiPath.enabled = false;
+            aiPath.canMove = false;
             hotSauceAlternateTimeCounter = 0;
             hotSauceShootTimeCounter = 0;
         }
@@ -290,7 +290,7 @@ public class EnemyController : MonoBehaviour
         {
             SetPlayerAsAITarget();
             isShooting = false;
-            aiPath.enabled = true;
+            aiPath.canMove = true;
             hotSauceAlternateTimeCounter = 0;
             hotSauceShootTimeCounter = 0;
         }
@@ -309,7 +309,7 @@ public class EnemyController : MonoBehaviour
         if (!isShooting && pizzaAlternateTimeCounter >= pizzaAlternateTime)
         {
             isShooting = true;
-            aiPath.enabled = false;
+            aiPath.canMove = false;
             pizzaAlternateTimeCounter = 0;
             pizzaShootTimeCounter = 0;
         }
@@ -347,7 +347,7 @@ public class EnemyController : MonoBehaviour
         {
             SetPlayerAsAITarget();
             isShooting = false;
-            aiPath.enabled = true;
+            aiPath.canMove = true;
             pizzaAlternateTimeCounter = 0;
             pizzaShootTimeCounter = 0;
         }
