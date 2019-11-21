@@ -42,7 +42,7 @@ public class Door : MonoBehaviour
 
         for (int i = 0; i < enemyList.Count; i++)
         {
-            if (enemyList[i].gameObject.GetComponent<EnemyController>().health <= 0)
+            if (enemyList[i].gameObject.GetComponent<EnemyController>().health > 0)
             {
                 enemiesAlive++;
             }
