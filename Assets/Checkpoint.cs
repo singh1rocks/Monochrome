@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public Door door; //door that this checkpoint is linked to
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,13 @@ public class Checkpoint : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            GameManager.instance.activeCheckpoint = gameObject.GetComponent<Checkpoint>();
+        }
     }
 }

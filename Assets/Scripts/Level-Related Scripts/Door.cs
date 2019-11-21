@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] protected List<GameObject> enemyList;
-    [SerializeField] private DoorState thisRoomState;
+    public List<GameObject> enemyList;
+    public List<Vector3> enemyPositions;
+    public DoorState thisRoomState;
     public GameObject entranceDoor;
     public GameObject exitDoor;
     public GameObject otherDoor_0;
@@ -37,7 +38,23 @@ public class Door : MonoBehaviour
             }
         }
 
-        if (enemyList.Count <= 0 && thisRoomState == DoorState.entered)
+        int enemiesAlive = 0;
+
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if (enemyList[i].gameObject.GetComponent<EnemyController>().health <= 0)
+            {
+                enemiesAlive++;
+            }
+        }
+
+        if (thisRoomState == DoorState.notEntered)
+        {
+            entranceDoor.gameObject.SetActive(false);
+            exitDoor.gameObject.SetActive(false);
+        }
+
+        if (enemiesAlive == 0 && thisRoomState == DoorState.entered)
         {
             //open doors after all enemies are killed
             exitDoor.gameObject.SetActive(false);
@@ -71,6 +88,26 @@ public class Door : MonoBehaviour
         {
             enemyList.Add(other.gameObject);
             other.gameObject.SetActive(false);
+            enemyPositions.Add(other.gameObject.transform.position);
         }
+    }
+    
+    public void RespawnEnemies()
+    {
+        for (int i=0; i<enemyList.Count; i++)
+        {
+            if (enemyList[i].gameObject.GetComponent<EnemyController>().health <= 0)
+            {
+                EnemyController thisEnemy = enemyList[i].gameObject.GetComponent<EnemyController>();
+                thisEnemy.health = thisEnemy.maxHealth;
+            }
+        }
+
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            enemyList[i].gameObject.transform.position = enemyPositions[i];
+        }
+
+        thisRoomState = DoorState.notEntered;
     }
 }

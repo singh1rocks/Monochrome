@@ -10,7 +10,38 @@ PrefabInstance:
     - target: {fileID: 4580206503804498273, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
       propertyPath: m_Name
-      value: Spam Prefab
+      value: Spam Prefab Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: thisEnemyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: health
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 5947517570372207697, guid: 611a9501c2f70aa4fbf59757e9835b0f,
+        type: 3}
+    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: maxHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498286, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498284, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
@@ -67,31 +98,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4580206503804498286, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: thisEnemyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: health
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: speed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: explosionPrefab
-      value: 
-      objectReference: {fileID: 5947517570372207697, guid: 611a9501c2f70aa4fbf59757e9835b0f,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10c63f282a77aa40aa8a35fa81deb9d, type: 3}

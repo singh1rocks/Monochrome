@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public Sprite CookieShuriken_sp;
 
     [Header("Checkpoints")]
-    [SerializeField] private GameObject[] checkpoints;
+    public Checkpoint activeCheckpoint;
 
     // Start is called before the first frame update
     void Start()

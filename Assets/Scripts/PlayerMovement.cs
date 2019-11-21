@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public Vector2 moveVec;
     public Rigidbody rb;
-    public float health = 5f;
+    public float maxHealth;
+    public float health;
     private Transform player_t;
     public SpriteRenderer spriteRend;
     public Animator animator;
@@ -30,7 +31,13 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player_t = GetComponent<Transform>();
-        health = 5f;
+
+        if (maxHealth == 0)
+        {
+            maxHealth = 5f;
+        }
+        health = maxHealth;
+
         isBeingKnockedBack = false;
         canMove = true;
         knockbackTimeCounter = 0;
@@ -131,8 +138,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Die()
+    private void DieRespawn()
     {
         //things to do when player dies
+        GameManager.instance.activeCheckpoint.door.RespawnEnemies();
+        player_t.position = GameManager.instance.activeCheckpoint.transform.position;
+        health = maxHealth;
     }
 }

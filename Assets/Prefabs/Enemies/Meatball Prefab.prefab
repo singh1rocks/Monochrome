@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisEnemyType: 6
+  maxHealth: 10
   health: 10
   speed: 0.7
   player: {fileID: 0}
@@ -154,6 +155,13 @@ MonoBehaviour:
   pizzaShootTime: 0
   pizzaBulletOffset: 0
   pizzaBulletSFX: {fileID: 0}
+  canMove: 0
+  isBeingKnockedBack: 0
+  knockbackForce: 0
+  knockbackForceVec: {x: 0, y: 0, z: 0}
+  knockbackTime: 0
+  explosionPrefab: {fileID: 0}
+  explosionDelay: 0
 --- !u!54 &14605218489777371
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public EnemyType thisEnemyType;
 
+    public float maxHealth;
     public float health;
     public float speed;
 
@@ -24,6 +25,7 @@ public class EnemyController : MonoBehaviour
     private bool isShooting;
     public bool dropsWeaponOnDeath;
     public GameObject weaponDropPrefab;
+    
 
     //pathfinding
     [Header("Pathfinding")]
@@ -80,10 +82,11 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (health == 0)
+        if (maxHealth == 0)
         {
-            health = 3f;
+            maxHealth = 3f;
         }
+        health = maxHealth;
 
         player = GameObject.FindWithTag("Player");
         player_transform = player.GetComponent<Transform>();
@@ -411,13 +414,16 @@ public class EnemyController : MonoBehaviour
                 default:
                     break;
             } Debug.Log("enemy die");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
 
     }
 
