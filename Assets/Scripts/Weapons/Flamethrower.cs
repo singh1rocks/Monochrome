@@ -2,13 +2,13 @@
 
 public class Flamethrower : MonoBehaviour
 {
-    public GameObject flamebulletPrefab;
+    public GameObject FlameSauceTrail;
     public float bulletTime; //minimum delay between each bullet fired
     public float bulletTimeCounter;
     private PlayerMovement p_controller;
     private Camera cam;
     private Vector3 target;
-    private Vector3 dirVec;
+    public Vector3 dirVec;
     public float bulletOffset;
     private Vector3 mousePos;
 
@@ -34,7 +34,7 @@ public class Flamethrower : MonoBehaviour
         //shoot bullet
         if (Input.GetMouseButton(0) && bulletTimeCounter >= bulletTime)
         {
-            Instantiate(flamebulletPrefab, transform.position + dirVec * bulletOffset, Quaternion.identity);
+            Instantiate(FlameSauceTrail, transform.position + dirVec * bulletOffset, Quaternion.identity);
             bulletTimeCounter = 0;
         }
         bulletTimeCounter += Time.deltaTime;
