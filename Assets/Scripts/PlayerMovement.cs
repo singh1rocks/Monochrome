@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         //death and game over condition
         if (health<=0)
         {
+            Die();
             //Debug.Log("Game Over");
             //GameManager.instance.ReloadScene();
         }
@@ -128,5 +129,10 @@ public class PlayerMovement : MonoBehaviour
             spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
             yield return new WaitForSeconds(1 / frequency);
         }
+    }
+
+    private void Die()
+    {
+        //things to do when player dies
     }
 }
