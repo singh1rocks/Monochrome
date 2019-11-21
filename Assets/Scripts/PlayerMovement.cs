@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         //death and game over condition
         if (health<=0)
         {
-            Die();
+            DieRespawn();
             //Debug.Log("Game Over");
             //GameManager.instance.ReloadScene();
         }
