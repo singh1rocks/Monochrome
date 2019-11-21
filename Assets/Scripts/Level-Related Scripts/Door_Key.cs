@@ -55,5 +55,12 @@ public class Door_Key : MonoBehaviour
             Destroy(gameObject);
             Debug.Log(GameVariables.key_6);
         }
+
+        if (collider.gameObject.name == "Player" && gameObject.name == "Door_7" && GameVariables.key_7 > 0)
+        {
+            GameVariables.key_7--;
+            Destroy(gameObject);
+            Debug.Log(GameVariables.key_7);
+        }
     }
 }

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door_Backup1 : MonoBehaviour
 {
-    public List<GameObject> enemyList;
-    public List<Vector3> enemyPositions;
-    public DoorState thisRoomState;
+    [SerializeField] protected List<GameObject> enemyList;
+    [SerializeField] private DoorState thisRoomState;
     public GameObject entranceDoor;
     public GameObject exitDoor;
     public GameObject otherDoor_0;
@@ -24,10 +23,12 @@ public class Door : MonoBehaviour
         thisRoomState = DoorState.notEntered;
         entranceDoor.gameObject.SetActive(false);
         exitDoor.gameObject.SetActive(false);
+
         if (otherDoor_0.gameObject != null)
         {
             otherDoor_0.gameObject.SetActive(false);
         }
+        
     }
 
     // Update is called once per frame
@@ -41,27 +42,7 @@ public class Door : MonoBehaviour
             }
         }
 
-        int enemiesAlive = 0;
-
-        for (int i = 0; i < enemyList.Count; i++)
-        {
-            if (enemyList[i].gameObject.GetComponent<EnemyController>().health > 0)
-            {
-                enemiesAlive++;
-            }
-        }
-
-        if (thisRoomState == DoorState.notEntered)
-        {
-            entranceDoor.gameObject.SetActive(false);
-            exitDoor.gameObject.SetActive(false);
-            if (otherDoor_0.gameObject != null)
-            {
-                otherDoor_0.gameObject.SetActive(false);
-            }
-        }
-
-        if (enemiesAlive == 0 && thisRoomState == DoorState.entered)
+        if (enemyList.Count <= 0 && thisRoomState == DoorState.entered)
         {
             //open doors after all enemies are killed
             exitDoor.gameObject.SetActive(false);
@@ -70,6 +51,7 @@ public class Door : MonoBehaviour
             {
                 otherDoor_0.gameObject.SetActive(false);
             }
+                
             thisRoomState = DoorState.canExit;
         }
 
@@ -80,12 +62,12 @@ public class Door : MonoBehaviour
             exitDoor.gameObject.SetActive(true);
             if (otherDoor_0.gameObject != null)
             {
-                otherDoor_0.gameObject.SetActive(false);
+                otherDoor_0.gameObject.SetActive(true);
             }
 
             for (int i = 0; i < enemyList.Count; i++)
             {
-                enemyList[i].gameObject.SetActive(true);
+                enemyList[i].gameObject.GetComponent<EnemyController>().enabled = true;
             }
         }
     }
@@ -100,27 +82,7 @@ public class Door : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             enemyList.Add(other.gameObject);
-            other.gameObject.SetActive(false);
-            enemyPositions.Add(other.gameObject.transform.position);
+            other.gameObject.GetComponent<EnemyController>().enabled = false;
         }
-    }
-    
-    public void RespawnEnemies()
-    {
-        for (int i=0; i<enemyList.Count; i++)
-        {
-            if (enemyList[i].gameObject.GetComponent<EnemyController>().health <= 0)
-            {
-                EnemyController thisEnemy = enemyList[i].gameObject.GetComponent<EnemyController>();
-                thisEnemy.health = thisEnemy.maxHealth;
-            }
-        }
-
-        for (int i = 0; i < enemyList.Count; i++)
-        {
-            enemyList[i].gameObject.transform.position = enemyPositions[i];
-        }
-
-        thisRoomState = DoorState.notEntered;
     }
 }

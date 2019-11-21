@@ -56,5 +56,12 @@ public class Key_Item : MonoBehaviour
             Debug.Log(GameVariables.key_6);
         }
 
+        if (collider.gameObject.name == "Player" && gameObject.name == "7")
+        {
+            GameVariables.key_7 += 1;
+            Destroy(gameObject);
+            Debug.Log(GameVariables.key_7);
+        }
+
     }
 }
