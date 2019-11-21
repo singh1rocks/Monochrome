@@ -85,6 +85,7 @@ public class Door : MonoBehaviour
 
             for (int i = 0; i < enemyList.Count; i++)
             {
+                Debug.Log("set enemy active");
                 enemyList[i].gameObject.SetActive(true);
             }
         }
@@ -99,9 +100,12 @@ public class Door : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
-            enemyList.Add(other.gameObject);
-            other.gameObject.SetActive(false);
-            enemyPositions.Add(other.gameObject.transform.position);
+            if (!enemyList.Contains(other.gameObject))
+            {
+                enemyList.Add(other.gameObject);
+                enemyPositions.Add(other.gameObject.transform.position);
+                other.gameObject.SetActive(false);
+            }
         }
     }
     
