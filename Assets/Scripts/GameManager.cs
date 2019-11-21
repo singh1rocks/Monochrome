@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     public Sprite HotSauceSquirtGun_sp;
     public Sprite CookieShuriken_sp;
 
+    [Header("Checkpoints")]
+    [SerializeField] private GameObject[] checkpoints;
+
     // Start is called before the first frame update
     void Start()
     {

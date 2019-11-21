@@ -8,6 +8,7 @@ public class ShootBullet : MonoBehaviour
     public Vector3 dirVec;
     public float bulletOffset;
     private Vector3 mousePos;
+    private float mouseZPos;
     
 
     [Header("Tater Tot")]
@@ -70,6 +71,13 @@ public class ShootBullet : MonoBehaviour
                 break;
 
         }
+    }
+
+    private void GetMousePosForShooting()
+    {
+        mousePos = Input.mousePosition;
+        //mousePos.z = 5;
+        target = cam.ScreenToWorldPoint(mousePos);
     }
 
     // Update is called once per frame

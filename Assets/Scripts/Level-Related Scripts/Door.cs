@@ -55,7 +55,7 @@ public class Door : MonoBehaviour
 
             for (int i = 0; i < enemyList.Count; i++)
             {
-                enemyList[i].gameObject.GetComponent<EnemyController>().enabled = true;
+                enemyList[i].gameObject.SetActive(true);
             }
         }
     }
@@ -70,7 +70,7 @@ public class Door : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             enemyList.Add(other.gameObject);
-            other.gameObject.GetComponent<EnemyController>().enabled = false;
+            other.gameObject.SetActive(false);
         }
     }
 }
