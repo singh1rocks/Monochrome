@@ -8,30 +8,28 @@ public class Scale_Object : MonoBehaviour
 
     private bool spaceEntered;
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(spaceEntered == true)
-        {
-            for (int i = 0; i < objectList.Count; i++)
-            {
-                
-            }
-        }
-    }
+    public float height;
 
     void OnTriggerEnter(Collider collider)
     {
         if(collider.gameObject.name == "Player")
         {
-            spaceEntered = true;
+            for (int i = 0; i < objectList.Count; i++)
+            {
+                objectList[i].transform.localScale -= new Vector3(0.0f, 0.0f, height);
+            }
+
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.gameObject.name == "Player")
+        {
+            for (int i = 0; i < objectList.Count; i++)
+            {
+                objectList[i].transform.localScale += new Vector3(0.0f, 0.0f, height);
+            }
         }
     }
 }
