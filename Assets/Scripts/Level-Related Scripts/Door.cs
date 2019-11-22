@@ -123,6 +123,7 @@ public class Door : MonoBehaviour
         for (int i = 0; i < enemyList.Count; i++)
         {
             enemyList[i].gameObject.transform.position = enemyPositions[i];
+            enemyList[i].gameObject.SetActive(true);
         }
 
         thisRoomState = DoorState.notEntered;
