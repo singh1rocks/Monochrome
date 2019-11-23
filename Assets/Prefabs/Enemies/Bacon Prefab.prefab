@@ -145,6 +145,7 @@ MonoBehaviour:
   dropsWeaponOnDeath: 1
   weaponDropPrefab: {fileID: 913760329494369699, guid: ac1dc0acc19439948ab00eb9da1e3179,
     type: 3}
+  FSCoroutineRunning: 0
   AIdest: {fileID: 0}
   aiPath: {fileID: 0}
   hotSauceBulletPrefab: {fileID: 0}
@@ -163,6 +164,11 @@ MonoBehaviour:
   knockbackTime: 0
   explosionPrefab: {fileID: 0}
   explosionDelay: 0
+  cornBulletPrefab: {fileID: 0}
+  cornShootTime: 0
+  baconDamage: 1
+  meatballDamage: 0
+  carrotDamage: 0
 --- !u!136 &8710248272329040803
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -59,25 +59,36 @@ public class EnemyController : MonoBehaviour
     public float knockbackTime;
     private float knockbackTimeCounter;
 
-
     [Header("Spam Can")]
     public GameObject explosionPrefab;
     public float explosionDelay;
     private float explosionDelayCounter;
+
+    [Header("Corn")]
+    public GameObject cornBulletPrefab;
+    public float cornShootTime;
+    private float cornShootTimeCounter;
+
+    [Header("Bacon")]
+    public float baconDamage;
+
+    [Header("Meatball")]
+    public float meatballDamage;
+
+    [Header("Carrot")]
+    public float carrotDamage;
 
     public enum EnemyType
     {
         Bacon,
         SpamCan,
         HotSauce,
-        Cabbage,
         Carrot,
         Corn,
         Meatball,
-        Chobani,
+        ChobaniYogurt,
         PizzaBox,
         ChurroTaco,
-        GingerbreadMan
     }
 
     // Start is called before the first frame update
@@ -103,7 +114,7 @@ public class EnemyController : MonoBehaviour
 
         ai = GetComponent<IAstarAI>();
 
-        aiPath.maxSpeed = speed;
+
 
         //initialize values for different enemy types
         switch (thisEnemyType)
@@ -115,6 +126,10 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
             case EnemyType.SpamCan:
+                if (speed == 0)
+                {
+                    aiPath.maxSpeed = 1.5f;
+                }
                 break;
             case EnemyType.HotSauce:
                 if (speed == 0)
@@ -123,19 +138,20 @@ public class EnemyController : MonoBehaviour
                 }
                 hotSauceShootTimeCounter = 0;
                 break;
-            case EnemyType.Cabbage:
-                break;
             case EnemyType.Carrot:
+                if (speed == 0)
+                {
+                    aiPath.maxSpeed = 1.3f;
+                }
                 break;
             case EnemyType.Corn:
+                speed = 0f;
                 break;
             case EnemyType.Meatball:
                 if (speed == 0)
                 {
                     aiPath.maxSpeed = 0.3f;
                 }
-                break;
-            case EnemyType.Chobani:
                 break;
             case EnemyType.PizzaBox:
                 if (speed == 0)
@@ -146,11 +162,11 @@ public class EnemyController : MonoBehaviour
                 break;
             case EnemyType.ChurroTaco:
                 break;
-            case EnemyType.GingerbreadMan:
-                break;
             default:
                 break;
         }
+
+        aiPath.maxSpeed = speed;
     }
 
     // Update is called once per frame
@@ -200,24 +216,20 @@ public class EnemyController : MonoBehaviour
                 HotSauce();
                 FlipSprite();
                 break;
-            case EnemyType.Cabbage:
-                break;
             case EnemyType.Carrot:
+                SetPlayerAsAITarget();
                 break;
             case EnemyType.Corn:
+                Corn();
                 break;
             case EnemyType.Meatball:
                 SetPlayerAsAITarget();
-                break;
-            case EnemyType.Chobani:
                 break;
             case EnemyType.PizzaBox:
                 Pizza();
                 FlipSprite();
                 break;
             case EnemyType.ChurroTaco:
-                break;
-            case EnemyType.GingerbreadMan:
                 break;
             default:
                 break;
@@ -396,22 +408,16 @@ public class EnemyController : MonoBehaviour
                 case EnemyType.HotSauce:
                     pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.HotSauceSquirtGun;
                     break;
-                case EnemyType.Cabbage:
-                    break;
                 case EnemyType.Carrot:
                     break;
                 case EnemyType.Corn:
                     break;
                 case EnemyType.Meatball:
                     break;
-                case EnemyType.Chobani:
-                    break;
                 case EnemyType.PizzaBox:
                     pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.CookieShuriken;
                     break;
                 case EnemyType.ChurroTaco:
-                    break;
-                case EnemyType.GingerbreadMan:
                     break;
                 default:
                     break;
@@ -453,7 +459,7 @@ public class EnemyController : MonoBehaviour
             switch (thisEnemyType)
             {
                 case EnemyType.Bacon:
-                    DamagePlayer(1f);
+                    DamagePlayer(baconDamage);
                     break;
                 case EnemyType.SpamCan:
                     Instantiate(explosionPrefab, transform.position, Quaternion.identity);
@@ -461,22 +467,17 @@ public class EnemyController : MonoBehaviour
                     break;
                 case EnemyType.HotSauce:
                     break;
-                case EnemyType.Cabbage:
-                    break;
                 case EnemyType.Carrot:
+                    DamagePlayer(carrotDamage);
                     break;
                 case EnemyType.Corn:
                     break;
                 case EnemyType.Meatball:
-                    DamagePlayer(3f);
-                    break;
-                case EnemyType.Chobani:
+                    DamagePlayer(meatballDamage);
                     break;
                 case EnemyType.PizzaBox:
                     break;
                 case EnemyType.ChurroTaco:
-                    break;
-                case EnemyType.GingerbreadMan:
                     break;
                 default:
                     break;
@@ -527,6 +528,21 @@ public class EnemyController : MonoBehaviour
 
         //apply knockback force
         rb.velocity = knockbackForce * direction;
+    }
+
+    public void Corn()
+    {
+        cornShootTimeCounter += Time.deltaTime;
+
+        if (cornShootTimeCounter >= cornShootTime)
+        {
+            //shoot
+            Instantiate(cornBulletPrefab, transform.position, Quaternion.identity);
+            cornShootTimeCounter = 0;
+
+            //play sfx
+            //AudioManager.instance.PlaySingle(hotSauceBulletSFX);
+        }
     }
 
 }

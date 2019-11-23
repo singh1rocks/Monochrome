@@ -1,19 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!65 &1547371215279899476
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8995063499175295867}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.61414534, y: 0.43758178, z: 1}
-  m_Center: {x: 0, y: -0.016537547, z: 0}
---- !u!1001 &4847222387350931994
+--- !u!1001 &368260691607100285
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -23,62 +10,21 @@ PrefabInstance:
     - target: {fileID: 4580206503804498273, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
       propertyPath: m_Name
-      value: Spam Prefab Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.3434515
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.025306702
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.015926719
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: m_Height
-      value: 0.686903
-      objectReference: {fileID: 0}
-    - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.11227256
+      value: Carrot Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
-      propertyPath: thisEnemyType
+      propertyPath: carrotDamage
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: maxHealth
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
-      propertyPath: health
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
       propertyPath: speed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: explosionPrefab
-      value: 
-      objectReference: {fileID: 5947517570372207697, guid: 611a9501c2f70aa4fbf59757e9835b0f,
-        type: 3}
-    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: maxHealth
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4580206503804498286, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: maxSpeed
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498284, guid: d10c63f282a77aa40aa8a35fa81deb9d,
@@ -140,19 +86,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e1b82862abd5e2f468e9b5b96c933fb4,
+      objectReference: {fileID: 21300000, guid: 8a32015e6a6d3184ba017584d2c6b821,
         type: 3}
-    - target: {fileID: 4580206503995069607, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d10c63f282a77aa40aa8a35fa81deb9d, type: 3}
---- !u!1 &8995063499175295867 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4580206503804498273, guid: d10c63f282a77aa40aa8a35fa81deb9d,
-    type: 3}
-  m_PrefabInstance: {fileID: 4847222387350931994}
-  m_PrefabAsset: {fileID: 0}

@@ -9,7 +9,6 @@ public class ShootBullet : MonoBehaviour
     public float bulletOffset;
     private Vector3 mousePos;
     private float mouseZPos;
-    
 
     [Header("Tater Tot")]
     public GameObject taterTotBulletPrefab;
@@ -45,8 +44,7 @@ public class ShootBullet : MonoBehaviour
         p_controller = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
 
         cam = Camera.main;
-        mousePos = Input.mousePosition;
-        mousePos.z = 5;
+        GetMousePosForShooting();
         dirVec = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0f);
         dirVec.Normalize();
 
@@ -69,23 +67,23 @@ public class ShootBullet : MonoBehaviour
             case GameManager.WeaponType.PopcornGrenade: //grenade launcher
                 grenadeBulletTimeCounter = 0;
                 break;
-
         }
     }
 
     private void GetMousePosForShooting()
     {
         mousePos = Input.mousePosition;
-        //mousePos.z = 5;
-        target = cam.ScreenToWorldPoint(mousePos);
+        int layerMask = 1 << 31;
+        Ray ray = cam.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask, QueryTriggerInteraction.Collide);
+        target = hit.point;
     }
 
     // Update is called once per frame
     void Update()
     {
-        mousePos = Input.mousePosition;
-        mousePos.z = 5;
-        target = cam.ScreenToWorldPoint(mousePos);
+        GetMousePosForShooting();
         dirVec = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0f);
         dirVec.Normalize();
 

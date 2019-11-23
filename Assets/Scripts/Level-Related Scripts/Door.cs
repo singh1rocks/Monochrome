@@ -61,12 +61,6 @@ public class Door : MonoBehaviour
             }
         }
 
-        //initialize state when player enters
-        if (thisRoomState == DoorState.entered)
-        {
-            
-        }
-
         if (enemiesAlive == 0 && thisRoomState == DoorState.entered)
         {
             //open doors after all enemies are killed
