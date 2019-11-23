@@ -32,7 +32,7 @@ Shader "Toon/Basic Outline" {
 		float2 offset = TransformViewToProjection(norm.xy);
 
 		#ifdef UNITY_Z_0_FAR_FROM_CLIPSPACE //to handle recent standard asset package on older version of unity (before 5.5)
-			o.pos.xy += offset * UNITY_Z_0_FAR_FROM_CLIPSPACE(o.pos.z) * _Outline;
+			o.pos.xy += offset * _Outline;
 		#else
 			o.pos.xy += offset * _Outline;
 		#endif
