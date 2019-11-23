@@ -25,7 +25,8 @@ public class EnemyController : MonoBehaviour
     private bool isShooting;
     public bool dropsWeaponOnDeath;
     public GameObject weaponDropPrefab;
-    
+    public bool FSCoroutineRunning;
+    public Coroutine FSCoroutine;
 
     //pathfinding
     [Header("Pathfinding")]
@@ -93,6 +94,7 @@ public class EnemyController : MonoBehaviour
         //isBeingKnockedBack = false;
         rb = GetComponent<Rigidbody>();
         isBeingKnockedBack = false;
+        FSCoroutineRunning = false;
 
         AstarPath.FindAstarPath();
         AstarPath.active.Scan();
@@ -482,11 +484,12 @@ public class EnemyController : MonoBehaviour
     public void Damaged(float d)
     {
         health -= d;
-        StartCoroutine(FlashSprite(10f, 4));
+        FSCoroutine = StartCoroutine(FlashSprite(10f, 4));
     }
 
-    IEnumerator FlashSprite(float frequency, int number)
+    public IEnumerator FlashSprite(float frequency, int number)
     {
+        FSCoroutineRunning = true;
         for (int i = 0; i < number; i++)
         {
             spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 0f);
@@ -495,6 +498,7 @@ public class EnemyController : MonoBehaviour
             spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
             yield return new WaitForSeconds(1 / frequency);
         }
+        FSCoroutineRunning = false;
     }
 
     public void Knockback(Vector3 direction)

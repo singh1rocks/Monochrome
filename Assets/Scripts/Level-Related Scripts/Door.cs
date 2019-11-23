@@ -122,7 +122,10 @@ public class Door : MonoBehaviour
 
         for (int i = 0; i < enemyList.Count; i++)
         {
-            enemyList[i].gameObject.transform.position = enemyPositions[i];
+            EnemyController thisEnemy = enemyList[i].gameObject.GetComponent<EnemyController>();
+            thisEnemy.transform.position = enemyPositions[i];
+            StopCoroutine(thisEnemy.FSCoroutine);
+            thisEnemy.spriteRend.color = new Color(thisEnemy.spriteRend.color.r, thisEnemy.spriteRend.color.g, thisEnemy.spriteRend.color.b, 1f);
             enemyList[i].gameObject.SetActive(true);
         }
 
