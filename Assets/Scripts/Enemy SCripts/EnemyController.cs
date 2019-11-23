@@ -500,4 +500,17 @@ public class EnemyController : MonoBehaviour
         }
         FSCoroutineRunning = false;
     }
+
+    public void Knockback(Vector3 direction)
+    {
+        isBeingKnockedBack = true;
+        aiPath.enabled = false;
+
+        direction.Normalize();
+        knockbackForceVec = direction;
+
+        //apply knockback force
+        rb.velocity = knockbackForce * direction;
+    }
+
 }
