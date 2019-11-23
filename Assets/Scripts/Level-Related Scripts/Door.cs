@@ -61,21 +61,10 @@ public class Door : MonoBehaviour
             }
         }
 
+        //initialize state when player enters
         if (thisRoomState == DoorState.entered)
         {
-            //close doors to trap player inside
-            entranceDoor.gameObject.SetActive(true);
-            exitDoor.gameObject.SetActive(true);
-            if (otherDoor_0.gameObject != null)
-            {
-                otherDoor_0.gameObject.SetActive(false);
-            }
-
-            for (int i = 0; i < enemyList.Count; i++)
-            {
-                Debug.Log("set enemy active");
-                enemyList[i].gameObject.SetActive(true);
-            }
+            
         }
 
         if (enemiesAlive == 0 && thisRoomState == DoorState.entered)
@@ -96,6 +85,20 @@ public class Door : MonoBehaviour
         if (other.gameObject.tag == "Player" && thisRoomState == DoorState.notEntered)
         {
             thisRoomState = DoorState.entered;
+
+            //close doors to trap player inside
+            entranceDoor.gameObject.SetActive(true);
+            exitDoor.gameObject.SetActive(true);
+            if (otherDoor_0.gameObject != null)
+            {
+                otherDoor_0.gameObject.SetActive(false);
+            }
+
+            for (int i = 0; i < enemyList.Count; i++)
+            {
+                Debug.Log("set enemy active");
+                enemyList[i].gameObject.SetActive(true);
+            }
         }
 
         if (other.gameObject.tag == "Enemy")

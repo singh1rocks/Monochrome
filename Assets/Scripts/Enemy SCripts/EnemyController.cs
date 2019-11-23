@@ -418,23 +418,27 @@ public class EnemyController : MonoBehaviour
             }
             Debug.Log("enemy die");
 
+            /*
             if (FSCoroutine != null && FSCoroutineRunning)
             {
                 StopCoroutine(FSCoroutine);
                 FSCoroutineRunning = false;
             }
             spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
+            */
             gameObject.SetActive(false);
             return;
         }
         else
         {
+            /*
             if (FSCoroutine != null && FSCoroutineRunning)
             {
                 StopCoroutine(FSCoroutine);
                 FSCoroutineRunning = false;
             }
             spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
+            */
             gameObject.SetActive(false);
             return;
         }
