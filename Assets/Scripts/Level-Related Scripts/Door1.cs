@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class Door1 : MonoBehaviour
 {
     public List<GameObject> enemyList;
     public List<Vector3> enemyPositions;
@@ -63,30 +63,8 @@ public class Door : MonoBehaviour
             }
         }
 
-        if (enemiesAlive == 0 && thisRoomState == DoorState.entered)
+        if (thisRoomState == DoorState.entered)
         {
-            //open doors after all enemies are killed
-            exitDoor.gameObject.SetActive(false);
-            entranceDoor.gameObject.SetActive(false);
-            if (otherDoor_0.gameObject != null)
-            {
-                otherDoor_0.gameObject.SetActive(false);
-            }
-            thisRoomState = DoorState.canExit;
-
-            if (gameObject.name == "Trigger_Gym")
-            {
-                Destroy(Table_D);
-            }
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player" && thisRoomState == DoorState.notEntered)
-        {
-            thisRoomState = DoorState.entered;
-
             //close doors to trap player inside
             entranceDoor.gameObject.SetActive(true);
             exitDoor.gameObject.SetActive(true);
@@ -100,6 +78,31 @@ public class Door : MonoBehaviour
                 Debug.Log("set enemy active");
                 enemyList[i].gameObject.SetActive(true);
             }
+        }
+
+        if (enemiesAlive == 0 && thisRoomState == DoorState.entered)
+        {
+            //open doors after all enemies are killed
+            exitDoor.gameObject.SetActive(false);
+            entranceDoor.gameObject.SetActive(false);
+            if (otherDoor_0.gameObject != null)
+            {
+                otherDoor_0.gameObject.SetActive(false);
+            }
+            thisRoomState = DoorState.canExit;
+
+            if(gameObject.name == "Trigger_Gym")
+            {
+                Destroy(Table_D);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && thisRoomState == DoorState.notEntered)
+        {
+            thisRoomState = DoorState.entered;
         }
 
         if (other.gameObject.tag == "Enemy")

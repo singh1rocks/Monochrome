@@ -12,4 +12,5 @@ public static class GameVariables
     public static int key_5;
     public static int key_6;
     public static int key_7;
+    public static int key_8;
 }
