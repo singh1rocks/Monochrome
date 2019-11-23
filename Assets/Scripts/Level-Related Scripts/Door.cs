@@ -61,18 +61,6 @@ public class Door : MonoBehaviour
             }
         }
 
-        if (enemiesAlive == 0 && thisRoomState == DoorState.entered)
-        {
-            //open doors after all enemies are killed
-            exitDoor.gameObject.SetActive(false);
-            entranceDoor.gameObject.SetActive(false);
-            if (otherDoor_0.gameObject != null)
-            {
-                otherDoor_0.gameObject.SetActive(false);
-            }
-            thisRoomState = DoorState.canExit;
-        }
-
         if (thisRoomState == DoorState.entered)
         {
             //close doors to trap player inside
@@ -88,6 +76,18 @@ public class Door : MonoBehaviour
                 Debug.Log("set enemy active");
                 enemyList[i].gameObject.SetActive(true);
             }
+        }
+
+        if (enemiesAlive == 0 && thisRoomState == DoorState.entered)
+        {
+            //open doors after all enemies are killed
+            exitDoor.gameObject.SetActive(false);
+            entranceDoor.gameObject.SetActive(false);
+            if (otherDoor_0.gameObject != null)
+            {
+                otherDoor_0.gameObject.SetActive(false);
+            }
+            thisRoomState = DoorState.canExit;
         }
     }
 
@@ -126,7 +126,7 @@ public class Door : MonoBehaviour
             thisEnemy.transform.position = enemyPositions[i];
             StopCoroutine(thisEnemy.FSCoroutine);
             thisEnemy.spriteRend.color = new Color(thisEnemy.spriteRend.color.r, thisEnemy.spriteRend.color.g, thisEnemy.spriteRend.color.b, 1f);
-            enemyList[i].gameObject.SetActive(true);
+            enemyList[i].gameObject.SetActive(false);
         }
 
         thisRoomState = DoorState.notEntered;
