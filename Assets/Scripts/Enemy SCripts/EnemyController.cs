@@ -425,6 +425,7 @@ public class EnemyController : MonoBehaviour
             }
             spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
             gameObject.SetActive(false);
+            return;
         }
         else
         {
@@ -435,15 +436,8 @@ public class EnemyController : MonoBehaviour
             }
             spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
             gameObject.SetActive(false);
+            return;
         }
-
-        if (FSCoroutine != null && FSCoroutineRunning)
-        {
-            StopCoroutine(FSCoroutine);
-            FSCoroutineRunning = false;
-        }
-        spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, 1f);
-        gameObject.SetActive(false);
 
     }
 
