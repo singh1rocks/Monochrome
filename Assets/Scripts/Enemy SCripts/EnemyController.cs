@@ -500,37 +500,4 @@ public class EnemyController : MonoBehaviour
         }
         FSCoroutineRunning = false;
     }
-
-    public void Knockback(Vector3 direction)
-    {
-        isBeingKnockedBack = true;
-        aiPath.enabled = false;
-
-        direction.Normalize();
-        knockbackForceVec = direction;
-
-        //apply knockback force
-        rb.velocity = knockbackForce * direction;
-    }
-    /*
-    /// <summary>
-    /// suicide bomber
-    /// </summary>
-    public void SpamCan()
-    {
-        //set target
-        AIdest.target = player_transform;
-
-        //disable movement once spam reaches player, then trigger explosion, destroy spam enemy game object
-        if (DistToPlayer <= 1)
-        {
-            //stop movement
-            ai.canMove = false;
-
-            //explode
-            Instantiate(spamExplosionPrefab, transform.position, Quaternion.identity);
-        }
-    }
-    */
-
 }
