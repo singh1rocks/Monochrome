@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Door_Key : MonoBehaviour
 {
+
+    public Animation Door_Open;
+
     // Start is called before the first frame update
     void OnTriggerEnter(Collider collider)
     {
@@ -31,7 +34,7 @@ public class Door_Key : MonoBehaviour
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_3" && GameVariables.key_3 > 0)
         {
             GameVariables.key_3--;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_3);
         }
 
