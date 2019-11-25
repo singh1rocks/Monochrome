@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97f7b805852fa243abcabaad4d06a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisEnemyType: 8
+  thisEnemyType: 7
   maxHealth: 5
   health: 5
   speed: 0.7
@@ -143,9 +143,10 @@ MonoBehaviour:
   DistToPlayer: 0
   PlayerDetectionRange: 0
   isShooting: 0
-  dropsWeaponOnDeath: 0
+  dropsWeaponOnDeath: 1
   weaponDropPrefab: {fileID: 913760329494369699, guid: ac1dc0acc19439948ab00eb9da1e3179,
     type: 3}
+  FSCoroutineRunning: 0
   AIdest: {fileID: 0}
   aiPath: {fileID: 0}
   hotSauceBulletPrefab: {fileID: 0}
@@ -165,6 +166,11 @@ MonoBehaviour:
   knockbackTime: 0
   explosionPrefab: {fileID: 0}
   explosionDelay: 0
+  cornBulletPrefab: {fileID: 0}
+  cornShootTime: 0
+  baconDamage: 0
+  meatballDamage: 0
+  carrotDamage: 0
 --- !u!54 &14605218489777371
 Rigidbody:
   m_ObjectHideFlags: 0

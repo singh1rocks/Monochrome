@@ -111,8 +111,10 @@ public class EnemyController : MonoBehaviour
         AstarPath.active.Scan();
         AIdest = gameObject.GetComponent<AIDestinationSetter>();
         aiPath = GetComponent<AIPath>();
+        aiPath.canMove = true;
 
         ai = GetComponent<IAstarAI>();
+
 
 
 
@@ -122,26 +124,26 @@ public class EnemyController : MonoBehaviour
             case EnemyType.Bacon:
                 if (speed == 0)
                 {
-                    aiPath.maxSpeed = 1f;
+                    speed = 1f;
                 }
                 break;
             case EnemyType.SpamCan:
                 if (speed == 0)
                 {
-                    aiPath.maxSpeed = 1.5f;
+                    speed = 1.5f;
                 }
                 break;
             case EnemyType.HotSauce:
                 if (speed == 0)
                 {
-                    aiPath.maxSpeed = 0.7f;
+                    speed = 0.7f;
                 }
                 hotSauceShootTimeCounter = 0;
                 break;
             case EnemyType.Carrot:
                 if (speed == 0)
                 {
-                    aiPath.maxSpeed = 1.3f;
+                    speed = 1.3f;
                 }
                 break;
             case EnemyType.Corn:
@@ -150,13 +152,13 @@ public class EnemyController : MonoBehaviour
             case EnemyType.Meatball:
                 if (speed == 0)
                 {
-                    aiPath.maxSpeed = 0.3f;
+                    speed = 0.3f;
                 }
                 break;
             case EnemyType.PizzaBox:
                 if (speed == 0)
                 {
-                    aiPath.maxSpeed = 0.7f;
+                    speed = 0.7f;
                 }
                 pizzaShootTimeCounter = 0;
                 break;
@@ -177,6 +179,7 @@ public class EnemyController : MonoBehaviour
 
         //pathfinding
         if (AstarPath.active.data.gridGraph.nodes == null) AstarPath.active.Scan();
+        AstarPath.FindAstarPath();
 
         if (health <= 0)
         {
