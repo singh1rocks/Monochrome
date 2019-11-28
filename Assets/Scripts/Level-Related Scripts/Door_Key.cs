@@ -13,7 +13,7 @@ public class Door_Key : MonoBehaviour
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_0" && GameVariables.key_0 >0)
         {
             GameVariables.key_0 --;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_0);  
         }
 
