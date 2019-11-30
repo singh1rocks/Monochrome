@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class ShootBullet : MonoBehaviour
 {
@@ -38,6 +38,12 @@ public class ShootBullet : MonoBehaviour
     public AudioSource flameSFX;
     public GameObject flameObject;
 
+    [Header("Churro Sword")]
+    public AudioSource swordSFX;
+    public GameObject swordPrefab;
+    public float swingTime; //minimum delay between each bullet fired
+    private float swingTimeCounter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +72,9 @@ public class ShootBullet : MonoBehaviour
                 break;
             case GameManager.WeaponType.PopcornGrenade: //grenade launcher
                 grenadeBulletTimeCounter = 0;
+                break;
+            case GameManager.WeaponType.ChurroSword: //sword
+                swingTimeCounter = 0;
                 break;
         }
     }
@@ -105,6 +114,9 @@ public class ShootBullet : MonoBehaviour
             case GameManager.WeaponType.PopcornGrenade: // grenade launcher
                 GrenadeLauncher();
                 break;
+            case GameManager.WeaponType.ChurroSword: //sword
+                Sword();
+                break;
         }
     }
 
@@ -139,7 +151,9 @@ public class ShootBullet : MonoBehaviour
         if (Input.GetMouseButton(0) && cookieBulletTimeCounter >= cookieBulletTime)
         {
             CreateBulletAtAngle(cookieBulletPrefab, 30f);
+            CreateBulletAtAngle(cookieBulletPrefab, 15f);
             CreateBulletAtAngle(cookieBulletPrefab);
+            CreateBulletAtAngle(cookieBulletPrefab, -15f);
             CreateBulletAtAngle(cookieBulletPrefab, -30f);
             cookieBulletTimeCounter = 0;
 
@@ -179,7 +193,20 @@ public class ShootBullet : MonoBehaviour
         }
         else
         {
-            //flameObject.SetActive(false);
+            flameObject.SetActive(false);
         }
+    }
+
+    private void Sword()
+    {
+        if (Input.GetMouseButton(0) && swingTimeCounter >= swingTime)
+        {
+            Instantiate(swordPrefab, transform.position + dirVec * 0.5f, Quaternion.LookRotation(swordPrefab.transform.forward, dirVec));
+            swingTimeCounter = 0;
+
+            //play audio
+            //AudioManager.instance.PlaySingle(swordSFX);
+        }
+        swingTimeCounter += Time.deltaTime;
     }
 }

@@ -5,6 +5,7 @@ public class PizzaBullet : MonoBehaviour
     public float damage;
     PlayerMovement player;
     public float lifetime;
+    public Rigidbody rb;
 
     private void Awake()
     {
@@ -13,6 +14,7 @@ public class PizzaBullet : MonoBehaviour
         {
             lifetime = 5f;
         }
+       rb = GetComponent<Rigidbody>();
     }
 
     private void Update()

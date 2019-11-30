@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
         BaconCrossbow,
         HotSauceSquirtGun,
         CookieShuriken,
-        PopcornGrenade
+        PopcornGrenade,
+        ChurroSword
     }
 
     [Header("Weapon Sprites")]
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour
     public Sprite BaconCrossbow_sp;
     public Sprite HotSauceSquirtGun_sp;
     public Sprite CookieShuriken_sp;
+    public Sprite ChurroSword_sp;
 
     [Header("Checkpoints")]
     public Checkpoint activeCheckpoint;
