@@ -28223,6 +28223,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505343880}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &506887955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 148040048335533520, guid: d99cd6c881a20db40acbd73f1a4e4ad3,
+    type: 3}
+  m_PrefabInstance: {fileID: 148040048961997301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &506887958
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506887955}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!1 &508279102
 GameObject:
   m_ObjectHideFlags: 0
@@ -71708,7 +71730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78412467, guid: 21feeaba81d095c4593efc1103e0974e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 78412467, guid: 21feeaba81d095c4593efc1103e0974e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.1
       objectReference: {fileID: 0}
     - target: {fileID: 8299332472607619344, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
@@ -71729,6 +71755,11 @@ PrefabInstance:
         type: 3}
       propertyPath: baconBulletTime
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940025157729101171, guid: 21feeaba81d095c4593efc1103e0974e,
+        type: 3}
+      propertyPath: layerMask.m_Bits
+      value: 2147483648
       objectReference: {fileID: 0}
     - target: {fileID: 78412469, guid: 21feeaba81d095c4593efc1103e0974e, type: 3}
       propertyPath: m_ShowCustomSorter
