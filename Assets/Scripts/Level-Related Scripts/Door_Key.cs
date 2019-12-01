@@ -20,14 +20,14 @@ public class Door_Key : MonoBehaviour
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_1" && GameVariables.key_1 > 0)
         {
             GameVariables.key_1--;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_1);
         }
 
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_2" && GameVariables.key_2 > 0)
         {
             GameVariables.key_2--;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_2);
         }
 
@@ -41,35 +41,35 @@ public class Door_Key : MonoBehaviour
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_4" && GameVariables.key_4 > 0)
         {
             GameVariables.key_4--;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_4);
         }
 
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_5" && GameVariables.key_5 > 0)
         {
             GameVariables.key_5--;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_5);
         }
 
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_6" || gameObject.name == "Door_6_1" && GameVariables.key_6 > 0)
         {
             GameVariables.key_6--;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_6);
         }
 
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_7" && GameVariables.key_7 > 0)
         {
             GameVariables.key_7--;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_7);
         }
 
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_8" && GameVariables.key_8 > 0)
         {
             GameVariables.key_8--;
-            Destroy(gameObject);
+            Door_Open.Play();
             Debug.Log(GameVariables.key_8);
         }
     }

@@ -14,7 +14,7 @@ public class EnemyBullet : MonoBehaviour
     public float speed;
     public float bulletOffset;
     [SerializeField] private Vector2 target;
-    [SerializeField] private Vector3 dirVec;
+    [SerializeField] public Vector3 dirVec;
     [SerializeField] private Vector3 moveVec;
 
     public float bulletLifeTime;
