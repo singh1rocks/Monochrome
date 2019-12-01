@@ -6,6 +6,15 @@ public class Door_Key : MonoBehaviour
 {
 
     public Animation Door_Open;
+    public Animator Unlock;
+
+    public GameObject Door_Sprite;
+    public GameObject Lock;
+
+    void Start()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void OnTriggerEnter(Collider collider)
@@ -14,6 +23,12 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_0 --;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
+            //if (Unlock.GetCurrentAnimatorStateInfo(0).IsName("Done"))
+            //{
+            //    Destroy(Lock);
+            //}
             Debug.Log(GameVariables.key_0);  
         }
 
@@ -21,6 +36,8 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_1--;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
             Debug.Log(GameVariables.key_1);
         }
 
@@ -28,6 +45,8 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_2--;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
             Debug.Log(GameVariables.key_2);
         }
 
@@ -35,6 +54,8 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_3--;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
             Debug.Log(GameVariables.key_3);
         }
 
@@ -42,6 +63,8 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_4--;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
             Debug.Log(GameVariables.key_4);
         }
 
@@ -49,6 +72,8 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_5--;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
             Debug.Log(GameVariables.key_5);
         }
 
@@ -56,6 +81,8 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_6--;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
             Debug.Log(GameVariables.key_6);
         }
 
@@ -63,6 +90,8 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_7--;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
             Debug.Log(GameVariables.key_7);
         }
 
@@ -70,6 +99,8 @@ public class Door_Key : MonoBehaviour
         {
             GameVariables.key_8--;
             Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
             Debug.Log(GameVariables.key_8);
         }
     }
