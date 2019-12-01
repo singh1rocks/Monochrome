@@ -6,12 +6,11 @@ public class Sword : MonoBehaviour
 {
     public float swingLifeTime;
     public float damage;
-    private Transform reflect; 
+    public float magnitude;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -37,9 +36,21 @@ public class Sword : MonoBehaviour
         }
 
         //reflect bullet
-        if (other.gameObject.tag == "EnemyBullet")
+
+        if (other.gameObject.name == "PizzaBulletPrefab(Clone)")
         {
-            reflect.position = Vector3.Reflect(other.gameObject.transform.position, Vector3.forward);
+
+            Vector3 dir = other.gameObject.transform.up;
+            dir.x = -dir.x;
+            dir.y = -dir.y;
+            other.gameObject.GetComponent<Rigidbody>().AddForce(dir * magnitude, ForceMode.VelocityChange);
+            other.gameObject.transform.up = -other.gameObject.transform.up;
+        }
+        else if (other.gameObject.tag == "EnemyBullet")
+        {
+            other.gameObject.GetComponent<EnemyBullet>().dirVec.x = -other.gameObject.GetComponent<EnemyBullet>().dirVec.x;
+            other.gameObject.GetComponent<EnemyBullet>().dirVec.y = -other.gameObject.GetComponent<EnemyBullet>().dirVec.y;
+            other.gameObject.transform.forward = -other.gameObject.transform.forward;
         }
     }
 }
