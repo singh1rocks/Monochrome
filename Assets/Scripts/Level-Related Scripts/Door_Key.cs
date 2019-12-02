@@ -10,6 +10,7 @@ public class Door_Key : MonoBehaviour
 
     public GameObject Door_Sprite;
     public GameObject Lock;
+    public GameObject UI;
 
     void Start()
     {
@@ -25,10 +26,7 @@ public class Door_Key : MonoBehaviour
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
-            //if (Unlock.GetCurrentAnimatorStateInfo(0).IsName("Done"))
-            //{
-            //    Destroy(Lock);
-            //}
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_0);  
         }
 
@@ -38,6 +36,7 @@ public class Door_Key : MonoBehaviour
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_1);
         }
 
@@ -47,6 +46,7 @@ public class Door_Key : MonoBehaviour
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_2);
         }
 
@@ -56,6 +56,7 @@ public class Door_Key : MonoBehaviour
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_3);
         }
 
@@ -65,6 +66,7 @@ public class Door_Key : MonoBehaviour
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_4);
         }
 
@@ -74,15 +76,27 @@ public class Door_Key : MonoBehaviour
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_5);
         }
 
-        if (collider.gameObject.name == "Player" && gameObject.name == "Door_6" || gameObject.name == "Door_6_1" && GameVariables.key_6 > 0)
+        if (collider.gameObject.name == "Player" && gameObject.name == "Door_6" && GameVariables.key_6 > 0)
         {
             GameVariables.key_6--;
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
+            UI.SetActive(false);
+            Debug.Log(GameVariables.key_6);
+        }
+
+        if (collider.gameObject.name == "Player" && gameObject.name == "Door_6_1" && GameVariables.key_6 > 0)
+        {
+            GameVariables.key_6--;
+            Door_Open.Play();
+            Unlock.SetBool("unlock", true);
+            Destroy(Door_Sprite);
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_6);
         }
 
@@ -92,6 +106,7 @@ public class Door_Key : MonoBehaviour
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_7);
         }
 
@@ -101,6 +116,7 @@ public class Door_Key : MonoBehaviour
             Door_Open.Play();
             Unlock.SetBool("unlock", true);
             Destroy(Door_Sprite);
+            UI.SetActive(false);
             Debug.Log(GameVariables.key_8);
         }
     }

@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class Key_Item : MonoBehaviour
 {
+
+    public GameObject UI;
+
     // Update is called once per frame
+    private void Start()
+    {
+        UI.SetActive(false);
+    }
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.name == "Player" && gameObject.name == "0")
         {
             GameVariables.key_0 += 1;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_0);
         }
 
@@ -18,6 +26,7 @@ public class Key_Item : MonoBehaviour
         {
             GameVariables.key_1 += 1;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_1);
         }
 
@@ -25,6 +34,7 @@ public class Key_Item : MonoBehaviour
         {
             GameVariables.key_2 += 1;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_2);
         }
 
@@ -32,6 +42,7 @@ public class Key_Item : MonoBehaviour
         {
             GameVariables.key_3 += 1;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_3);
         }
 
@@ -39,6 +50,7 @@ public class Key_Item : MonoBehaviour
         {
             GameVariables.key_4 += 1;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_4);
         }
 
@@ -46,6 +58,7 @@ public class Key_Item : MonoBehaviour
         {
             GameVariables.key_5 += 1;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_5);
         }
 
@@ -53,6 +66,7 @@ public class Key_Item : MonoBehaviour
         {
             GameVariables.key_6 += 2;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_6);
         }
 
@@ -67,6 +81,7 @@ public class Key_Item : MonoBehaviour
         {
             GameVariables.key_8 += 1;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_8);
         }
 
