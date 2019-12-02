@@ -25,7 +25,7 @@ public class SpiralBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && gameObject.tag == "EnemyBullet")
         {
             player.GetComponent<PlayerMovement>().DamagePlayer(damage);
             //Debug.Log("Bullet hit player");

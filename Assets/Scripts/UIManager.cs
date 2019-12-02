@@ -33,6 +33,7 @@ public class UIManager : MonoBehaviour
     public Sprite BaconCrossbow_icon;
     public Sprite HotSauceSquirtGun_icon;
     public Sprite CookieShuriken_icon;
+    public Sprite PopcornGrenade_icon;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,10 @@ public class UIManager : MonoBehaviour
             case GameManager.WeaponType.BaconCrossbow: //piercing
                 weaponIcon.sprite = BaconCrossbow_icon;
                 break;
+            case GameManager.WeaponType.PopcornGrenade: //piercing
+                weaponIcon.sprite = PopcornGrenade_icon;
+                break;
+
         }
     }
 }

@@ -23,6 +23,9 @@ public class WeaponPickup : MonoBehaviour
             case GameManager.WeaponType.BaconCrossbow: //piercing
                 spriteRend.sprite = UIManager.instance.BaconCrossbow_icon;
                 break;
+            case GameManager.WeaponType.PopcornGrenade:
+                spriteRend.sprite = UIManager.instance.PopcornGrenade_icon;
+                break;
         }
     }
 

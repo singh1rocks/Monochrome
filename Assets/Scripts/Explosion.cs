@@ -34,11 +34,20 @@ public class Explosion : MonoBehaviour
         }
         else if(other.gameObject.tag == "Enemy")
         {
-            EnemyController EC = other.gameObject.GetComponent<EnemyController>();
-            EC.Damaged(damage);
+            if (other.gameObject.GetComponent<Boss>())
+            {
+                other.gameObject.GetComponent<Boss>().Damaged(damage);
+            }
+            else
+            {
+                EnemyController EC = other.gameObject.GetComponent<EnemyController>();
+                EC.Damaged(damage);
 
-            Vector3 KBdirVec = new Vector3(EC.transform.position.x - transform.position.x, EC.transform.position.y - transform.position.y, 0f);
-            EC.Knockback(KBdirVec);
+                Vector3 KBdirVec = new Vector3(EC.transform.position.x - transform.position.x, EC.transform.position.y - transform.position.y, 0f);
+                EC.Knockback(KBdirVec);
+            }
+
+            
         }
         //Destroy(gameObject);
     }

@@ -37,7 +37,7 @@ public class Sword : MonoBehaviour
 
         //reflect bullet
 
-        if (other.gameObject.name == "PizzaBulletPrefab(Clone)")
+        if (other.gameObject.name == "PizzaBulletPrefab(Clone)" || other.gameObject.name == "Spiral Bullet Prefab(Clone)" || other.gameObject.name == "Spiral Bullet Prefab(Clone)")
         {
 
             Vector3 dir = other.gameObject.transform.up;

@@ -67,6 +67,9 @@ public class WeaponPlacement : MonoBehaviour
             case GameManager.WeaponType.BaconCrossbow: //piercing
                 spriteRend.sprite = GameManager.instance.BaconCrossbow_sp;
                 break;
+            case GameManager.WeaponType.PopcornGrenade: //piercing
+                spriteRend.sprite = GameManager.instance.PopcornGrenade_sp;
+                break;
         }
     }
 }

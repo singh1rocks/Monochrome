@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLifeTime: 10
-  damage: 1
+  damage: 2
   rotationRate: 10

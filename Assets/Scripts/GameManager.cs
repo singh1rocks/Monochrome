@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     public Sprite HotSauceSquirtGun_sp;
     public Sprite CookieShuriken_sp;
     public Sprite ChurroSword_sp;
+    public Sprite PopcornGrenade_sp;
 
     [Header("Checkpoints")]
     public Checkpoint activeCheckpoint;
