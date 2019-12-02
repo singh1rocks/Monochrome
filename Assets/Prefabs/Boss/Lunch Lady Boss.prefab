@@ -50,23 +50,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ebb1be30466404ca189ea6283a3cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 200
   health: 0
   speed: 0.2
   AIdest: {fileID: 0}
   aiPath: {fileID: 0}
   FSCoroutineRunning: 0
+  inAttackAnimation: 0
+  alternateAttackTime: 10
   spiralShootTime: 0.1
-  spiralAngleOffset: 0
+  spiralAngleOffset: 15
   spiralBulletSpeed: 50
   spiralBulletPrefab: {fileID: 7974521979341183105, guid: 12b8fc514cdc2c14e8cdc7295fae1cd7,
     type: 3}
   shotgunBurstShootTime: 3
   numOfShotgunBullets: 10
   shotgunAngleOffsetRange: 45
-  shotgunBulletSpeed: 200
+  shotgunBulletSpeed: 400
   shotgunBurstBulletPrefab: {fileID: 567242177137746156, guid: 6e2ad58b77cd479469da730a0afe451f,
     type: 3}
+  meteorPrefab: {fileID: 6528339192739588626, guid: 9bb206cbcf877ab40997509f691eb1df,
+    type: 3}
+  meteorShootTime: 3
 --- !u!114 &1318984881380098593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +225,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5783388102569350990}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0

@@ -14,7 +14,12 @@ public class Explosion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        lifetime -= Time.deltaTime;
+
+        if (lifetime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +40,6 @@ public class Explosion : MonoBehaviour
             Vector3 KBdirVec = new Vector3(EC.transform.position.x - transform.position.x, EC.transform.position.y - transform.position.y, 0f);
             EC.Knockback(KBdirVec);
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

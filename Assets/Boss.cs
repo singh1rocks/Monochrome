@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour
     private Rigidbody rb;
     private SpriteRenderer spriteRend;
     private Vector3 playerToEnemyVector;
+    private Animator animator;
 
     [Header("Pathfinding")]
     public IAstarAI ai;
@@ -22,9 +23,13 @@ public class Boss : MonoBehaviour
 
     [Header("Bools")]
     public bool FSCoroutineRunning;
+    public bool inAttackAnimation;
 
-    [Header("Phase 1")]
-    [Space]
+    [Header("Attack Change")]
+    [SerializeField] private float alternateAttackTime;
+    private float alternateAttackTimeCounter;
+    private int attackType = 1;
+
     [Header("Spiral Attack Values")]
     public float spiralShootTime;
     private float spiralShootTimeCounter;
@@ -33,24 +38,18 @@ public class Boss : MonoBehaviour
     public float spiralBulletSpeed;
     public GameObject spiralBulletPrefab;
 
-    [Header("Shotgun")]
+    [Header("Shotgun Attack Values")]
     public float shotgunBurstShootTime;
     private float shotgunBurstShootTimeCounter;
     public int numOfShotgunBullets;
     public float shotgunAngleOffsetRange;
     public float shotgunBulletSpeed;
     public GameObject shotgunBurstBulletPrefab;
-    
 
-
-    public enum BossAttackType
-    {
-        SpinningDisk,
-        Meteor,
-        ShotgunBurst,
-        Spiral,
-        Ads
-    }
+    [Header("Meteor Attack Values")]
+    public GameObject meteorPrefab;
+    public float meteorShootTime;
+    private float meteorShootTimeCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -72,12 +71,15 @@ public class Boss : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         FSCoroutineRunning = false;
         shotgunAngleOffsetRange = shotgunAngleOffsetRange / 2;
+        spriteRend = GetComponent<SpriteRenderer>();
 
+        animator = GetComponent<Animator>();
         AstarPath.FindAstarPath();
         AstarPath.active.Scan();
         AIdest = gameObject.GetComponent<AIDestinationSetter>();
         aiPath = GetComponent<AIPath>();
         aiPath.canMove = true;
+        inAttackAnimation = false;
 
         ai = GetComponent<IAstarAI>();
 
@@ -93,35 +95,86 @@ public class Boss : MonoBehaviour
             Die();
         }
 
+        //animation
+        animator.SetBool("inAttackAnimation", inAttackAnimation);
+
         playerToEnemyVector = new Vector3(transform.position.x - player_transform.position.x, transform.position.y - player_transform.position.y, 0f);
         playerToEnemyVector.Normalize();
 
+        FlipSprite();
         SetPlayerAsAITarget();
 
-        if (health >= maxHealth/2)
+        if (health >= maxHealth * 2/3)
         {
             //phase 1
             //shotgun burst
             //spiral
 
-            //Spiral();
-            //
-            if (shotgunBurstShootTimeCounter >= shotgunBurstShootTime)
+            switch (attackType%2)
             {
-                SingleShotgunBurst();
-                shotgunBurstShootTimeCounter = 0f;
+                case 1:
+                    ShotgunBehavior();
+                    break;
+                case 0:
+                    SpiralBehavior();
+                    break;
             }
 
-            shotgunBurstShootTimeCounter += Time.deltaTime;
+            if (alternateAttackTimeCounter >= alternateAttackTime)
+            {
+                attackType += 1;
+                alternateAttackTimeCounter = 0f;
+            }
+
+            alternateAttackTimeCounter += Time.deltaTime;
+
+        }
+        else if(health >= maxHealth * 1/3)
+        {
+
+            switch (attackType % 2)
+            {
+                case 1:
+                    MeteorBehavior();
+                    break;
+                case 0:
+                    ShotgunBehavior();
+                    break;
+            }
+
+            if (alternateAttackTimeCounter >= alternateAttackTime)
+            {
+                attackType += 1;
+                alternateAttackTimeCounter = 0f;
+            }
+
+            alternateAttackTimeCounter += Time.deltaTime;
+
+
+
         }
         else
         {
-            //phase 2
-            //spinning disk
-            //ads
-            //meteor
 
+            switch (attackType % 2)
+            {
+                case 1:
+                    ShotgunBehavior();
+                    SpiralBehavior();
+                    break;
+                case 0:
+                    ShotgunBehavior();
+                    MeteorBehavior();
+                    break;
+            }
 
+            if (alternateAttackTimeCounter >= alternateAttackTime)
+            {
+                attackType += 1;
+                alternateAttackTimeCounter = 0f;
+            }
+
+            alternateAttackTimeCounter += Time.deltaTime;
         }
     }
 
@@ -142,14 +195,16 @@ public class Boss : MonoBehaviour
         if (playerToEnemyVector.x <= 0)
         {
             spriteRend.flipX = true;
+            //transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
             spriteRend.flipX = false;
+            //transform.localScale = new Vector3(1f, 1f, 1f);
         }
     }
 
-    private void Spiral()
+    private void SpiralBehavior()
     {
         if (spiralShootTimeCounter >= spiralShootTime)
         {
@@ -161,10 +216,22 @@ public class Boss : MonoBehaviour
         spiralShootTimeCounter += Time.deltaTime;
     }
 
+    private void ShotgunBehavior()
+    {
+        if (shotgunBurstShootTimeCounter >= shotgunBurstShootTime)
+        {
+            SingleShotgunBurst();
+            shotgunBurstShootTimeCounter = 0f;
+        }
+
+        shotgunBurstShootTimeCounter += Time.deltaTime;
+    }
+
     private void SingleShotgunBurst()
     {
         for (int i=0; i<numOfShotgunBullets; i++)
         {
+            inAttackAnimation = true;
             CreateBulletAtAngle(shotgunBurstBulletPrefab, Random.Range(shotgunBulletSpeed * 0.8f, shotgunBulletSpeed * 1.2f), -playerToEnemyVector, Random.Range(-shotgunAngleOffsetRange, shotgunAngleOffsetRange));
         }
     }
@@ -189,4 +256,28 @@ public class Boss : MonoBehaviour
         //TODO:
         Destroy(gameObject);
     }
+
+    private void SummonMeteors()
+    {
+        inAttackAnimation = true;
+        Instantiate(meteorPrefab, player_transform.position, Quaternion.identity);
+    }
+
+    private void MeteorBehavior()
+    {
+        if (meteorShootTimeCounter >= meteorShootTime)
+        {
+            SummonMeteors();
+            meteorShootTimeCounter = 0f;
+        }
+
+        meteorShootTimeCounter += Time.deltaTime;
+    }
+
+    /*
+    IEnumerator Attack(BossAttackType type)
+    {
+        
+    }
+    */
 }

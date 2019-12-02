@@ -1,19 +1,34 @@
 fileFormatVersion: 2
-guid: bbe2c58dcbff0db4dbf149d920e3caee
+guid: dfcd2fde1fa63b24f9419144f630b138
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7621184802086667695
-    second: mysteryMeat_LunchLadyWalking_0
+      213: -8092295105046505211
+    second: explosion_0
   - first:
-      213: 2685496398536170116
-    second: mysteryMeat_LunchLadyWalking_1
+      213: -5243772346084840235
+    second: explosion_1
   - first:
-      213: 8306297772684847941
-    second: mysteryMeat_LunchLadyWalking_2
+      213: -4009157606203222040
+    second: explosion_2
   - first:
-      213: 370844232869772437
-    second: mysteryMeat_LunchLadyWalking_3
+      213: 3730887761424324059
+    second: explosion_3
+  - first:
+      213: -4927540249515241657
+    second: explosion_4
+  - first:
+      213: 5684552838703836615
+    second: explosion_5
+  - first:
+      213: -1000500801407918923
+    second: explosion_6
+  - first:
+      213: -3556220708966662747
+    second: explosion_7
+  - first:
+      213: 950242065716622878
+    second: explosion_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -57,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,7 +111,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mysteryMeat_LunchLadyWalking_0
+      name: explosion_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d2d55e941d08e43b110b8b52624f2c
+      internalID: -8092295105046505211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f27621161976d8e4986061a96fe5e9c7
+      internalID: -5243772346084840235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c4ccddc8ae9cc946a086a95fdd181bd
+      internalID: -4009157606203222040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_3
       rect:
         serializedVersion: 2
         x: 0
@@ -110,14 +188,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff680202698e35842a0ee2a39eed1f1b
-      internalID: 7621184802086667695
+      spriteID: 37a575e1e0c8def47b0636c35bb39770
+      internalID: 3730887761424324059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mysteryMeat_LunchLadyWalking_1
+      name: explosion_4
       rect:
         serializedVersion: 2
         x: 64
@@ -131,14 +209,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f50a306a72136d546b01ee1c9c68491d
-      internalID: 2685496398536170116
+      spriteID: a7e06162fc680ea4d8a892570d910c12
+      internalID: -4927540249515241657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mysteryMeat_LunchLadyWalking_2
+      name: explosion_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f78d0b71ab59f40b3976713a2bd45f
+      internalID: 5684552838703836615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_6
       rect:
         serializedVersion: 2
         x: 0
@@ -152,14 +251,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb0a854c74501ed4fa1b40f51f0ee0b6
-      internalID: 8306297772684847941
+      spriteID: 33b386e8f270c83469650539862b98a7
+      internalID: -1000500801407918923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mysteryMeat_LunchLadyWalking_3
+      name: explosion_7
       rect:
         serializedVersion: 2
         x: 64
@@ -173,8 +272,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe9a6ae83fe40704a87bc4de5f65203d
-      internalID: 370844232869772437
+      spriteID: b07e2d945a563274e9039e3e43b727dc
+      internalID: -3556220708966662747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d34f027c191e049b64a873df097747
+      internalID: 950242065716622878
       vertices: []
       indices: 
       edges: []
@@ -182,7 +302,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3b97296d38b29dd47a2537a937467eaa
+    spriteID: a5f69ecdeef0c7648bbe65aee08aa969
     internalID: 0
     vertices: []
     indices: 

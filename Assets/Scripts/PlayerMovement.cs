@@ -61,9 +61,9 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", moveVec.sqrMagnitude);
 
         //death and game over condition
-        if (health<=0)
+        if (health <= 0)
         {
-            DieRespawn();
+            //DieRespawn();
             //Debug.Log("Game Over");
             //GameManager.instance.ReloadScene();
         }

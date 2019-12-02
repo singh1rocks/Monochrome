@@ -4,6 +4,7 @@ public class SpiralBullet : MonoBehaviour
 {
     public float damage;
     private GameObject player;
+    public float lifetime;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,12 @@ public class SpiralBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        lifetime -= Time.deltaTime;
+
+        if (lifetime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)

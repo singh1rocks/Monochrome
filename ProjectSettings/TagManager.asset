@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Obstacle
   - Enemy
+  - Meteor
   layers:
   - Default
   - TransparentFX
