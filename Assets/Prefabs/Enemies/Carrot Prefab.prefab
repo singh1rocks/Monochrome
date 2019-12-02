@@ -31,20 +31,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carrot Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 14605218489777371, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 14605218489777371, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: m_Drag
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498284, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.991695
+      value: 71.21703
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498284, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.106827
+      value: 35.027805
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498284, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.9379999
+      value: 0.93749905
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498284, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
@@ -86,10 +96,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498284, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503804498284, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
-      propertyPath: carrotDamage
-      value: 0.5
+      propertyPath: thisEnemyType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
@@ -101,20 +121,25 @@ PrefabInstance:
       propertyPath: speed
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+    - target: {fileID: 4580206503804498282, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.10778564
+      propertyPath: carrotDamage
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
-      propertyPath: m_Center.x
-      value: 0.000000059604645
+      propertyPath: m_Radius
+      value: 0.064759225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
+        type: 3}
+      propertyPath: m_Height
+      value: 0.5162226
       objectReference: {fileID: 0}
     - target: {fileID: 8710248272329040803, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}
       propertyPath: m_Center.y
-      value: 4.2351607e-22
+      value: 0.011430085
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503995069606, guid: d10c63f282a77aa40aa8a35fa81deb9d,
         type: 3}

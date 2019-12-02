@@ -45,12 +45,14 @@ public class Sword : MonoBehaviour
             dir.y = -dir.y;
             other.gameObject.GetComponent<Rigidbody>().AddForce(dir * magnitude, ForceMode.VelocityChange);
             other.gameObject.transform.up = -other.gameObject.transform.up;
+            other.gameObject.tag = "Reflected Bullet";
         }
         else if (other.gameObject.tag == "EnemyBullet")
         {
             other.gameObject.GetComponent<EnemyBullet>().dirVec.x = -other.gameObject.GetComponent<EnemyBullet>().dirVec.x;
             other.gameObject.GetComponent<EnemyBullet>().dirVec.y = -other.gameObject.GetComponent<EnemyBullet>().dirVec.y;
             other.gameObject.transform.forward = -other.gameObject.transform.forward;
+            other.gameObject.tag = "Reflected Bullet";
         }
     }
 }

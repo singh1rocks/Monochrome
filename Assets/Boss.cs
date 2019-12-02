@@ -89,6 +89,8 @@ public class Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        spriteRend.color = new Color(spriteRend.color.r, health/maxHealth, health / maxHealth, 1f);
+
         //death condition
         if (health <= 0f)
         {
@@ -274,10 +276,22 @@ public class Boss : MonoBehaviour
         meteorShootTimeCounter += Time.deltaTime;
     }
 
-    /*
-    IEnumerator Attack(BossAttackType type)
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.tag == "Reflected Bullet")
+        {
+            if (collision.gameObject.GetComponent<EnemyBullet>())
+            {
+                Damaged(collision.gameObject.GetComponent<EnemyBullet>().damage);
+            }
+            else if (collision.gameObject.GetComponent<SpiralBullet>())
+            {
+                Damaged(collision.gameObject.GetComponent<SpiralBullet>().damage);
+            }
+            else if (collision.gameObject.GetComponent<BossShotgunBullet>())
+            {
+                Damaged(collision.gameObject.GetComponent<BossShotgunBullet>().damage);
+            }
+        }
     }
-    */
 }

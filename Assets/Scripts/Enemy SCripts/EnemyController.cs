@@ -486,6 +486,22 @@ public class EnemyController : MonoBehaviour
                     break;
             }
         }
+
+        if (collision.gameObject.tag == "Reflected Bullet")
+        {
+            if (collision.gameObject.GetComponent<EnemyBullet>())
+            {
+                Damaged(collision.gameObject.GetComponent<EnemyBullet>().damage);
+            }
+            else if (collision.gameObject.GetComponent<SpiralBullet>())
+            {
+                Damaged(collision.gameObject.GetComponent<SpiralBullet>().damage);
+            }
+            else if (collision.gameObject.GetComponent<BossShotgunBullet>())
+            {
+                Damaged(collision.gameObject.GetComponent<BossShotgunBullet>().damage);
+            }
+        }
     }
     
     /// <summary>
