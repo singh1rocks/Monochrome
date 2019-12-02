@@ -56,7 +56,16 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyController>().Damaged(damage);
+            if (other.gameObject.name == "Lunch Lady Boss")
+            {
+                other.gameObject.GetComponent<Boss>().Damaged(damage);
+            }
+            else
+            {
+                other.gameObject.GetComponent<EnemyController>().Damaged(damage);
+            }
+
+            
 
             //knockback
             //Vector3 KBdirVec = new Vector3(other.gameObject.transform.position.x - transform.position.x, other.gameObject.transform.position.y - transform.position.y, 0f);
