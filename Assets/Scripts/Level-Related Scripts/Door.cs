@@ -74,7 +74,7 @@ public class Door : MonoBehaviour
             }
             thisRoomState = DoorState.canExit;
 
-            if (gameObject.name == "Trigger_Gym")
+            if (gameObject.name == "Trigger_Final")
             {
                 Destroy(Table_D);
             }
