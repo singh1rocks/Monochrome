@@ -34,8 +34,20 @@ public class ShotgunBullets : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyController>().Damaged(damage);
-            Destroy(gameObject);
+
+            if (other.gameObject.GetComponent<EnemyController>())
+            {
+                other.gameObject.GetComponent<EnemyController>().Damaged(damage);
+                Destroy(gameObject);
+            }
+            else if (other.gameObject.GetComponent<Boss>())
+            {
+                other.gameObject.GetComponent<Boss>().Damaged(damage);
+                Destroy(gameObject);
+            }
+
+
+
         }
     }
 }
