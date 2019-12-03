@@ -74,6 +74,7 @@ public class Key_Item : MonoBehaviour
         {
             GameVariables.key_7 += 1;
             Destroy(gameObject);
+            UI.SetActive(true);
             Debug.Log(GameVariables.key_7);
         }
 
