@@ -144,5 +144,6 @@ public class PlayerMovement : MonoBehaviour
         GameManager.instance.activeCheckpoint.door.RespawnEnemies();
         player_t.position = new Vector3(GameManager.instance.activeCheckpoint.transform.position.x, GameManager.instance.activeCheckpoint.transform.position.y, player_t.position.z);
         health = maxHealth;
+        GetComponent<ShootBullet>().flameObject.SetActive(false);
     }
 }

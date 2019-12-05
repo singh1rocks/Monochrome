@@ -34,6 +34,7 @@ public class WeaponPickup : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             GameManager.instance.equippedWeapon = weaponType;
+            other.gameObject.GetComponent<ShootBullet>().flameObject.SetActive(false);
             Destroy(gameObject);
         }
     }

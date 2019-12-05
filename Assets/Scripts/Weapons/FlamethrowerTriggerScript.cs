@@ -17,6 +17,7 @@ public class FlamethrowerTriggerScript : MonoBehaviour
     void Start()
     {
         spriteRend = GetComponent<SpriteRenderer>();
+        shootBulletScript = GameObject.FindWithTag("Player").GetComponent<ShootBullet>();
     }
 
     // Update is called once per frame

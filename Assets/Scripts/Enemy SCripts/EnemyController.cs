@@ -407,6 +407,7 @@ public class EnemyController : MonoBehaviour
                     pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.BaconCrossbow;
                     break;
                 case EnemyType.SpamCan:
+                    pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.PopcornGrenade;
                     break;
                 case EnemyType.HotSauce:
                     pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.HotSauceSquirtGun;

@@ -13,7 +13,7 @@ public class Player_Teleport : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.transform.position = new Vector3(x, y, z);
+            StartCoroutine(FindObjectOfType<FadeWhenChangingFloors>().FadeAndMovePlayerTransform(new Vector3(x, y, z)));
         }
     }
 }
