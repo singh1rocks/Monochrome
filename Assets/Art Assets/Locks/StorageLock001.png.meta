@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 1855181819114089018
     second: StorageLock001_7
+  - first:
+      213: 1142760274010924041
+    second: StorageLock001_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -144,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfc50e3e0da7a6b42b736448f437144a
+      spriteID: 187a79a58258e9c418bd4b6b9a345e6d
       internalID: 2974999837130688362
       vertices: []
       indices: 
@@ -165,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56a3e7267e97b634fa33a0324f2bcf7a
+      spriteID: 44d70fb84e038da4c8049ed68e84755d
       internalID: 457648121662814031
       vertices: []
       indices: 
@@ -186,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8f41dce52dbde649a790a4c1cf6cf96
+      spriteID: f16671530b273f749bf74896c9cff429
       internalID: 2190427154264328803
       vertices: []
       indices: 
@@ -207,7 +210,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3439c59a3353d74086a09ae464d979c
+      spriteID: 36e63cbf79cfe614da33f0379e21d101
       internalID: 7179834700630795246
       vertices: []
       indices: 
@@ -228,7 +231,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90425684b860fb843ae10c202b0b78f9
+      spriteID: d0ba6e5c3a590f44b8520d02976a0696
       internalID: -1113004162804954669
       vertices: []
       indices: 
@@ -249,7 +252,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7795775ec4dac246b25ddd5beabd299
+      spriteID: 98d72a5c2b821694cbc8f329c3bf76bd
       internalID: -4729558815980099443
       vertices: []
       indices: 
@@ -270,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abd754f10d0590542be1d36dcc21772c
+      spriteID: 7949bf24c0316044b836a911ed60f6ab
       internalID: 1503145332969191110
       vertices: []
       indices: 
@@ -291,8 +294,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 206e840163caf724ab3580980ab4a055
+      spriteID: 03c02d8f0f435f341a26af67f0e4184e
       internalID: 1855181819114089018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StorageLock001_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa8c50eb7600dbd4babe94fe98e5c5d6
+      internalID: 1142760274010924041
       vertices: []
       indices: 
       edges: []

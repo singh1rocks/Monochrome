@@ -23,6 +23,9 @@ TextureImporter:
   - first:
       213: 2495964138218695374
     second: ScienceLock_6
+  - first:
+      213: 4606283583895983359
+    second: ScienceLock_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -141,7 +144,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea00408e678192e47839b99f4b45ab8a
+      spriteID: 1af6728034488a6479f1de9b46a85724
       internalID: 6150486957881416750
       vertices: []
       indices: 
@@ -162,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92b88a06766ef8f4d82a610b42208767
+      spriteID: 9fef87f30745144428fa34fdf9f32d2f
       internalID: 5137351037975970673
       vertices: []
       indices: 
@@ -183,7 +186,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4122e16a430e47a4c8e22e0c5e388ccd
+      spriteID: 2d7ed6fb36a00c44dafb40be3db0f892
       internalID: -1587305264851989102
       vertices: []
       indices: 
@@ -204,7 +207,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d339a82c4d2d0f6459d5101067626d67
+      spriteID: 3f5b132955bb4c043905dbfd3e0c49d0
       internalID: 7570287813838164048
       vertices: []
       indices: 
@@ -225,7 +228,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8223dd12b00c9e4cb4c2b4d5aa4be57
+      spriteID: fcd53a9760f361a41b2dab18e50a35a6
       internalID: -4850400548223737227
       vertices: []
       indices: 
@@ -246,7 +249,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1610fc3075538c442a0718d3ab76fa96
+      spriteID: 29ad156baae47074a94e5b8270a5851c
       internalID: -5656189147720222507
       vertices: []
       indices: 
@@ -267,8 +270,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6dce8fd267ce8c4085de68cfc303b66
+      spriteID: 565b7fb54b434d045b17489bbc7cf195
       internalID: 2495964138218695374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScienceLock_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694e15bb91aa65b4182a10f43f73e5c1
+      internalID: 4606283583895983359
       vertices: []
       indices: 
       edges: []
