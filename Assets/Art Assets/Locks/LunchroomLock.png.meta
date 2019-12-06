@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 4252037413626406159
     second: LunchroomLock_7
+  - first:
+      213: 6655239474643009880
+    second: LunchroomLock_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -144,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aa638e85b7d60d469a5272d3def66e3
+      spriteID: bccbfe9772683454b975191c91aad04f
       internalID: -4115692942999048919
       vertices: []
       indices: 
@@ -165,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2d6ace99f58bc9448b06f959aeb3f11
+      spriteID: 271b13a7a119fd24899ad71653853820
       internalID: -8367784136600879925
       vertices: []
       indices: 
@@ -186,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df570eb4bbc2c2d42a3a5b9e3549a37b
+      spriteID: a991adf51572b69429e4cdebda1e4797
       internalID: 9008682373493441301
       vertices: []
       indices: 
@@ -207,7 +210,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ee84bd9bc59ef1418d7d380ecb9178f
+      spriteID: 5a19d2d30a40bf54a9c8731f67edcd9b
       internalID: -6173182009525011466
       vertices: []
       indices: 
@@ -228,7 +231,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cdfcf9b58cf9aa4daa63c8438260370
+      spriteID: da6d919738b03614982ee33680f92cbc
       internalID: 7454349663468743796
       vertices: []
       indices: 
@@ -249,7 +252,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebc53202dc7fc904fb416dfad4bc279e
+      spriteID: cab56b238492e7b41ae4d2aa78184106
       internalID: -8487533681671569027
       vertices: []
       indices: 
@@ -270,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31436cf5fca6de249b396894d4f8cc7b
+      spriteID: e471eca9928337e41b8339b82606a2be
       internalID: -8044973523170736264
       vertices: []
       indices: 
@@ -291,8 +294,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8197d148e695b94cb8cc071601100e7
+      spriteID: cae430881ddeb604792b9f1b2cc50eb8
       internalID: 4252037413626406159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LunchroomLock_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c18ec3d155b2548a02c17c3740f96a
+      internalID: 6655239474643009880
       vertices: []
       indices: 
       edges: []

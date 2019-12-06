@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 22092399477740950
     second: MathLock_7
+  - first:
+      213: -8798897282914202133
+    second: MathLock_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -144,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76a1517534cd3f04894c88554cd3ac83
+      spriteID: 5e7dee585ff77d74abefdf86092a73db
       internalID: -2182585286362697153
       vertices: []
       indices: 
@@ -165,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e272ba7e9e38a04290b2d9fa05dfc36
+      spriteID: 88e72baae17b0e2448872072e5578821
       internalID: 7803160198706894343
       vertices: []
       indices: 
@@ -186,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a611b12885612d42a364f8b99851dee
+      spriteID: 37a1379c048d8dc4fb5d3781c9f39e38
       internalID: 280445769498609294
       vertices: []
       indices: 
@@ -207,7 +210,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aad34c59c618fba44963c28b555a8218
+      spriteID: 058a7b25555a9a94f9183a81b696d75c
       internalID: -6446705480322461870
       vertices: []
       indices: 
@@ -228,7 +231,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac4c99458782c164a82b08b855bb4cca
+      spriteID: f650c11fe8cdcaf4bbab0fe77b972e55
       internalID: 840947507376774371
       vertices: []
       indices: 
@@ -249,7 +252,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b25c6ca4c5875d49b467a58f56d6cc9
+      spriteID: c50586d873d831c4ba021ed4364f39a3
       internalID: -636375449834021726
       vertices: []
       indices: 
@@ -270,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f339c5b223f2fee44ad80aeabb7ded23
+      spriteID: dc6fc6bd088ca5041bd6cfae43f6f4eb
       internalID: -7191655525941746721
       vertices: []
       indices: 
@@ -291,8 +294,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6133ea3ae9cdc684dbd6c612fffe4323
+      spriteID: d6863e78f54a0af4284b31d945aee6f0
       internalID: 22092399477740950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MathLock_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce477c1eeaa3f545ae03970030c930d
+      internalID: -8798897282914202133
       vertices: []
       indices: 
       edges: []

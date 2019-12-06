@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: -8169383359398970191
     second: JanitorLock_7
+  - first:
+      213: -6453543378922715448
+    second: JanitorLock_8
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -133,7 +136,7 @@ TextureImporter:
       name: JanitorLock_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 128
         width: 64
         height: 64
@@ -144,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 542fd4074d0fe974d9801ca3fa6c99e4
+      spriteID: 43579e84d369f2d4eafbdb08af998ddd
       internalID: -5057076810984719982
       vertices: []
       indices: 
@@ -165,7 +168,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b28b371f11d58234a93a1a95274def00
+      spriteID: 5586b3bfb50f707498276f7f95902ddc
       internalID: 4522828442509949843
       vertices: []
       indices: 
@@ -186,7 +189,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feed26a18f82fd847835cac97fd577ac
+      spriteID: 0af9bff61c708484a98e5485f04795ee
       internalID: 5422195799554773001
       vertices: []
       indices: 
@@ -207,7 +210,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7737aefcc96ad94b98950a8135bbbd5
+      spriteID: 511f09ecb18439c47b4305f738412520
       internalID: -7712837929909457513
       vertices: []
       indices: 
@@ -228,7 +231,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b020bb75526345546b0ea90856a66b35
+      spriteID: 7e5ecd74e31414e4a9952778f3f31277
       internalID: 7306730460518013378
       vertices: []
       indices: 
@@ -249,7 +252,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 256ba7c533721df49af08b09663fc62f
+      spriteID: d3d644571e307c34689a42c73831e12d
       internalID: 137135468376487026
       vertices: []
       indices: 
@@ -270,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e9dd50b07be8a24da1ef7886e6fe739
+      spriteID: 37f436332de189c4b93d113b1596300b
       internalID: 1612091266760316262
       vertices: []
       indices: 
@@ -291,8 +294,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 380c48335cd02a648b91d7d4157f662a
+      spriteID: 40e6469c8c4d1974db3a79b5fa22b898
       internalID: -8169383359398970191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JanitorLock_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d346233c1fae177488b8659bdcb9dc07
+      internalID: -6453543378922715448
       vertices: []
       indices: 
       edges: []
