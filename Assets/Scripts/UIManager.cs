@@ -35,11 +35,17 @@ public class UIManager : MonoBehaviour
     public Sprite CookieShuriken_icon;
     public Sprite PopcornGrenade_icon;
 
+    [Header("Boss Health")]
+    public Slider bossHealthSlider;
+    public GameObject bossHealthBarObject;
+    public GameObject bossObject;
+
     // Start is called before the first frame update
     void Start()
     {
         playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         healthSlider.maxValue = playerMovement.health;
+        bossHealthBarObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -68,5 +74,20 @@ public class UIManager : MonoBehaviour
                 break;
 
         }
+
+        if (bossObject)
+        {
+            if (bossObject.activeSelf)
+            {
+                bossHealthBarObject.SetActive(true);
+                bossHealthSlider.maxValue = bossObject.GetComponent<Boss>().maxHealth;
+                bossHealthSlider.value = bossObject.GetComponent<Boss>().health;
+            }
+            else
+            {
+                bossHealthBarObject.SetActive(false);
+            }
+        }
+        
     }
 }

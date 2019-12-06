@@ -2921,6 +2921,7 @@ MonoBehaviour:
   enemyList: []
   enemyPositions: []
   thisRoomState: 0
+  arrows: {fileID: 0}
   entranceDoor: {fileID: 1822975227}
   exitDoor: {fileID: 1822975227}
   otherDoor_0: {fileID: 0}
@@ -19065,6 +19066,7 @@ MonoBehaviour:
   enemyList: []
   enemyPositions: []
   thisRoomState: 0
+  arrows: {fileID: 0}
   entranceDoor: {fileID: 1892408757}
   exitDoor: {fileID: 1892408757}
   otherDoor_0: {fileID: 0}
@@ -24762,6 +24764,7 @@ MonoBehaviour:
   enemyList: []
   enemyPositions: []
   thisRoomState: 0
+  arrows: {fileID: 0}
   entranceDoor: {fileID: 1665944962}
   exitDoor: {fileID: 1665944962}
   otherDoor_0: {fileID: 0}
@@ -28847,6 +28850,7 @@ MonoBehaviour:
   enemyList: []
   enemyPositions: []
   thisRoomState: 0
+  arrows: {fileID: 0}
   entranceDoor: {fileID: 852925898}
   exitDoor: {fileID: 852925898}
   otherDoor_0: {fileID: 0}
@@ -38514,6 +38518,7 @@ MonoBehaviour:
   enemyList: []
   enemyPositions: []
   thisRoomState: 0
+  arrows: {fileID: 0}
   entranceDoor: {fileID: 108018405}
   exitDoor: {fileID: 108018405}
   otherDoor_0: {fileID: 108018405}
@@ -39980,9 +39985,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 462937594252322857, guid: 36c7faf6c196bfc46a00d789d671937d,
         type: 3}
-      propertyPath: weaponIcon
+      propertyPath: canvas
       value: 
-      objectReference: {fileID: 1644813578}
+      objectReference: {fileID: 376764927}
     - target: {fileID: 462937594252322857, guid: 36c7faf6c196bfc46a00d789d671937d,
         type: 3}
       propertyPath: healthSlider
@@ -39990,9 +39995,9 @@ PrefabInstance:
       objectReference: {fileID: 306344909}
     - target: {fileID: 462937594252322857, guid: 36c7faf6c196bfc46a00d789d671937d,
         type: 3}
-      propertyPath: canvas
+      propertyPath: weaponIcon
       value: 
-      objectReference: {fileID: 376764927}
+      objectReference: {fileID: 1644813578}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36c7faf6c196bfc46a00d789d671937d, type: 3}
 --- !u!1 &730753924
@@ -50231,11 +50236,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HotSauce Prefab
       objectReference: {fileID: 0}
-    - target: {fileID: 4580206503995069607, guid: 6c3bc192ec1569946be6c11b850fd1f2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498284, guid: 6c3bc192ec1569946be6c11b850fd1f2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50289,6 +50289,11 @@ PrefabInstance:
     - target: {fileID: 4580206503804498284, guid: 6c3bc192ec1569946be6c11b850fd1f2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4580206503995069607, guid: 6c3bc192ec1569946be6c11b850fd1f2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4580206503804498282, guid: 6c3bc192ec1569946be6c11b850fd1f2,
@@ -67029,22 +67034,32 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3298996085924230623, guid: 17bf9835c2308d040bbb8c9a04a3ce42,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -69.1001
-      objectReference: {fileID: 0}
-    - target: {fileID: 3298996085924230623, guid: 17bf9835c2308d040bbb8c9a04a3ce42,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -75.099976
-      objectReference: {fileID: 0}
     - target: {fileID: 3298996086308127902, guid: 17bf9835c2308d040bbb8c9a04a3ce42,
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3298996086308127902, guid: 17bf9835c2308d040bbb8c9a04a3ce42,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271420955796919054, guid: 17bf9835c2308d040bbb8c9a04a3ce42,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.00012207031
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160134449796851247, guid: 17bf9835c2308d040bbb8c9a04a3ce42,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5160134449796851247, guid: 17bf9835c2308d040bbb8c9a04a3ce42,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253990969960937745, guid: 17bf9835c2308d040bbb8c9a04a3ce42,
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -70822,6 +70837,7 @@ MonoBehaviour:
   enemyList: []
   enemyPositions: []
   thisRoomState: 0
+  arrows: {fileID: 0}
   entranceDoor: {fileID: 23693237}
   exitDoor: {fileID: 1016185394}
   otherDoor_0: {fileID: 0}

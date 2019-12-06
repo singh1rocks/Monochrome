@@ -23,7 +23,7 @@ public class Checkpoint : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             GameManager.instance.activeCheckpoint = gameObject.GetComponent<Checkpoint>();
-            Debug.Log("entered");   
+            //Debug.Log("entered");   
         }
     }
 }

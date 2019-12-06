@@ -50,10 +50,22 @@ public class Door : MonoBehaviour
 
         for (int i = 0; i < enemyList.Count; i++)
         {
-            if (enemyList[i].gameObject.GetComponent<EnemyController>().health > 0)
+            if (enemyList[i].gameObject.GetComponent<EnemyController>())
             {
-                enemiesAlive++;
+                if (enemyList[i].gameObject.GetComponent<EnemyController>().health > 0)
+                {
+                    enemiesAlive++;
+                }
             }
+            else if (enemyList[i].gameObject.GetComponent<Boss>())
+            {
+                if (enemyList[i].gameObject.GetComponent<Boss>().health > 0)
+                {
+                    enemiesAlive++;
+                }
+            }
+            
+
         }
 
         if (thisRoomState == DoorState.notEntered)
@@ -131,23 +143,38 @@ public class Door : MonoBehaviour
     {
         for (int i=0; i<enemyList.Count; i++)
         {
-            if (enemyList[i].gameObject.GetComponent<EnemyController>().health <= 0)
+            if (enemyList[i].gameObject.GetComponent<EnemyController>())
             {
-                EnemyController thisEnemy = enemyList[i].gameObject.GetComponent<EnemyController>();
-                thisEnemy.health = thisEnemy.maxHealth;
+                if (enemyList[i].gameObject.GetComponent<EnemyController>().health <= enemyList[i].gameObject.GetComponent<EnemyController>().maxHealth)
+                {
+                    EnemyController thisEnemy = enemyList[i].gameObject.GetComponent<EnemyController>();
+                    thisEnemy.health = thisEnemy.maxHealth;
+                }
+            }
+            else if (enemyList[i].gameObject.GetComponent<Boss>())
+            {
+                if (enemyList[i].gameObject.GetComponent<Boss>().health <= enemyList[i].gameObject.GetComponent<Boss>().maxHealth)
+                {
+                    Boss thisEnemy = enemyList[i].gameObject.GetComponent<Boss>();
+                    thisEnemy.health = thisEnemy.maxHealth;
+                }
             }
         }
 
         for (int i = 0; i < enemyList.Count; i++)
         {
-            EnemyController thisEnemy = enemyList[i].gameObject.GetComponent<EnemyController>();
+            GameObject thisEnemy = enemyList[i].gameObject;
             thisEnemy.transform.position = enemyPositions[i];
-            if (thisEnemy.FSCoroutine != null && thisEnemy.FSCoroutineRunning)
+            if (thisEnemy.GetComponent<EnemyController>())
             {
-                StopCoroutine(thisEnemy.FSCoroutine);
-                thisEnemy.FSCoroutineRunning = false;
+                if (thisEnemy.GetComponent<EnemyController>().FSCoroutine != null && thisEnemy.GetComponent<EnemyController>().FSCoroutineRunning)
+                {
+                    StopCoroutine(thisEnemy.GetComponent<EnemyController>().FSCoroutine);
+                    thisEnemy.GetComponent<EnemyController>().FSCoroutineRunning = false;
+                }
+                thisEnemy.GetComponent<EnemyController>().spriteRend.color = new Color(thisEnemy.GetComponent<EnemyController>().spriteRend.color.r, thisEnemy.GetComponent<EnemyController>().spriteRend.color.g, thisEnemy.GetComponent<EnemyController>().spriteRend.color.b, 1f);
             }
-            thisEnemy.spriteRend.color = new Color(thisEnemy.spriteRend.color.r, thisEnemy.spriteRend.color.g, thisEnemy.spriteRend.color.b, 1f);
+            
             enemyList[i].gameObject.SetActive(false);
         }
 

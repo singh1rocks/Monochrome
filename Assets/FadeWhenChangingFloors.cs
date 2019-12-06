@@ -48,11 +48,15 @@ public class FadeWhenChangingFloors : MonoBehaviour
     }
     #endregion
     #region HELPERS
-    public IEnumerator FadeAndMovePlayerTransform(Vector3 position)
+    public IEnumerator FadeAndMovePlayerTransform(Vector3 position, bool healPlayer)
     {
         yield return Fade(FadeDirection.In);
         player_transform.position = position;
         yield return Fade(FadeDirection.Out);
+        if (healPlayer)
+        {
+            player_transform.gameObject.GetComponent<PlayerMovement>().health = player_transform.gameObject.GetComponent<PlayerMovement>().maxHealth;
+        }
 
     }
     private void SetColorImage(ref float alpha, FadeDirection fadeDirection)

@@ -4,6 +4,7 @@ public class WeaponPickup : MonoBehaviour
 {
     public GameManager.WeaponType weaponType;
     private SpriteRenderer spriteRend;
+    private GameObject pickupPrompt;
 
     private void Start()
     {

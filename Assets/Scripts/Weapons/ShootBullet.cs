@@ -10,6 +10,10 @@ public class ShootBullet : MonoBehaviour
     private Vector3 mousePos;
     private float mouseZPos;
 
+    [Header("Counter for reload UI")]
+    public float UITimeCounter;
+    public float UITime;
+
     [Header("Tater Tot")]
     public GameObject taterTotBulletPrefab;
     public float taterTotBulletTime; //minimum delay between each bullet fired
@@ -96,14 +100,23 @@ public class ShootBullet : MonoBehaviour
         dirVec = new Vector3(target.x - transform.position.x, target.y - transform.position.y, 0f);
         dirVec.Normalize();
 
+        if (GameManager.instance.equippedWeapon != GameManager.WeaponType.HotSauceSquirtGun)
+        {
+            flameObject.SetActive(false);
+        }
+
         //shoot bullet
         switch (GameManager.instance.equippedWeapon)
         {
             case GameManager.WeaponType.TaterTot: //basic
                 TaterTot();
+                UITime = taterTotBulletTime;
+                UITimeCounter = taterTotBulletTimeCounter;
                 break;
             case GameManager.WeaponType.CookieShuriken: //spread shot
                 Shotgun();
+                UITime = cookieBulletTime;
+                UITimeCounter = cookieBulletTimeCounter;
                 break;
             case GameManager.WeaponType.HotSauceSquirtGun: // flamethrower
                 Flamethrower();

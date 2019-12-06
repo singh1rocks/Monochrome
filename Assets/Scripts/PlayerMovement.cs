@@ -142,7 +142,8 @@ public class PlayerMovement : MonoBehaviour
     {
         //things to do when player dies
         GameManager.instance.activeCheckpoint.door.RespawnEnemies();
-        player_t.position = new Vector3(GameManager.instance.activeCheckpoint.transform.position.x, GameManager.instance.activeCheckpoint.transform.position.y, player_t.position.z);
+        StartCoroutine(FindObjectOfType<FadeWhenChangingFloors>().FadeAndMovePlayerTransform(new Vector3(GameManager.instance.activeCheckpoint.transform.position.x, GameManager.instance.activeCheckpoint.transform.position.y, player_t.position.z), true));
+        //player_t.position = new Vector3(GameManager.instance.activeCheckpoint.transform.position.x, GameManager.instance.activeCheckpoint.transform.position.y, player_t.position.z);
         health = maxHealth;
         GetComponent<ShootBullet>().flameObject.SetActive(false);
     }

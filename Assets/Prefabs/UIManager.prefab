@@ -52,3 +52,5 @@ MonoBehaviour:
     type: 3}
   CookieShuriken_icon: {fileID: 21300000, guid: 3f68252ea7249814298bb742392a4ebd,
     type: 3}
+  PopcornGrenade_icon: {fileID: 21300000, guid: eef862907274c304fa288d4b5a053b9c,
+    type: 3}
