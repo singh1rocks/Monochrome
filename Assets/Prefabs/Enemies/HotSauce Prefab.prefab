@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisEnemyType: 2
-  maxHealth: 6
+  maxHealth: 8
   health: 6
   speed: 0
   player: {fileID: 0}

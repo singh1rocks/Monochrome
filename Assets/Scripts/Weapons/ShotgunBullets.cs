@@ -45,9 +45,10 @@ public class ShotgunBullets : MonoBehaviour
                 other.gameObject.GetComponent<Boss>().Damaged(damage);
                 Destroy(gameObject);
             }
-
-
-
+        }
+        if (other.gameObject.tag == "Obstacle")
+        {
+            Destroy(gameObject);
         }
     }
 }
