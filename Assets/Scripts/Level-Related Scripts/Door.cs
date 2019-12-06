@@ -7,11 +7,14 @@ public class Door : MonoBehaviour
     public List<GameObject> enemyList;
     public List<Vector3> enemyPositions;
     public DoorState thisRoomState;
+    public GameObject arrows;
     public GameObject entranceDoor;
     public GameObject exitDoor;
     public GameObject otherDoor_0;
 
     public GameObject Table_D;
+
+    private bool enteredBefore;
 
     public enum DoorState
     {
@@ -26,16 +29,16 @@ public class Door : MonoBehaviour
         thisRoomState = DoorState.notEntered;
         entranceDoor.gameObject.SetActive(false);
         exitDoor.gameObject.SetActive(false);
-        if (otherDoor_0.gameObject != null)
+        if (otherDoor_0 != null)
         {
-            otherDoor_0.gameObject.SetActive(false);
+            otherDoor_0.SetActive(false);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        for(int i=0; i<enemyList.Count; i++)
+        for (int i = 0; i < enemyList.Count; i++)
         {
             if (enemyList[i] == null)
             {
@@ -57,9 +60,13 @@ public class Door : MonoBehaviour
         {
             entranceDoor.gameObject.SetActive(false);
             exitDoor.gameObject.SetActive(false);
-            if (otherDoor_0.gameObject != null)
+            if (otherDoor_0 != null)
             {
-                otherDoor_0.gameObject.SetActive(false);
+                otherDoor_0.SetActive(false);
+            }
+            if (arrows != null)
+            {
+                arrows.SetActive(true);
             }
         }
 
@@ -68,9 +75,13 @@ public class Door : MonoBehaviour
             //open doors after all enemies are killed
             exitDoor.gameObject.SetActive(false);
             entranceDoor.gameObject.SetActive(false);
-            if (otherDoor_0.gameObject != null)
+            if (otherDoor_0 != null)
             {
-                otherDoor_0.gameObject.SetActive(false);
+                otherDoor_0.SetActive(false);
+            }
+            if (arrows != null)
+            {
+                arrows.SetActive(true);
             }
             thisRoomState = DoorState.canExit;
 
@@ -90,11 +101,14 @@ public class Door : MonoBehaviour
             //close doors to trap player inside
             entranceDoor.gameObject.SetActive(true);
             exitDoor.gameObject.SetActive(true);
-            if (otherDoor_0.gameObject != null)
+            if (otherDoor_0!= null)
             {
-                otherDoor_0.gameObject.SetActive(false);
+                otherDoor_0.SetActive(false);
             }
-
+            if (arrows != null)
+            {
+                arrows.SetActive(false);
+            }
             for (int i = 0; i < enemyList.Count; i++)
             {
                 Debug.Log("set enemy active");
