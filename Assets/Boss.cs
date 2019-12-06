@@ -118,7 +118,7 @@ public class Boss : MonoBehaviour
                     ShotgunBehavior();
                     break;
                 case 0:
-                    SpiralBehavior();
+                    MeteorBehavior();
                     break;
             }
 
@@ -140,7 +140,7 @@ public class Boss : MonoBehaviour
                     MeteorBehavior();
                     break;
                 case 0:
-                    ShotgunBehavior();
+                    SpiralBehavior();
                     break;
             }
 

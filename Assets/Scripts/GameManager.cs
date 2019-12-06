@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(instance.gameObject);
+            instance = gameObject.GetComponent<GameManager>();
+            DontDestroyOnLoad(gameObject);
             return;
         }
     }
@@ -66,7 +68,8 @@ public class GameManager : MonoBehaviour
     public void StartButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(FindObjectOfType<FadeWhenChangingFloors>().FadeAndChangeLevel());
     }
 
     public void ExitButton()

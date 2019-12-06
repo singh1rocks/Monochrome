@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FadeWhenChangingFloors : MonoBehaviour
 {
@@ -18,7 +19,11 @@ public class FadeWhenChangingFloors : MonoBehaviour
     #region MONOBHEAVIOR
     void OnEnable()
     {
-        player_transform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        if (GameObject.FindWithTag("Player"))
+        {
+            player_transform = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        }
+        
         StartCoroutine(Fade(FadeDirection.Out));
     }
     #endregion
@@ -51,12 +56,25 @@ public class FadeWhenChangingFloors : MonoBehaviour
     public IEnumerator FadeAndMovePlayerTransform(Vector3 position, bool healPlayer)
     {
         yield return Fade(FadeDirection.In);
-        player_transform.position = position;
+        if (position != new Vector3(1, 2, 3))
+        {
+            player_transform.position = position;
+        }
+        
         yield return Fade(FadeDirection.Out);
         if (healPlayer)
         {
             player_transform.gameObject.GetComponent<PlayerMovement>().health = player_transform.gameObject.GetComponent<PlayerMovement>().maxHealth;
         }
+
+    }
+
+    public IEnumerator FadeAndChangeLevel()
+    {
+        yield return Fade(FadeDirection.In);
+        SceneManager.LoadScene("Level");
+            //);
+        //yield return Fade(FadeDirection.Out);
 
     }
     private void SetColorImage(ref float alpha, FadeDirection fadeDirection)
