@@ -49,4 +49,6 @@ MonoBehaviour:
   HotSauceSquirtGun_sp: {fileID: 21300000, guid: dd42007246395494598c25e278565bab,
     type: 3}
   CookieShuriken_sp: {fileID: 21300000, guid: 3f68252ea7249814298bb742392a4ebd, type: 3}
+  ChurroSword_sp: {fileID: 0}
+  PopcornGrenade_sp: {fileID: 21300000, guid: 893bc820b2aa53c4dbe0eff6b2ed6cca, type: 3}
   activeCheckpoint: {fileID: 0}

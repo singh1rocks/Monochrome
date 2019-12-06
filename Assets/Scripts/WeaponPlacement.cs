@@ -52,6 +52,7 @@ public class WeaponPlacement : MonoBehaviour
         Vector2 direction = new Vector2(dirVec.x - transform.position.x, dirVec.y - transform.position.y);
         transform.right = -dirVec;
 
+        spriteRend.flipX = false;
         //sprite switch
         switch (GameManager.instance.equippedWeapon)
         {
@@ -69,6 +70,7 @@ public class WeaponPlacement : MonoBehaviour
                 break;
             case GameManager.WeaponType.PopcornGrenade: //piercing
                 spriteRend.sprite = GameManager.instance.PopcornGrenade_sp;
+                spriteRend.flipX = true;
                 break;
         }
     }
