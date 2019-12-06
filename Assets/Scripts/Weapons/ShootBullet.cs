@@ -13,6 +13,7 @@ public class ShootBullet : MonoBehaviour
     [Header("Counter for reload UI")]
     public float UITimeCounter;
     public float UITime;
+    public GameObject slider;
 
     [Header("Tater Tot")]
     public GameObject taterTotBulletPrefab;
@@ -120,17 +121,46 @@ public class ShootBullet : MonoBehaviour
                 break;
             case GameManager.WeaponType.HotSauceSquirtGun: // flamethrower
                 Flamethrower();
+                UITime = 0f;
+                UITimeCounter = 0f;
                 break;
             case GameManager.WeaponType.BaconCrossbow: //piercing
                 BaconCrossBow();
+                UITime = baconBulletTime;
+                UITimeCounter = baconBulletTimeCounter;
                 break;
             case GameManager.WeaponType.PopcornGrenade: // grenade launcher
                 GrenadeLauncher();
+                UITime = grenadeBulletTime;
+                UITimeCounter = grenadeBulletTimeCounter;
                 break;
             case GameManager.WeaponType.ChurroSword: //sword
                 Sword();
+                UITime = 0f;
+                UITimeCounter = 0f;
                 break;
         }
+
+        if (UITime != 0f)
+        {
+            slider.SetActive(true);
+            float xvalue;
+            if (UITimeCounter < UITime)
+            {
+                xvalue = 0.2f * (UITimeCounter) / UITime;
+            }
+            else
+            {
+                xvalue = 0.2f;
+            }
+
+            slider.transform.localScale = new Vector3(xvalue, slider.transform.localScale.y, slider.transform.localScale.z);
+        }
+        else
+        {
+            slider.SetActive(false);
+        }
+        
     }
 
     private void GrenadeLauncher()

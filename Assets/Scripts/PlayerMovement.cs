@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.instance.ReloadScene();
+            SceneManager.LoadScene("Title Screen");
         }
 
         //knockback duration, reduce velocity, velocity becomes 0 by the time knockback is over (determined by knockback time)
