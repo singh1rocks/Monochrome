@@ -74,7 +74,7 @@ public class WeaponPickup : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Pickup");
+                //Debug.Log("Pickup");
                 GameManager.WeaponType tempWeaponType = weaponType;
                 weaponType = GameManager.instance.equippedWeapon;
                 GameManager.instance.equippedWeapon = tempWeaponType;

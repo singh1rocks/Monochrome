@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 78412464}
   m_LocalRotation: {x: -0.121400125, y: -0, z: -0, w: 0.9926037}
-  m_LocalPosition: {x: 0, y: -1.52, z: -5}
+  m_LocalPosition: {x: 0, y: -0.75, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8299332472607619348}
@@ -585,19 +585,19 @@ MonoBehaviour:
   slider: {fileID: 5072183185929573655}
   taterTotBulletPrefab: {fileID: 4587362241032899338, guid: a2b16bf32ce5fb84e964e435b212b004,
     type: 3}
-  taterTotBulletTime: 0.3
+  taterTotBulletTime: 0.2
   taterSFX: {fileID: 1137379017}
   cookieBulletPrefab: {fileID: 4587362241032899338, guid: e2417dea0790f3944bd07f039f784ffe,
     type: 3}
-  cookieBulletTime: 1.5
+  cookieBulletTime: 0.6
   cookieSFX: {fileID: 1137379017}
   baconBulletPrefab: {fileID: 4587362241032899338, guid: b70217f06098e7046ab562bbbfbbbcfe,
     type: 3}
-  baconBulletTime: 2
+  baconBulletTime: 0.5
   baconSFX: {fileID: 1137379017}
   grenadePrefab: {fileID: 3862035470142175142, guid: ffc814ff375f65b4e83f8b9964cf280b,
     type: 3}
-  grenadeBulletTime: 1
+  grenadeBulletTime: 0.5
   fireGrenadeSFX: {fileID: 0}
   flameSFX: {fileID: 0}
   flameObject: {fileID: 2701671355307488039}
