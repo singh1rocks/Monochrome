@@ -72,11 +72,10 @@ public class FadeWhenChangingFloors : MonoBehaviour
     public IEnumerator FadeAndChangeLevel()
     {
         yield return Fade(FadeDirection.In);
-        SceneManager.LoadScene("Level");
-            //);
-        //yield return Fade(FadeDirection.Out);
+        SceneManager.LoadScene("Cutscene");
 
     }
+
     private void SetColorImage(ref float alpha, FadeDirection fadeDirection)
     {
         fadeOutUIImage.color = new Color(fadeOutUIImage.color.r, fadeOutUIImage.color.g, fadeOutUIImage.color.b, alpha);
