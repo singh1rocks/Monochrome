@@ -39,9 +39,18 @@ public class FlamethrowerTriggerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" && flameTimeCounter >= flameCounter)
         {
-            other.gameObject.GetComponent<EnemyController>().Damaged(damage);
+            if (other.gameObject.GetComponent<EnemyController>())
+            {
+                other.gameObject.GetComponent<EnemyController>().Damaged(damage);
+            }
+            else if (other.gameObject.GetComponent<Boss>())
+            {
+                other.gameObject.GetComponent<Boss>().Damaged(damage);
+            }
+            
             flameTimeCounter = 0;
         }
+
         flameTimeCounter += Time.deltaTime;
     }
 }
