@@ -90,16 +90,6 @@ public class Door_Key : MonoBehaviour
             Debug.Log(GameVariables.key_6);
         }
 
-        if (collider.gameObject.name == "Player" && gameObject.name == "Door_6_1" && GameVariables.key_6 > 0)
-        {
-            GameVariables.key_6--;
-            Door_Open.Play();
-            Unlock.SetBool("unlock", true);
-            Destroy(Door_Sprite);
-            UI.SetActive(false);
-            Debug.Log(GameVariables.key_6);
-        }
-
         if (collider.gameObject.name == "Player" && gameObject.name == "Door_7" && GameVariables.key_7 > 0)
         {
             GameVariables.key_7--;

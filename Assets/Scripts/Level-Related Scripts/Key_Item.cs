@@ -64,7 +64,7 @@ public class Key_Item : MonoBehaviour
 
         if (collider.gameObject.name == "Player" && gameObject.name == "6")
         {
-            GameVariables.key_6 += 2;
+            GameVariables.key_6 += 1;
             Destroy(gameObject);
             UI.SetActive(true);
             Debug.Log(GameVariables.key_6);
