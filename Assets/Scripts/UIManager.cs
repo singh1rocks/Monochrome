@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     public Sprite HotSauceSquirtGun_icon;
     public Sprite CookieShuriken_icon;
     public Sprite PopcornGrenade_icon;
+    public Sprite Drill_icon;
 
     [Header("Boss Health")]
     public Slider bossHealthSlider;
@@ -71,6 +72,9 @@ public class UIManager : MonoBehaviour
                 break;
             case GameManager.WeaponType.PopcornGrenade: //piercing
                 weaponIcon.sprite = PopcornGrenade_icon;
+                break;
+            case GameManager.WeaponType.StrawberryDrill:
+                weaponIcon.sprite = Drill_icon;
                 break;
 
         }

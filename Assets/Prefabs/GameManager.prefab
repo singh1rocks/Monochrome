@@ -51,4 +51,8 @@ MonoBehaviour:
   CookieShuriken_sp: {fileID: 21300000, guid: 3f68252ea7249814298bb742392a4ebd, type: 3}
   ChurroSword_sp: {fileID: 0}
   PopcornGrenade_sp: {fileID: 21300000, guid: 893bc820b2aa53c4dbe0eff6b2ed6cca, type: 3}
+  StrawberryDrill_sp: {fileID: -2353474282115829240, guid: 50a79aa88ecb3e047bb66ae0e096c571,
+    type: 3}
+  StrawberryHandle_sp: {fileID: 5771160950099797949, guid: 7f7924d4014b4ba428106d9c3fd1acba,
+    type: 3}
   activeCheckpoint: {fileID: 0}

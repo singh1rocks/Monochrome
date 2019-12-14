@@ -54,3 +54,8 @@ MonoBehaviour:
     type: 3}
   PopcornGrenade_icon: {fileID: 21300000, guid: eef862907274c304fa288d4b5a053b9c,
     type: 3}
+  Drill_icon: {fileID: -2353474282115829240, guid: 50a79aa88ecb3e047bb66ae0e096c571,
+    type: 3}
+  bossHealthSlider: {fileID: 0}
+  bossHealthBarObject: {fileID: 0}
+  bossObject: {fileID: 0}

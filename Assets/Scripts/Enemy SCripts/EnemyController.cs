@@ -417,6 +417,7 @@ public class EnemyController : MonoBehaviour
                 case EnemyType.Corn:
                     break;
                 case EnemyType.Meatball:
+                    pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.StrawberryDrill;
                     break;
                 case EnemyType.PizzaBox:
                     pickup.GetComponent<WeaponPickup>().weaponType = GameManager.WeaponType.CookieShuriken;

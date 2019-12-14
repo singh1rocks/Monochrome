@@ -150,8 +150,8 @@ public class ShootBullet : MonoBehaviour
                 break;
             case GameManager.WeaponType.StrawberryDrill: // dril
                 Strawberry();
-                UITime = 0f;
-                UITimeCounter = 0f;
+                UITime = drillTime;
+                UITimeCounter = drillTimeCounter;
                 break;
         }
 
@@ -183,11 +183,11 @@ public class ShootBullet : MonoBehaviour
         {
             Instantiate(drillProjectile, transform.position + dirVec * bulletOffset, Quaternion.identity);
             drillTimeCounter = 0f;
-            weaponPlacementScript.drillReloading = false;
+            weaponPlacementScript.drillReloading = true;
         }
         else if (drillTimeCounter >= drillTime)
         {
-            weaponPlacementScript.drillReloading = true;
+            weaponPlacementScript.drillReloading = false;
         }
         drillTimeCounter += Time.deltaTime;
     }

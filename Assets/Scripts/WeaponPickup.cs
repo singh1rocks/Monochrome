@@ -29,6 +29,9 @@ public class WeaponPickup : MonoBehaviour
             case GameManager.WeaponType.PopcornGrenade:
                 spriteRend.sprite = UIManager.instance.PopcornGrenade_icon;
                 break;
+            case GameManager.WeaponType.StrawberryDrill:
+                spriteRend.sprite = UIManager.instance.Drill_icon;
+                break;
         }
     }
 
@@ -50,6 +53,9 @@ public class WeaponPickup : MonoBehaviour
                 break;
             case GameManager.WeaponType.PopcornGrenade:
                 spriteRend.sprite = UIManager.instance.PopcornGrenade_icon;
+                break;
+            case GameManager.WeaponType.StrawberryDrill:
+                spriteRend.sprite = UIManager.instance.Drill_icon;
                 break;
         }
     }
