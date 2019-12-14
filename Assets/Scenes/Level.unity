@@ -11520,6 +11520,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 168248201}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &168689778 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8995063498326204093, guid: 8395759d45ab1454fa7b96ec0857debb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109481451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &169168321
 GameObject:
   m_ObjectHideFlags: 0
@@ -18328,6 +18334,12 @@ Transform:
   m_Father: {fileID: 1825738448}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &263558894 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8995063498326204093, guid: 8395759d45ab1454fa7b96ec0857debb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1658466762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &264413246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4580206503804498284, guid: 6c3bc192ec1569946be6c11b850fd1f2,
@@ -62651,7 +62663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1026864412
 Transform:
   m_ObjectHideFlags: 0
@@ -63214,7 +63226,7 @@ PrefabInstance:
     - target: {fileID: 4238167089010059568, guid: ab810a1ce2d616746a4a4eb02d2b619f,
         type: 3}
       propertyPath: maxHealth
-      value: 25
+      value: 240
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab810a1ce2d616746a4a4eb02d2b619f, type: 3}
@@ -82855,12 +82867,12 @@ PrefabInstance:
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.125
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 32.9375
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
@@ -124406,10 +124418,12 @@ MonoBehaviour:
   - {fileID: 520429545}
   - {fileID: 2113676221}
   - {fileID: 2113676222}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 295406926}
   - {fileID: 295406927}
+  - {fileID: 1658466763}
+  - {fileID: 263558894}
+  - {fileID: 1109481452}
+  - {fileID: 168689778}
   - {fileID: 445672190}
   - {fileID: 516317795}
   - {fileID: 516317796}
