@@ -74,7 +74,10 @@ public class Door : MonoBehaviour
         {
             entranceDoor.gameObject.SetActive(false);
             exitDoor.gameObject.SetActive(false);
-            health.gameObject.SetActive(false);
+            if (health != null)
+            {
+                health.gameObject.SetActive(false);
+            }
             arrows.SetActive(false);
             if (otherDoor_0 != null)
             {
@@ -87,7 +90,10 @@ public class Door : MonoBehaviour
             //open doors after all enemies are killed
             exitDoor.gameObject.SetActive(false);
             entranceDoor.gameObject.SetActive(false);
-            health.gameObject.SetActive(true);
+            if (health != null)
+            {
+                health.gameObject.SetActive(true);
+            }
             arrows.SetActive(true);
             if (otherDoor_0 != null)
             {
@@ -111,7 +117,10 @@ public class Door : MonoBehaviour
             //close doors to trap player inside
             entranceDoor.gameObject.SetActive(true);
             exitDoor.gameObject.SetActive(true);
-            health.gameObject.SetActive(false);
+            if (health != null)
+            {
+                health.gameObject.SetActive(false);
+            }
             arrows.SetActive(false);
             if (otherDoor_0!= null)
             {
