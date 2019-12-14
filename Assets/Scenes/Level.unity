@@ -62539,7 +62539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1026864412
 Transform:
   m_ObjectHideFlags: 0
@@ -63102,7 +63102,7 @@ PrefabInstance:
     - target: {fileID: 4238167089010059568, guid: ab810a1ce2d616746a4a4eb02d2b619f,
         type: 3}
       propertyPath: maxHealth
-      value: 300
+      value: 240
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab810a1ce2d616746a4a4eb02d2b619f, type: 3}
@@ -82647,12 +82647,12 @@ PrefabInstance:
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.8125
+      value: 7.9
       objectReference: {fileID: 0}
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41.5625
+      value: 13.6
       objectReference: {fileID: 0}
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
@@ -124408,7 +124408,6 @@ MonoBehaviour:
   - {fileID: 293754060}
   - {fileID: 133657858}
   - {fileID: 1391262925}
-  - {fileID: 0}
   - {fileID: 1323495445}
   - {fileID: 448810883}
   - {fileID: 1857659615}
@@ -124434,7 +124433,6 @@ MonoBehaviour:
   - {fileID: 1725757490}
   - {fileID: 485438274}
   - {fileID: 1788473774}
-  - {fileID: 0}
   - {fileID: 518361100}
   - {fileID: 1339923764}
   - {fileID: 852925899}
