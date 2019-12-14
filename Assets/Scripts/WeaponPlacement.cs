@@ -10,10 +10,12 @@ public class WeaponPlacement : MonoBehaviour
     private Vector3 dirVec;
     public SpriteRenderer spriteRend;
     private Transform player_t;
+    public bool drillReloading;
 
     // Start is called before the first frame update
     void Start()
     {
+        drillReloading = false;
         spriteRend = GetComponent<SpriteRenderer>();
         player_t = GameObject.FindWithTag("Player").GetComponent<Transform>();
         shootBulletScript = player_t.gameObject.GetComponent<ShootBullet>();
@@ -70,6 +72,17 @@ public class WeaponPlacement : MonoBehaviour
                 break;
             case GameManager.WeaponType.PopcornGrenade: //piercing
                 spriteRend.sprite = GameManager.instance.PopcornGrenade_sp;
+                spriteRend.flipX = true;
+                break;
+            case GameManager.WeaponType.StrawberryDrill:
+                if (drillReloading)
+                {
+                    spriteRend.sprite = GameManager.instance.StrawberryHandle_sp;
+                }
+                else
+                {
+                    spriteRend.sprite = GameManager.instance.StrawberryDrill_sp;
+                }
                 spriteRend.flipX = true;
                 break;
         }
