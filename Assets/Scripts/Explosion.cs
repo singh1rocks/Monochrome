@@ -4,11 +4,12 @@ public class Explosion : MonoBehaviour
 {
     public float damage;
     [SerializeField] private float lifetime; //so the explosion object exists until the animation finishes playing
+    public AudioSource explosionSFX;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        AudioManager.instance.PlaySingle(explosionSFX);
     }
 
     // Update is called once per frame
