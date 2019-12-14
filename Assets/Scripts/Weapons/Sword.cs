@@ -34,10 +34,14 @@ public class Sword : MonoBehaviour
             //Vector3 KBdirVec = new Vector3(other.gameObject.transform.position.x - transform.position.x, other.gameObject.transform.position.y - transform.position.y, 0f);
             //other.gameObject.GetComponent<EnemyController>().Knockback(KBdirVec);
         }
+        else if (other.gameObject.GetComponent<Boss>())
+        {
+            other.gameObject.GetComponent<Boss>().Damaged(damage);
+        }
 
-        //reflect bullet
+            //reflect bullet
 
-        if (other.gameObject.name == "PizzaBulletPrefab(Clone)" || other.gameObject.name == "Spiral Bullet Prefab(Clone)" || other.gameObject.name == "Spiral Bullet Prefab(Clone)")
+            if (other.gameObject.name == "PizzaBulletPrefab(Clone)" || other.gameObject.name == "Spiral Bullet Prefab(Clone)" || other.gameObject.name == "Spiral Bullet Prefab(Clone)")
         {
 
             Vector3 dir = other.gameObject.transform.up;

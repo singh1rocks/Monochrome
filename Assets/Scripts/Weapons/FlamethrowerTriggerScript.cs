@@ -37,20 +37,16 @@ public class FlamethrowerTriggerScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" && flameTimeCounter >= flameCounter)
+        if (other.gameObject.GetComponent<EnemyController>() && flameTimeCounter >= flameCounter)
         {
-            if (other.gameObject.GetComponent<EnemyController>())
-            {
-                other.gameObject.GetComponent<EnemyController>().Damaged(damage);
-            }
-            else if (other.gameObject.GetComponent<Boss>())
-            {
-                other.gameObject.GetComponent<Boss>().Damaged(damage);
-            }
-            
+            other.gameObject.GetComponent<EnemyController>().Damaged(damage);
             flameTimeCounter = 0;
         }
-
+        else if (other.gameObject.GetComponent<Boss>() && flameTimeCounter >= flameCounter)
+        {
+            other.gameObject.GetComponent<Boss>().Damaged(damage);
+            flameTimeCounter = 0;
+        }
         flameTimeCounter += Time.deltaTime;
     }
 }
