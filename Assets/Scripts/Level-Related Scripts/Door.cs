@@ -78,7 +78,10 @@ public class Door : MonoBehaviour
             {
                 health.gameObject.SetActive(false);
             }
-            arrows.SetActive(false);
+            if (arrows != null)
+            {
+                arrows.SetActive(false);
+            }
             if (otherDoor_0 != null)
             {
                 otherDoor_0.SetActive(false);
@@ -94,7 +97,10 @@ public class Door : MonoBehaviour
             {
                 health.gameObject.SetActive(true);
             }
-            arrows.SetActive(true);
+            if (arrows != null)
+            {
+                arrows.SetActive(true);
+            }
             if (otherDoor_0 != null)
             {
                 otherDoor_0.SetActive(false);
@@ -121,7 +127,10 @@ public class Door : MonoBehaviour
             {
                 health.gameObject.SetActive(false);
             }
-            arrows.SetActive(false);
+            if (arrows != null)
+            {
+                arrows.SetActive(false);
+            }
             if (otherDoor_0!= null)
             {
                 otherDoor_0.SetActive(false);
