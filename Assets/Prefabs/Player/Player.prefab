@@ -939,7 +939,7 @@ MonoBehaviour:
   grenadePrefab: {fileID: 3862035470142175142, guid: ffc814ff375f65b4e83f8b9964cf280b,
     type: 3}
   grenadeBulletTime: 0.5
-  fireGrenadeSFX: {fileID: 1137379019}
+  fireGrenadeSFX: {fileID: 1137379017}
   flameSFX: {fileID: 1308617243}
   flameObject: {fileID: 2701671355307488039}
   drillSFX: {fileID: 1137379017}
