@@ -82892,12 +82892,12 @@ PrefabInstance:
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.9
+      value: 8.4
       objectReference: {fileID: 0}
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.8
+      value: 13.6
       objectReference: {fileID: 0}
     - target: {fileID: 8299332472607619348, guid: 21feeaba81d095c4593efc1103e0974e,
         type: 3}
@@ -83025,6 +83025,11 @@ PrefabInstance:
         type: 3}
       propertyPath: damage
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 80590605238533852, guid: 21feeaba81d095c4593efc1103e0974e,
+        type: 3}
+      propertyPath: flameCounter
+      value: 0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21feeaba81d095c4593efc1103e0974e, type: 3}
