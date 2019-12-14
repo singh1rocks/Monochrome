@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: 7f7924d4014b4ba428106d9c3fd1acba
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5771160950099797949
+    second: Strawberry_Drill_Handle_Only_0
+  - first:
+      213: -4421242766780931810
+    second: Strawberry_Drill_Handle_Only_1
+  - first:
+      213: -6743502984942892833
+    second: Strawberry_Drill_Handle_Only_2
+  - first:
+      213: -7890435892194837838
+    second: Strawberry_Drill_Handle_Only_3
+  - first:
+      213: 287998131722239567
+    second: Strawberry_Drill_Handle_Only_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -82,7 +97,112 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Strawberry_Drill_Handle_Only_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.04038367, y: 0.50000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2123f3aba8e2aa478e2df9114b62406
+      internalID: 5771160950099797949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Drill_Handle_Only_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.031459093, y: 0.495538}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a81aef877a05c48a0273f211360d06
+      internalID: -4421242766780931810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Drill_Handle_Only_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.04038367, y: 0.5089247}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d8de3d1b3deb9429f3f80c8effc798
+      internalID: -6743502984942892833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Drill_Handle_Only_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.035921454, y: 0.49553788}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b82045f4ae8247141ab6036aa7a6f7bb
+      internalID: -7890435892194837838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strawberry_Drill_Handle_Only_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.031459082, y: 0.5133869}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d896b810e8c5f7b4e8759b9b33ebf405
+      internalID: 287998131722239567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

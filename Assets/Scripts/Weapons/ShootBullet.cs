@@ -9,6 +9,7 @@ public class ShootBullet : MonoBehaviour
     public float bulletOffset;
     private Vector3 mousePos;
     private float mouseZPos;
+    [SerializeField] private WeaponPlacement weaponPlacementScript;
 
     [Header("Counter for reload UI")]
     public float UITimeCounter;
@@ -42,6 +43,11 @@ public class ShootBullet : MonoBehaviour
     [Header("Flame Sauce")]
     public AudioSource flameSFX;
     public GameObject flameObject;
+
+    [Header("Strawberry Drill")]
+    public GameObject drillProjectile;
+    public float drillTime;
+    private float drillTimeCounter;
 
     [Header("Churro Sword")]
     public AudioSource swordSFX;
@@ -80,6 +86,9 @@ public class ShootBullet : MonoBehaviour
                 break;
             case GameManager.WeaponType.ChurroSword: //sword
                 swingTimeCounter = 0;
+                break;
+            case GameManager.WeaponType.StrawberryDrill:
+                drillTimeCounter = 0f;
                 break;
         }
     }
@@ -139,6 +148,11 @@ public class ShootBullet : MonoBehaviour
                 UITime = 0f;
                 UITimeCounter = 0f;
                 break;
+            case GameManager.WeaponType.StrawberryDrill: // dril
+                Strawberry();
+                UITime = 0f;
+                UITimeCounter = 0f;
+                break;
         }
 
         if (UITime != 0f)
@@ -161,6 +175,21 @@ public class ShootBullet : MonoBehaviour
             slider.SetActive(false);
         }
         
+    }
+
+    private void Strawberry()
+    {
+        if (Input.GetMouseButton(0) && drillTimeCounter >= drillTime)
+        {
+            Instantiate(drillProjectile, transform.position + dirVec * bulletOffset, Quaternion.identity);
+            drillTimeCounter = 0f;
+            weaponPlacementScript.drillReloading = false;
+        }
+        else if (drillTimeCounter >= drillTime)
+        {
+            weaponPlacementScript.drillReloading = true;
+        }
+        drillTimeCounter += Time.deltaTime;
     }
 
     private void GrenadeLauncher()

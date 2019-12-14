@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
         HotSauceSquirtGun,
         CookieShuriken,
         PopcornGrenade,
-        ChurroSword
+        ChurroSword,
+        StrawberryDrill
     }
 
     [Header("Weapon Sprites")]
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
     public Sprite CookieShuriken_sp;
     public Sprite ChurroSword_sp;
     public Sprite PopcornGrenade_sp;
+    public Sprite StrawberryDrill_sp;
+    public Sprite StrawberryHandle_sp;
 
     [Header("Checkpoints")]
     public Checkpoint activeCheckpoint;
