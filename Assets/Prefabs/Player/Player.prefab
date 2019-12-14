@@ -589,7 +589,7 @@ MonoBehaviour:
   taterSFX: {fileID: 1137379017}
   cookieBulletPrefab: {fileID: 4587362241032899338, guid: e2417dea0790f3944bd07f039f784ffe,
     type: 3}
-  cookieBulletTime: 0.6
+  cookieBulletTime: 1
   cookieSFX: {fileID: 1137379017}
   baconBulletPrefab: {fileID: 4587362241032899338, guid: b70217f06098e7046ab562bbbfbbbcfe,
     type: 3}

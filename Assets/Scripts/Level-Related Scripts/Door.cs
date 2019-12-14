@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
     public GameObject entranceDoor;
     public GameObject exitDoor;
     public GameObject otherDoor_0;
+    public GameObject health;
 
     public GameObject Table_D;
 
@@ -29,6 +30,7 @@ public class Door : MonoBehaviour
         thisRoomState = DoorState.notEntered;
         entranceDoor.gameObject.SetActive(false);
         exitDoor.gameObject.SetActive(false);
+        health.gameObject.SetActive(false);
         if (otherDoor_0 != null)
         {
             otherDoor_0.SetActive(false);
@@ -72,13 +74,11 @@ public class Door : MonoBehaviour
         {
             entranceDoor.gameObject.SetActive(false);
             exitDoor.gameObject.SetActive(false);
+            health.gameObject.SetActive(false);
+            arrows.SetActive(false);
             if (otherDoor_0 != null)
             {
                 otherDoor_0.SetActive(false);
-            }
-            if (arrows != null)
-            {
-                arrows.SetActive(true);
             }
         }
 
@@ -87,13 +87,11 @@ public class Door : MonoBehaviour
             //open doors after all enemies are killed
             exitDoor.gameObject.SetActive(false);
             entranceDoor.gameObject.SetActive(false);
+            health.gameObject.SetActive(true);
+            arrows.SetActive(true);
             if (otherDoor_0 != null)
             {
                 otherDoor_0.SetActive(false);
-            }
-            if (arrows != null)
-            {
-                arrows.SetActive(true);
             }
             thisRoomState = DoorState.canExit;
 
@@ -113,13 +111,11 @@ public class Door : MonoBehaviour
             //close doors to trap player inside
             entranceDoor.gameObject.SetActive(true);
             exitDoor.gameObject.SetActive(true);
+            health.gameObject.SetActive(false);
+            arrows.SetActive(false);
             if (otherDoor_0!= null)
             {
                 otherDoor_0.SetActive(false);
-            }
-            if (arrows != null)
-            {
-                arrows.SetActive(false);
             }
             for (int i = 0; i < enemyList.Count; i++)
             {
