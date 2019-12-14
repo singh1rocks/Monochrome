@@ -45,6 +45,7 @@ public class ShootBullet : MonoBehaviour
     public GameObject flameObject;
 
     [Header("Strawberry Drill")]
+    public AudioSource drillSFX;
     public GameObject drillProjectile;
     public float drillTime;
     private float drillTimeCounter;
@@ -184,6 +185,7 @@ public class ShootBullet : MonoBehaviour
             Instantiate(drillProjectile, transform.position + dirVec * bulletOffset, Quaternion.identity);
             drillTimeCounter = 0f;
             weaponPlacementScript.drillReloading = true;
+            AudioManager.instance.PlaySingle(drillSFX);
         }
         else if (drillTimeCounter >= drillTime)
         {
@@ -262,10 +264,18 @@ public class ShootBullet : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             flameObject.SetActive(true);
+            if (!flameSFX.isPlaying)
+            {
+                AudioManager.instance.PlaySingle(flameSFX);
+            }
         }
         else
         {
             flameObject.SetActive(false);
+            if (flameSFX.isPlaying)
+            {
+                flameSFX.Stop();
+            }
         }
     }
 

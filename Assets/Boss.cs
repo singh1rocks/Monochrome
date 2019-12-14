@@ -16,10 +16,17 @@ public class Boss : MonoBehaviour
     private Vector3 playerToEnemyVector;
     private Animator animator;
 
+
+    [Space]
     [Header("Pathfinding")]
     public IAstarAI ai;
     public AIDestinationSetter AIdest;
     public AIPath aiPath;
+
+    [Header("SFX")]
+    public AudioSource bossDying;
+    public AudioSource bossAttackOne;
+    public AudioSource bossAttackTwo;
 
     [Header("Bools")]
     public bool FSCoroutineRunning;
@@ -106,13 +113,13 @@ public class Boss : MonoBehaviour
         FlipSprite();
         SetPlayerAsAITarget();
 
-        if (health >= maxHealth * 2/3)
+        if (health >= maxHealth * 2 / 3)
         {
             //phase 1
             //shotgun burst
             //spiral
 
-            switch (attackType%2)
+            switch (attackType % 2)
             {
                 case 1:
                     ShotgunBehavior();
@@ -131,7 +138,7 @@ public class Boss : MonoBehaviour
             alternateAttackTimeCounter += Time.deltaTime;
 
         }
-        else if(health >= maxHealth * 1/3)
+        else if (health >= maxHealth * 1 / 3)
         {
 
             switch (attackType % 2)
@@ -155,7 +162,7 @@ public class Boss : MonoBehaviour
 
 
         }
-        else
+        else if (health > 0)
         {
 
             switch (attackType % 2)
@@ -206,6 +213,19 @@ public class Boss : MonoBehaviour
         }
     }
 
+    private AudioSource RandomBossAttackSound()
+    {
+        int number = Random.Range(0, 1);
+        if (number == 1)
+        {
+            return bossAttackOne;
+        }
+        else
+        {
+            return bossAttackTwo;
+        }
+    }
+
     private void SpiralBehavior()
     {
         if (spiralShootTimeCounter >= spiralShootTime)
@@ -235,6 +255,7 @@ public class Boss : MonoBehaviour
         {
             inAttackAnimation = true;
             CreateBulletAtAngle(shotgunBurstBulletPrefab, Random.Range(shotgunBulletSpeed * 0.8f, shotgunBulletSpeed * 1.2f), -playerToEnemyVector, Random.Range(-shotgunAngleOffsetRange, shotgunAngleOffsetRange));
+            AudioManager.instance.PlaySingle(RandomBossAttackSound());
         }
     }
 
@@ -256,6 +277,13 @@ public class Boss : MonoBehaviour
     public void Die()
     {
         //TODO:
+        StartCoroutine(PlayDieSound());
+    }
+
+    IEnumerator PlayDieSound()
+    {
+        AudioManager.instance.PlaySingle(bossDying);
+        yield return new WaitForSeconds(bossDying.clip.length + 1f);
         Destroy(gameObject);
     }
 
@@ -263,6 +291,7 @@ public class Boss : MonoBehaviour
     {
         inAttackAnimation = true;
         Instantiate(meteorPrefab, player_transform.position, Quaternion.identity);
+        AudioManager.instance.PlaySingle(RandomBossAttackSound());
     }
 
     private void MeteorBehavior()
